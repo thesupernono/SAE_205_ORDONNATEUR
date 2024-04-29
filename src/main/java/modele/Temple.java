@@ -16,6 +16,6 @@ public class Temple {
 
 
      public String toString(){
-          return position + " avec la couleur " + couleur;
+          return position + " avec la couleur " + couleur.toString();
      }
 }
