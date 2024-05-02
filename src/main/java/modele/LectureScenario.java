@@ -14,10 +14,23 @@ public class LectureScenario {
 
         // On analyse élément par élément
         while (scanner.hasNext()){
-            int donnee = scanner.nextInt();
 
-            System.out.println("abc");
+            // On reprend la donnée
+            int donnee;
+            String donneeStr = scanner.next();
+
+
+            // Si la ligne a un nombre et un \n, alors il y a un retour à la ligne
+            if(donneeStr.contains("\n")){
+                System.out.println("nouvelle ligne");
+
+
+                // On enlève le \n et on le converti en int
+                donnee = Integer.parseInt(donneeStr.replace("\n", ""));
+            }else{
+                donnee = Integer.parseInt(donneeStr);
+            }
             System.out.println("" + donnee);
         }
-    }
+        }
 }
