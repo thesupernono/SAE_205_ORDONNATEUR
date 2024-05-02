@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="ajustement de Joueur, création de Cristal et modification scénario1.txt">
+    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="Modification du type couleur en int dans Cristal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Cristal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Cristal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/ApplicationJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/ApplicationJeu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/vue/VBoxTemple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/vue/VBoxTemple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/sae_205_ordonnateur/hello-view.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +66,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.ApplicationJeu.executor&quot;: &quot;Run&quot;,
     &quot;Application.ClientJeu.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
@@ -74,9 +77,32 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration name="ApplicationJeu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="vue.ApplicationJeu" />
+      <module name="SAE_205_ORDONNATEUR" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="vue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ApplicationJeu" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -98,6 +124,7 @@
       <workItem from="1714631775912" duration="108000" />
       <workItem from="1714632561105" duration="4910000" />
       <workItem from="1714647935401" duration="2844000" />
+      <workItem from="1714653161975" duration="306000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString">
       <option name="closed" value="true" />
@@ -123,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714650089375</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Modification du type couleur en int dans Cristal">
+      <option name="closed" value="true" />
+      <created>1714651829608</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714651829608</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +180,7 @@
     <MESSAGE value="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString" />
     <MESSAGE value="Remplacement de l'arraylist dans getPosition par une Pair" />
     <MESSAGE value="ajustement de Joueur, création de Cristal et modification scénario1.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajustement de Joueur, création de Cristal et modification scénario1.txt" />
+    <MESSAGE value="Modification du type couleur en int dans Cristal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification du type couleur en int dans Cristal" />
   </component>
 </project>

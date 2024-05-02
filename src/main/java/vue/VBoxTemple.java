@@ -1,4 +1,8 @@
 package vue;
 
-public class VBoxTemple {
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+
+public class VBoxTemple extends VBox{
+
 }
