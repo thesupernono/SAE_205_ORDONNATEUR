@@ -32,5 +32,5 @@ public class LectureScenario {
             }
             System.out.println("" + donnee);
         }
-        }
+    }
 }

@@ -8,8 +8,6 @@ import java.util.List;
 public class Joueur {
     private int chPosX;
     private int chPosY;
-    private int chId;
-
 
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
@@ -20,7 +18,6 @@ public class Joueur {
     public Joueur(int PosX, int PosY, int id){
         chPosX = PosX;
         chPosY = PosY;
-        chId = id;
     }
 
    public void deplacement(){
@@ -45,6 +42,6 @@ public class Joueur {
      * @return une String
      */
     public String toString(){
-        return "Position X:" + chPosX + ", Position Y:" + chPosY + ", Identifiant:" + chId;
+        return "Position X:" + chPosX + ", Position Y:" + chPosY + ", Identifiant:";
     }
 }

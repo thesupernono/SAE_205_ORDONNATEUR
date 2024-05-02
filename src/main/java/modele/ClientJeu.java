@@ -15,6 +15,11 @@ public class ClientJeu {
         LectureScenario lecture = new LectureScenario(1);
 
         Joueur sorcier = new Joueur(0,0,1);
-        System.out.println(sorcier.toString());
+
+//        for(int i=0; i < 10; i++) {
+//            System.out.println(sorcier.toString());
+//            sorcier.deplacement();
+//        }
+//        System.out.println(sorcier.getPosition().toString());
     }
 }
