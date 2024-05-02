@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="Remplacement de l'arraylist dans getPosition par une Pair">
-      <change afterPath="$PROJECT_DIR$/src/main/java/modele/Cristal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario/Scenario1.txt" afterDir="false" />
+    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="ajustement de Joueur, création de Cristal et modification scénario1.txt">
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/ClientJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/ClientJeu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Cristal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Cristal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,7 +97,7 @@
       <workItem from="1714402184645" duration="469000" />
       <workItem from="1714631775912" duration="108000" />
       <workItem from="1714632561105" duration="4910000" />
-      <workItem from="1714647935401" duration="1924000" />
+      <workItem from="1714647935401" duration="2844000" />
     </task>
     <task id="LOCAL-00001" summary="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString">
       <option name="closed" value="true" />
@@ -117,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714638437468</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ajustement de Joueur, création de Cristal et modification scénario1.txt">
+      <option name="closed" value="true" />
+      <created>1714650089375</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1714650089375</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +144,7 @@
     <MESSAGE value="Prototypage de la classe Joueur" />
     <MESSAGE value="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString" />
     <MESSAGE value="Remplacement de l'arraylist dans getPosition par une Pair" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remplacement de l'arraylist dans getPosition par une Pair" />
+    <MESSAGE value="ajustement de Joueur, création de Cristal et modification scénario1.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustement de Joueur, création de Cristal et modification scénario1.txt" />
   </component>
 </project>

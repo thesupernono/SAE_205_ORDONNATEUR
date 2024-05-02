@@ -2,20 +2,17 @@ package modele;
 
 import javafx.util.Pair;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Joueur {
     private int chPosX;
     private int chPosY;
+    private Cristal chCristalPorte;
 
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
      * @param PosX position x du joueur
      * @param PosY position y du joueur
-     * @param id identifiant
      */
-    public Joueur(int PosX, int PosY, int id){
+    public Joueur(int PosX, int PosY){
         chPosX = PosX;
         chPosY = PosY;
     }
@@ -35,6 +32,11 @@ public class Joueur {
 //        listPos.add(chPosY);
 //        Remplacer par Pair
         return new Pair<>(chPosX, chPosY);
+    }
+
+
+    public void prendreCristal(Cristal cristal){
+        chCristalPorte = cristal;
     }
 
     /**
