@@ -15,6 +15,11 @@ public class Temple {
      }
 
 
+     public Pair<Integer, Integer> getPosition(){
+          return position;
+     }
+
+
      public String toString(){
           return position + " avec la couleur " + couleur;
      }

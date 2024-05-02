@@ -1,20 +1,21 @@
 package modele;
 
 import javafx.scene.paint.Color;
-import javafx.util.Pair;
 
 public interface CONSTANTES_MAP {
 
     //-------------------------Map-------------------------
-    final Pair<Integer, Integer> TAILLE_MAP = new Pair<>(26, 26);
-    final int CENTRE = TAILLE_MAP.getValue()/2;
+    int [] TAILLE_MAP = {26, 26};
+    int CENTRE_X = TAILLE_MAP[0]/2;
+    int CENTRE_Y = TAILLE_MAP[1]/2;
 
 
     //------------------------Joueur------------------------
-    final Color [] COULEURS= {
+    Color [] COULEURS= {
             Color.AQUA,
             Color.LIGHTGREEN,
             Color.PINK
     };
+    int [] POSITION_DEPART = {CENTRE_X, CENTRE_Y};
 
 }

@@ -1,6 +1,5 @@
 package modele;
 
-import javafx.scene.paint.Color;
 import javafx.util.Pair;
 
 public class Cristal {
@@ -8,7 +7,17 @@ public class Cristal {
     private int chCouleur;
 
     public Cristal(int parPosX, int parPosY, int parCouleur){
-        chPosCristal = new Pair<Integer,Integer>(parPosX,parPosY);
+        chPosCristal = new Pair<>(parPosX,parPosY);
         chCouleur = parCouleur;
+    }
+
+
+    public Pair<Integer, Integer> getPosition() {
+        return chPosCristal;
+    }
+
+
+    public int getCouleur() {
+        return chCouleur;
     }
 }
