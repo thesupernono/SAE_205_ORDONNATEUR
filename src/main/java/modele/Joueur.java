@@ -3,8 +3,7 @@ package modele;
 import javafx.util.Pair;
 
 public class Joueur {
-    private int chPosX;
-    private int chPosY;
+    private Pair<Integer,Integer> chPosition;
     private Cristal chCristalPorte;
 
     /**
@@ -13,13 +12,12 @@ public class Joueur {
      * @param PosY position y du joueur
      */
     public Joueur(int PosX, int PosY){
-        chPosX = PosX;
-        chPosY = PosY;
+        chPosition = new Pair<>(PosX,PosY);
+        chCristalPorte = null;
     }
 
-   public void deplacement(){
-      chPosX += 1; // TODO: A REMPLACER PLUS TARD BIEN ENTENDU
-      chPosY += 1;
+   public void deplacement(int PosX, int PosY){
+      chPosition = new Pair<>(PosX,PosY);
   }
 
     /**
@@ -31,11 +29,12 @@ public class Joueur {
 //        listPos.add(chPosX);
 //        listPos.add(chPosY);
 //        Remplacer par Pair
-        return new Pair<>(chPosX, chPosY);
+        return chPosition;
     }
 
 
     public void prendreCristal(Cristal cristal){
+        if(chCristalPorte == null)
         chCristalPorte = cristal;
     }
 
@@ -44,6 +43,6 @@ public class Joueur {
      * @return une String
      */
     public String toString(){
-        return "Position X:" + chPosX + ", Position Y:" + chPosY + ", Identifiant:";
+        return "Position X:" + chPosition.getKey() + ", Position Y:" + chPosition.getValue() + ", Identifiant:";
     }
 }

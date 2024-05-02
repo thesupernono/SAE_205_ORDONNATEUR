@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="Avancement sur la lecture de fichier, modification des temples (notamment position)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/modele/CONSTANTES_MAP.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/modele/Map.java" afterDir="false" />
+    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="ajustement de Joueur, création de Cristal et modification scénario1.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenario/Scenario1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Scenario/Scenario1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/ClientJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/ClientJeu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/LectureScenario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/LectureScenario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Temple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Temple.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Cristal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Cristal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +145,6 @@
     <MESSAGE value="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString" />
     <MESSAGE value="Remplacement de l'arraylist dans getPosition par une Pair" />
     <MESSAGE value="ajustement de Joueur, création de Cristal et modification scénario1.txt" />
-    <MESSAGE value="Avancement sur la lecture de fichier, modification des temples (notamment position)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Avancement sur la lecture de fichier, modification des temples (notamment position)" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustement de Joueur, création de Cristal et modification scénario1.txt" />
   </component>
 </project>

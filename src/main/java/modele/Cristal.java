@@ -5,12 +5,10 @@ import javafx.util.Pair;
 
 public class Cristal {
     private Pair<Integer,Integer> chPosCristal;
-    private Color chCouleur;
+    private int chCouleur;
 
-    public Cristal(int parPosX, int parPosY, Color parCouleur){
+    public Cristal(int parPosX, int parPosY, int parCouleur){
         chPosCristal = new Pair<Integer,Integer>(parPosX,parPosY);
         chCouleur = parCouleur;
     }
-
-
 }
