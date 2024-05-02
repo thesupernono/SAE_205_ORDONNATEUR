@@ -33,9 +33,22 @@ public class Joueur {
     }
 
 
-    public void prendreCristal(Cristal cristal){
-        if(chCristalPorte == null)
-        chCristalPorte = cristal;
+    /**
+     * Permet de prendre et échanger les cristaux entre eux
+     * @param cristal le cristal en question
+     * @return cristalDepose si le joueur possede déjà un cristal
+     * sinon retourne null
+     */
+    public Cristal prendreCristal(Cristal cristal){
+        if(chCristalPorte == null) {
+            chCristalPorte = cristal;
+        }
+        else{
+            Cristal cristalDepose = chCristalPorte;
+            chCristalPorte = cristal;
+            return cristalDepose;
+        }
+        return null;
     }
 
     /**
