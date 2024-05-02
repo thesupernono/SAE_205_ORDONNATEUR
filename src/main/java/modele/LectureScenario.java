@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class LectureScenario implements CONSTANTES_MAP{
-    HashSet<Temple> listeTemple = new HashSet<>();
-    HashSet<Cristal> listeCristal = new HashSet<>();
+    HashSet<Temple> Temples = new HashSet<>();
+    HashSet<Cristal> Cristaux = new HashSet<>();
     public LectureScenario(int numeroScenario) throws Exception{
 
         // On charge le fichier
@@ -17,8 +17,6 @@ public class LectureScenario implements CONSTANTES_MAP{
 
         // On analyse élément par élément
         while (scanner.hasNext()){
-
-            // On reprend la position
             int positionX = scanner.nextInt();
             int positionY = scanner.nextInt();
 
@@ -30,16 +28,29 @@ public class LectureScenario implements CONSTANTES_MAP{
 
             // On initie le temple
             Temple nouveauTemple = new Temple(positionX, positionY, numCouleurTemple);
-            listeTemple.add(nouveauTemple);
+            Temples.add(nouveauTemple);
+
 
             // On initie le cristal
             Cristal nouveauCristal = new Cristal(positionX, positionY, numCouleurCristal);
-            listeCristal.add(nouveauCristal);
+            Cristaux.add(nouveauCristal);
+
+
+            // On passe proprement à la ligne suivante :
+            if (scanner.hasNextLine()){
+                scanner.nextLine();
+            }
 
         }
     }
 
-    public HashSet<Temple> listeTemple() {
-        return listeTemple;
+
+    public HashSet <Temple> listeTemple() {
+        return Temples;
+    }
+
+
+    public HashSet <Cristal> listeCristal() {
+        return Cristaux;
     }
 }
