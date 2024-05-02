@@ -14,5 +14,7 @@ public class ClientJeu {
 
         LectureScenario lecture = new LectureScenario(1);
 
+        Joueur sorcier = new Joueur(0,0,1);
+        System.out.println(sorcier.toString());
     }
 }
