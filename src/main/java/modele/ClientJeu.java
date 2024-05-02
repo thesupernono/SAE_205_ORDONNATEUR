@@ -1,15 +1,11 @@
 package modele;
 
-import javafx.util.Pair;
-import javafx.scene.paint.Color;
-
 public class ClientJeu {
     public static void main(String [] args) throws Exception {
         // premier essai d'ajout d'un temple
-        Pair<Integer, Integer> positionTemple = new Pair<>(0, 0);
-        Color couleurTemple = Color.AQUA;
+        int couleurTemple = 1;
 
-        Temple premierTemplate = new Temple(positionTemple, couleurTemple);
+        Temple premierTemplate = new Temple(0, 0, couleurTemple);
 
 
         LectureScenario lecture = new LectureScenario(1);
