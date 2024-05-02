@@ -23,20 +23,26 @@ public class Joueur {
         chId = id;
     }
 
-//   public int deplacement(){
-//
-//   }
+   public void deplacement(){
+      chPosX += 1; // TODO: A REMPLACER PLUS TARD BIEN ENTENDU
+      chPosY += 1;
+  }
 
-    public List <Integer> getPosition(){
-        List <Integer> listPos = new ArrayList<Integer>();
-        listPos.add(chPosX);
-        listPos.add(chPosY);
-        return listPos;
+    /**
+     * Accesseur de Position
+     * @return listPos
+     */
+    public Pair <Integer, Integer> getPosition(){
+//        List <Integer> listPos = new ArrayList<Integer>();
+//        listPos.add(chPosX);
+//        listPos.add(chPosY);
+//        Remplacer par Pair
+        return new Pair<>(chPosX, chPosY);
     }
 
     /**
      * Permet d'afficher les informations liée au joueur en une string
-     * @return
+     * @return une String
      */
     public String toString(){
         return "Position X:" + chPosX + ", Position Y:" + chPosY + ", Identifiant:" + chId;

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="Prototypage de la classe Joueur">
+    <list default="true" id="cc87e82f-e1b4-471f-8f32-7f5fd026f9d5" name="Changes" comment="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/modele/ClientJeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/ClientJeu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/modele/Joueur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,8 +85,17 @@
       <workItem from="1714399909875" duration="305000" />
       <workItem from="1714402184645" duration="469000" />
       <workItem from="1714631775912" duration="108000" />
-      <workItem from="1714632561105" duration="849000" />
+      <workItem from="1714632561105" duration="4877000" />
     </task>
+    <task id="LOCAL-00001" summary="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString">
+      <option name="closed" value="true" />
+      <created>1714633760789</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714633760789</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +114,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Prototypage de la classe Joueur" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prototypage de la classe Joueur" />
+    <MESSAGE value="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la méthode getPosition, qui permet d'obtenir la position du joueur sous forme d'une ArrayList&#10;&#10;Ajout d'une méthode toString" />
   </component>
 </project>
