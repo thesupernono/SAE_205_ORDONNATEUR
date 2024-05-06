@@ -7,7 +7,6 @@ public class ClientJeu {
 
         Temple premierTemplate = new Temple(0, 0, couleurTemple);
 
-
         LectureScenario lecture = new LectureScenario("Scenario1.txt");
 
         Joueur sorcier = new Joueur(0,0);

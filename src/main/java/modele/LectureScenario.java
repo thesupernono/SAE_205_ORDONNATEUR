@@ -47,12 +47,12 @@ public class LectureScenario implements CONSTANTES_MAP{
     }
 
 
-    public HashSet <Temple> listeTemple() {
+    public HashSet <Temple> getTemple() {
         return Temples;
     }
 
 
-    public HashSet <Cristal> listeCristal() {
+    public HashSet <Cristal> getCristal() {
         return Cristaux;
     }
 }

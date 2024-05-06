@@ -12,8 +12,8 @@ public class Map implements CONSTANTES_MAP{
 
         // On génère la map
         LectureScenario scenario = new LectureScenario(parNomFichierScenario);
-        HashSet<Temple> listeTemple = scenario.listeTemple();
-        HashSet<Cristal> listeCristal = scenario.listeCristal();
+        HashSet<Temple> listeTemple = scenario.getTemple();
+        HashSet<Cristal> listeCristal = scenario.getCristal();
 
 
         // On génère le joueur
