@@ -12,10 +12,10 @@ public class ClientJeu {
 
         Joueur sorcier = new Joueur(0,0);
 
-//        for(int i=0; i < 10; i++) {
-//            System.out.println(sorcier.toString());
-//            sorcier.deplacement();
-//        }
-//        System.out.println(sorcier.getPosition().toString());
+        for(int i=0; i < 10; i++) {
+            System.out.println(sorcier.toString());
+            sorcier.deplacement(i,i);
+        }
+        System.out.println(sorcier.getPosition().toString());
     }
 }

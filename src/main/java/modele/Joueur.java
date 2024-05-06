@@ -56,6 +56,6 @@ public class Joueur {
      * @return une String
      */
     public String toString(){
-        return "Position X:" + chPosition.getKey() + ", Position Y:" + chPosition.getValue() + ", Identifiant:";
+        return "Position X:" + chPosition.getKey() + ", Position Y:" + chPosition.getValue();
     }
 }
