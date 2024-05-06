@@ -28,10 +28,6 @@ public class Joueur {
      * @return positionX, positionY
      */
     public int [] getPosition(){
-//        List <Integer> listPos = new ArrayList<Integer>();
-//        listPos.add(chPosX);
-//        listPos.add(chPosY);
-//        Remplacer par Pair
         return position;
     }
 

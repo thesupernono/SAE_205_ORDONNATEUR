@@ -6,8 +6,10 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class LectureScenario implements CONSTANTES_MAP{
-    HashSet<Temple> Temples = new HashSet<>();
-    HashSet<Cristal> Cristaux = new HashSet<>();
+    HashSet<Temple> temples = new HashSet<>();
+    HashSet<Cristal> cristaux = new HashSet<>();
+
+
     public LectureScenario(String nomFichierScenario) throws Exception{
 
         // On charge le fichier
@@ -27,12 +29,12 @@ public class LectureScenario implements CONSTANTES_MAP{
 
             // On initie le temple
             Temple nouveauTemple = new Temple(positionX, positionY, numCouleurTemple);
-            Temples.add(nouveauTemple);
+            temples.add(nouveauTemple);
 
 
             // On initie le cristal
             Cristal nouveauCristal = new Cristal(positionX, positionY, numCouleurCristal);
-            Cristaux.add(nouveauCristal);
+            cristaux.add(nouveauCristal);
 
 
             // On passe proprement à la ligne suivante :
@@ -41,18 +43,17 @@ public class LectureScenario implements CONSTANTES_MAP{
             }
 
         }
-        System.out.println(Cristaux);
-        System.out.println(Temples);
-        System.out.println("-------");
+        System.out.println(cristaux);
+        System.out.println(temples);
     }
 
 
     public HashSet <Temple> getTemple() {
-        return Temples;
+        return temples;
     }
 
 
     public HashSet <Cristal> getCristal() {
-        return Cristaux;
+        return cristaux;
     }
 }
