@@ -1,15 +1,12 @@
 package modele;
 
-
-import javafx.util.Pair;
-
 import java.util.HashMap;
 import java.util.HashSet;
 
 public class Map implements CONSTANTES_MAP{
 
-    HashMap<Pair<Integer, Integer>, HashSet<Temple>> coordonneesTemples = new HashMap<>();
-    HashMap<Pair<Integer, Integer>, HashSet<Cristal>> coordonneesCristal = new HashMap<>();
+    HashMap<int [], HashSet<Temple>> coordonneesTemples = new HashMap<>();
+    HashMap<int [], HashSet<Cristal>> coordonneesCristal = new HashMap<>();
 
     public Map(int numeroScenario) throws Exception {
 

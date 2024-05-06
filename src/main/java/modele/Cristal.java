@@ -1,23 +1,27 @@
 package modele;
 
-import javafx.util.Pair;
-
 public class Cristal {
-    private Pair<Integer,Integer> chPosCristal;
-    private int chCouleur;
+    private int [] position;
+    private int couleur;
 
     public Cristal(int parPosX, int parPosY, int parCouleur){
-        chPosCristal = new Pair<>(parPosX,parPosY);
-        chCouleur = parCouleur;
+        position = new int[2];
+        position[0] = parPosX;
+        position[1] = parPosY;
+        couleur = parCouleur;
     }
 
 
-    public Pair<Integer, Integer> getPosition() {
-        return chPosCristal;
+    public int [] getPosition() {
+        return position;
     }
 
 
     public int getCouleur() {
-        return chCouleur;
+        return couleur;
+    }
+
+    public String toString(){
+        return "position : (" + position[0] + "," + position[1] + ") couleur :" + couleur;
     }
 }

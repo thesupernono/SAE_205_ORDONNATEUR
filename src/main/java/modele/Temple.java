@@ -1,26 +1,26 @@
 package modele;
 
 
-import javafx.util.Pair;
-
 public class Temple {
-     Pair<Integer, Integer> position;
+     int [] position;
      int couleur;
 
 
      //--------------------------Constructeur--------------------------
      public Temple(int parPositionX, int parPositionY, int parNumCouleur){
-          position = new Pair<>(parPositionX, parPositionY);
+          position = new int[2];
+          position[0] = parPositionX;
+          position[1] = parPositionY;
           couleur = parNumCouleur;
      }
 
 
-     public Pair<Integer, Integer> getPosition(){
+     public int [] getPosition(){
           return position;
      }
 
 
      public String toString(){
-          return position + " avec la couleur " + couleur;
+          return "position : (" +position[0] + "," + position[1] + ") couleur :" + couleur;
      }
 }
