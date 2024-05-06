@@ -3,8 +3,8 @@ package modele;
 import javafx.util.Pair;
 
 public class Joueur {
-    private Pair<Integer,Integer> chPosition;
-    private Cristal chCristalPorte;
+    private int [] position;
+    private Cristal cristaux;
 
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
@@ -12,24 +12,27 @@ public class Joueur {
      * @param PosY position y du joueur
      */
     public Joueur(int PosX, int PosY){
-        chPosition = new Pair<>(PosX,PosY);
-        chCristalPorte = null;
+        position = new int [2];
+
+
+        cristaux = null;
     }
 
-   public void deplacement(int PosX, int PosY){
-      chPosition = new Pair<>(PosX,PosY);
+   public void deplacement(int posX, int posY){
+      position[0] = posX;
+      position[1] = posY;
   }
 
     /**
      * Accesseur de Position
-     * @return listPos
+     * @return positionX, positionY
      */
-    public Pair <Integer, Integer> getPosition(){
+    public int [] getPosition(){
 //        List <Integer> listPos = new ArrayList<Integer>();
 //        listPos.add(chPosX);
 //        listPos.add(chPosY);
 //        Remplacer par Pair
-        return chPosition;
+        return position;
     }
 
 
@@ -40,12 +43,12 @@ public class Joueur {
      * sinon retourne null
      */
     public Cristal prendreCristal(Cristal cristal){
-        if(chCristalPorte == null) {
-            chCristalPorte = cristal;
+        if(cristaux == null) {
+            cristaux = cristal;
         }
         else{
-            Cristal cristalDepose = chCristalPorte;
-            chCristalPorte = cristal;
+            Cristal cristalDepose = cristaux;
+            cristaux = cristal;
             return cristalDepose;
         }
         return null;
@@ -56,6 +59,6 @@ public class Joueur {
      * @return une String
      */
     public String toString(){
-        return "Position X:" + chPosition.getKey() + ", Position Y:" + chPosition.getValue();
+        return "Position X:" + position[0] + ", Position Y:" + position[1];
     }
 }
