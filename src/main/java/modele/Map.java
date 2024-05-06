@@ -8,10 +8,10 @@ public class Map implements CONSTANTES_MAP{
     HashMap<int [], HashSet<Temple>> coordonneesTemples = new HashMap<>();
     HashMap<int [], HashSet<Cristal>> coordonneesCristal = new HashMap<>();
 
-    public Map(int numeroScenario) throws Exception {
+    public Map(String parNomFichierScenario) throws Exception {
 
         // On génère la map
-        LectureScenario scenario = new LectureScenario(numeroScenario);
+        LectureScenario scenario = new LectureScenario(parNomFichierScenario);
         HashSet<Temple> listeTemple = scenario.listeTemple();
         HashSet<Cristal> listeCristal = scenario.listeCristal();
 

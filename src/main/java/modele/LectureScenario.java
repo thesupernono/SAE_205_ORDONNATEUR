@@ -8,11 +8,10 @@ import java.util.Scanner;
 public class LectureScenario implements CONSTANTES_MAP{
     HashSet<Temple> Temples = new HashSet<>();
     HashSet<Cristal> Cristaux = new HashSet<>();
-    public LectureScenario(int numeroScenario) throws Exception{
+    public LectureScenario(String nomFichierScenario) throws Exception{
 
         // On charge le fichier
-        String nomFichier = "Scenario" + numeroScenario + ".txt";
-        Scanner scanner = new Scanner(new File("Scenario" + File.separator + nomFichier)).useDelimiter(";");
+        Scanner scanner = new Scanner(new File("Scenario" + File.separator + nomFichierScenario)).useDelimiter(";");
 
 
         // On analyse élément par élément
@@ -44,6 +43,7 @@ public class LectureScenario implements CONSTANTES_MAP{
         }
         System.out.println(Cristaux);
         System.out.println(Temples);
+        System.out.println("-------");
     }
 
 
