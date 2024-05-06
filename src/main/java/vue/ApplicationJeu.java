@@ -9,6 +9,7 @@ public class ApplicationJeu extends Application {
     public void start(Stage stage) {
         VBoxTemple root = new VBoxTemple();
         Scene scene = new Scene(root, 1280,720);
+        stage.setScene(scene);
         stage.setTitle("SAE ORDONNATEUR");
         stage.show();
     }

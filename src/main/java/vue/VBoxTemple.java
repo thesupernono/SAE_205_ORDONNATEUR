@@ -14,8 +14,8 @@ public class VBoxTemple extends VBox{
     private Joueur apprenti;
     // private Controller controleur;
 
-    public VBoxTemple(){
-        apprenti = new Joueur(0,0);
+    public VBoxTemple() {
+        apprenti = new Joueur(0, 0);
         // controleur = new Controleur();
 
         // Barre de menu
@@ -28,13 +28,12 @@ public class VBoxTemple extends VBox{
         menuBar.getMenus().add(menuScenarios);
 
         //items du menu scénario
-        File[] scenarios = new File("scenarios").listFiles();
+        File[] scenarios = new File("Scenario").listFiles();
         for (int i = 0 ; i < scenarios.length; i++){ // lecture de la LISTE des fichiers
             MenuItem menuItem = new MenuItem(scenarios[i].getName());
             menuItem.setUserData(scenarios);
             // menuItem.setOnAction(controleur); Quand on aura un controleur fonctionnel
             menuScenarios.getItems().add(menuItem);
-
         }
     }
 }
