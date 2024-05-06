@@ -46,6 +46,9 @@ public class VBoxTemple extends VBox{
             menuScenarios.getItems().add(menuItemScenar);
         }
 
+
+
+
         //Informations sur le joueur
         //TODO: changer l'endroit ou et affiché les infos joueur lors de la mise en place du GridPane
         Menu infosJoueur = new Menu("Infos");
