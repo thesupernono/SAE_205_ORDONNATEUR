@@ -38,12 +38,18 @@ public class Joueur {
      */
     public void deplacement(int [] positionArrivee){
         while(position != positionArrivee){
+
+
+            // On vérifie sur l'axe x (position[0])
             if(position[0] != positionArrivee[0]){
                 if(position[0] < positionArrivee[0])
                     position[0] ++; // On se décale à droite
                 else
                     position[0]--; // On se décale à gauche
             }
+
+
+            // On vérifie sur l'axe y (position[1])
             else if(position[1] != positionArrivee[1]){
                 if(position[1] < positionArrivee[1])
                     position[1] ++; // On se décale en bas
