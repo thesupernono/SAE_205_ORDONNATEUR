@@ -17,6 +17,7 @@ public class VBoxTemple extends VBox{
 
     private HashSet <Temple> temples;
     private HashSet <Cristal> cristaux;
+    private GridPaneMap gridPaneMap;
 
 
     // private Controller controleur;
@@ -24,6 +25,7 @@ public class VBoxTemple extends VBox{
     public VBoxTemple() {
         joueur = new Joueur(0, 0);
         // controleur = new Controleur();
+        gridPaneMap = new GridPaneMap();
 
         // Barre de menu
         MenuBar menuBar = new MenuBar();
@@ -59,6 +61,8 @@ public class VBoxTemple extends VBox{
 
         infosJoueur.getItems().add(menuItemPosX);
         infosJoueur.getItems().add(menuItemPosY);
+
+        this.getChildren().add(gridPaneMap);
     }
 
 
