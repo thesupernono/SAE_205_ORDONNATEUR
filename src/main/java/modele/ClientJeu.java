@@ -5,5 +5,8 @@ public class ClientJeu {
 
         Map map = new Map("Scenario1.txt");
 
+        System.out.println(map.getCoordonneesCristaux());
+        System.out.println(map.getCoordonneesTemples());
+
     }
 }

@@ -23,7 +23,7 @@ public class Map implements CONSTANTES_MAP{
         Joueur joueur = new Joueur(CENTRE_X, CENTRE_Y);
 
 
-        // On stock les positions de tous les Temples
+        // On stock les positions de tous les temples
         for(Temple temple: listeTemple){
 
 
@@ -32,11 +32,11 @@ public class Map implements CONSTANTES_MAP{
         }
 
 
-        // On stock les positions de tous les Cristaux
+        // On stock les positions de tous les cristaux
         for(Cristal cristal: listeCristal){
 
 
-            // On initie les cristaux
+            // On initie le cristal
             coordonneesCristaux.put(cristal.getPosition(), cristal);
         }
     }

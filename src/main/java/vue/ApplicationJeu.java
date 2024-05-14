@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class ApplicationJeu extends Application {
     @Override
     public void start(Stage stage) {
-        VBoxTemple root = new VBoxTemple();
+        HBoxRoot root = new HBoxRoot();
         Scene scene = new Scene(root, 1280,720);
         stage.setScene(scene);
         stage.setTitle("SAE ORDONNATEUR");

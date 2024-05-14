@@ -43,8 +43,6 @@ public class LectureScenario implements CONSTANTES_MAP{
             }
 
         }
-        System.out.println(cristaux);
-        System.out.println(temples);
     }
 
 
