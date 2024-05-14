@@ -1,7 +1,5 @@
 package modele;
 
-import javafx.util.Pair;
-
 public class Joueur {
     private int [] position;
     private Cristal cristaux;
@@ -36,7 +34,9 @@ public class Joueur {
      * Déplace le joueur jusqu'à qu'il soit arrivé
      * @param positionArrivee (int []) : position d'arrivée
      */
-    public void deplacement(int [] positionArrivee){
+    public void deplacement(int [] positionArrivee) throws ExceptionJeu {
+        if(positionArrivee.length != 2)
+            throw new ExceptionJeu(0);
         while(position != positionArrivee){
 
 
