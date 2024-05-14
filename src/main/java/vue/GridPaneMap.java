@@ -1,6 +1,7 @@
 package vue;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 
 public class GridPaneMap extends GridPane {
@@ -13,6 +14,12 @@ public class GridPaneMap extends GridPane {
         this.setVgap(5);
 
         int ligne = 0;
-        this.setAlignment(new Pos);
+
+        for(int x=0; x<10; x++){
+            this.addColumn(x,new Label(" "));
+            for(int y=0; y<10; y++){
+                this.addRow(y,new Label(" "));
+            }
+        }
     }
 }
