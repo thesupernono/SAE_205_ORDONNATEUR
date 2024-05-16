@@ -1,18 +1,16 @@
 package modele;
 
 public class Cristal {
-    private int [] position;
+    private Position position;
     private int couleur;
 
     public Cristal(int parPosX, int parPosY, int parCouleur){
-        position = new int[2];
-        position[0] = parPosX;
-        position[1] = parPosY;
+        position = new Position(parPosX, parPosY);
         couleur = parCouleur;
     }
 
 
-    public int [] getPosition() {
+    public Position getPosition() {
         return position;
     }
 
@@ -22,6 +20,6 @@ public class Cristal {
     }
 
     public String toString(){
-        return "position : (" + position[0] + "," + position[1] + ") couleur :" + couleur;
+        return "position : (" + position.getPosX() + "," + position.getPosY() + ") couleur :" + couleur;
     }
 }

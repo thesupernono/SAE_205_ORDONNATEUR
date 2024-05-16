@@ -1,20 +1,16 @@
 package modele;
 
-public class Joueur {
-    private int [] position;
+public class Joueur implements DEPLACEMENT{
+    private Position position;
     private Cristal cristaux;
 
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
-     * @param PosX position x du joueur
-     * @param PosY position y du joueur
+     * @param posX position x du joueur
+     * @param posY position y du joueur
      */
-    public Joueur(int PosX, int PosY){
-        position = new int [2];
-
-        position[0] = PosX;
-        position[1] = PosY;
-
+    public Joueur(int posX, int posY){
+        position = new Position(posX, posY);
 
         cristaux = null;
     }
@@ -25,8 +21,7 @@ public class Joueur {
      * @param posY (int) : position à téléporter (en y)
      */
     public void teleporteur(int posX, int posY){
-      position[0] = posX;
-      position[1] = posY;
+      position.teleporteur(posX, posY);
     }
 
 
@@ -34,27 +29,25 @@ public class Joueur {
      * Déplace le joueur jusqu'à qu'il soit arrivé
      * @param positionArrivee (int []) : position d'arrivée
      */
-    public void deplacement(int [] positionArrivee) throws ExceptionJeu {
-        if(positionArrivee.length != 2)
-            throw new ExceptionJeu(0);
+    public void deplacement(Position positionArrivee){
         while(position != positionArrivee){
 
 
             // On vérifie sur l'axe x (position[0])
-            if(position[0] != positionArrivee[0]){
-                if(position[0] < positionArrivee[0])
-                    position[0] ++; // On se décale à droite
+            if(position.getPosX() != positionArrivee.getPosX()){
+                if(position.getPosX() < positionArrivee.getPosX())
+                    position.deplacement(DIRECTION_X[0]); // On se décale à droite
                 else
-                    position[0]--; // On se décale à gauche
+                    position.deplacement(DIRECTION_X[1]); // On se décale à gauche
             }
 
 
             // On vérifie sur l'axe y (position[1])
-            else if(position[1] != positionArrivee[1]){
-                if(position[1] < positionArrivee[1])
-                    position[1] ++; // On se décale en bas
+            else if(position.getPosY() != positionArrivee.getPosY()){
+                if(position.getPosY() < positionArrivee.getPosY())
+                    position.deplacement(DIRECTION_Y[0]); // On se décale en bas
                 else
-                    position[1]--; // On se décale en haut
+                    position.deplacement(DIRECTION_Y[1]); // On se décale en haut
             }
         }
 
@@ -64,7 +57,7 @@ public class Joueur {
      * Accesseur de Position
      * @return positionX, positionY
      */
-    public int [] getPosition(){
+    public Position getPosition(){
         return position;
     }
 
@@ -92,6 +85,6 @@ public class Joueur {
      * @return une String
      */
     public String toString(){
-        return "Position X:" + position[0] + ", Position Y:" + position[1];
+        return "Position X:" + position.getPosX() + ", Position Y:" + position.getPosY();
     }
 }

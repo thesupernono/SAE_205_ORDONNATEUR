@@ -14,14 +14,11 @@ public class Historique {
     //--------------------------Ajout Evenement--------------------------
 
     // Si un joueur se déplace, on ajoute un évènement
-    public void ajoutEvenement(int []positionJoueur) throws ExceptionJeu {
+    public void ajoutEvenement(Position positionJoueur) throws ExceptionJeu {
 
         // On vérifie si la position est correcte
-        if(positionJoueur.length != 2)
-            throw new ExceptionJeu(0);
-            //TODO : Créer une class Position
 
-        String evenement = "Le joueur c'est déplacé en " + positionJoueur[0] +", " + positionJoueur[1];
+        String evenement = "Le joueur c'est déplacé en " + positionJoueur.getPosX() +", " + positionJoueur.getPosY();
         historique.add(evenement);
     }
 
