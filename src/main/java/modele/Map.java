@@ -19,10 +19,6 @@ public class Map implements CONSTANTES_MAP{
         HashSet<Cristal> listeCristal = scenario.getCristal();
 
 
-        // On génère le joueur
-        Joueur joueur = new Joueur(CENTRE_X, CENTRE_Y);
-
-
         // On stock les positions de tous les temples
         for(Temple temple: listeTemple){
 
