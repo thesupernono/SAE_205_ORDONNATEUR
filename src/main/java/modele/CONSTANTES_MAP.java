@@ -6,8 +6,8 @@ public interface CONSTANTES_MAP {
 
     //-------------------------Map-------------------------
     int [] TAILLE_MAP = {1000,500};
-    int CENTRE_X = TAILLE_MAP[0]/2;
-    int CENTRE_Y = TAILLE_MAP[1]/2;
+    int CENTRE_X = 13;
+    int CENTRE_Y = 5;
     Color COULEUR_GRILLE = Color.BLACK;
     int CARRE = 50;
 

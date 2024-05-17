@@ -5,10 +5,11 @@ import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.MenuItem;
 import modele.Cristal;
+import modele.Joueur;
 import modele.LectureScenario;
 import modele.Temple;
-import modele.Joueur;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Controleur implements EventHandler {
@@ -33,8 +34,10 @@ public class Controleur implements EventHandler {
             HashSet <Cristal> cristaux = scenario.getCristal();
         }
 
-        // GESTION DE LA SOURIS
+        // GESTION DE LA SOURIS ET DEPLACEMENT JOUEUR
         Object pointerData = ((Canvas)event.getSource()).getOnMouseClicked();
-        //if(pointerData instanceof )
+//        if(pointerData ){
+//            System.out.println("splah!");
+//        }
     }
 }

@@ -88,17 +88,26 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
             //------------------------Event------------------------
 
-            canvasCarte.setOnMouseClicked(event -> {
-                int abscisse = (int) event.getX() / CARRE;
-                int ordonnee = (int) event.getY() / CARRE;
-                int [] positionCliquee = {abscisse,ordonnee};
-                System.out.println(positionCliquee);
-                graphiqueContext2D.setFill(COULEUR_DESTINATION);
-                graphiqueContext2D.fillRect(
-                        positionCliquee[0] * CARRE + CARRE / 8,
-                        positionCliquee[1] * CARRE + CARRE / 4,
-                        LARGEUR_CIBLE, HAUTEUR_CIBLE);}
-            );
+            canvasCarte.setOnMouseClicked(eventClicked -> {
+                        int abscisse = (int) eventClicked.getX() / CARRE;
+                        int ordonnee = (int) eventClicked.getY() / CARRE;
+                        int[] positionCliquee = {abscisse, ordonnee};
+
+                        // empêche le programme de dessiner une cible sur une case coordonée
+                        if (positionCliquee[0] != 0) {
+                            if(positionCliquee[1] != 0) {
+                                System.out.println(positionCliquee[0] + ", " + positionCliquee[1]);
+                                graphiqueContext2D.setFill(COULEUR_DESTINATION);
+                                graphiqueContext2D.fillRect(
+                                        positionCliquee[0] * CARRE + CARRE / 8,
+                                        positionCliquee[1] * CARRE + CARRE / 4,
+                                        LARGEUR_CIBLE, HAUTEUR_CIBLE);
+
+                                // TODO: TEMPORAIRE! NE PAS GARDER ÇA!!!
+                                joueur.teleporteur(positionCliquee[0],positionCliquee[1]);
+                            }
+                        }
+                    });
     }
 
     public static Joueur getJoueur(){
