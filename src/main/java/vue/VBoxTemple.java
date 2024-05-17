@@ -120,7 +120,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
 
             //------------------------Event------------------------
-        /*
+
             canvasCarte.setOnMouseClicked(event -> {
                 int abscisse = (int) event.getX() / CARRE;
                 int ordonnee = (int) event.getY() / CARRE;
@@ -128,12 +128,11 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                 System.out.println(positionCliquee);
                 graphiqueContext2D.setFill(COULEUR_DESTINATION);
                 graphiqueContext2D.fillRect(
-                        positionCliquee.getAbscisse() * CARRE + CARRE / 8,
-                        positionCliquee.getOrdonnee() * CARRE + CARRE / 4,
-                        LARGEUR_CIBLE, HAUTEUR_CIBLE);
-            });
-         */
-        }
+                        positionCliquee[0] * CARRE + CARRE / 8,
+                        positionCliquee[1] * CARRE + CARRE / 4,
+                        LARGEUR_CIBLE, HAUTEUR_CIBLE);}
+            );
+    }
 
     public Joueur getJoueur(){
         return joueur;

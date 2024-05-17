@@ -21,4 +21,7 @@ public interface CONSTANTES_MAP {
     int LARGEUR_OVALE = 30;
     int HAUTEUR_OVALE = 30;
     Color COULEUR_DESTINATION = Color.RED;
+
+    int LARGEUR_CIBLE = 25;
+    int HAUTEUR_CIBLE = 25;
 }
