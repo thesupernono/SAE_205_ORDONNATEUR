@@ -1,5 +1,6 @@
 package modele;
 
+
 public class Joueur{
     private Position position;
     private Cristal cristaux;
@@ -11,6 +12,7 @@ public class Joueur{
      */
     public Joueur(int posX, int posY){
         position = new Position(posX, posY);
+
 
         cristaux = null;
     }

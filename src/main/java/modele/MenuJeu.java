@@ -5,6 +5,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
+import vue.VBoxTemple;
 
 import java.io.File;
 
@@ -30,15 +31,13 @@ public class MenuJeu extends MenuBar {
         }
 
 
-
-
         //Informations sur le joueur
         //TODO: changer l'endroit ou et affiché les infos joueur lors de la mise en place du GridPane
-        Menu infosJoueur = new Menu("Infos");
+        Menu infosJoueur = new Menu("infos");
 
 
         // Un joueur ( temporaire )
-        Joueur joueur = new Joueur(0, 5);
+        Joueur joueur = VBoxTemple.getJoueur();
 
         MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition().getPosX());
         MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition().getPosX());
@@ -47,6 +46,5 @@ public class MenuJeu extends MenuBar {
 
         infosJoueur.getItems().add(menuItemPosX);
         infosJoueur.getItems().add(menuItemPosY);
-
     }
 }

@@ -4,26 +4,20 @@ import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import modele.CONSTANTES_MAP;
-import modele.Cristal;
-import modele.Joueur;
-import modele.Temple;
-
-import java.io.File;
+import modele.*;
 import java.util.HashSet;
 
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
-    private Joueur joueur;
+    private static Joueur joueur;
     private HashSet <Temple> temples;
     private HashSet <Cristal> cristaux;
     private Label labelNombreDePas;
     private Canvas canvasCarte;
     private GraphicsContext graphiqueContext2D;
+    public static MenuBar menuBar;
 
     // private Controller controleur;
 
@@ -32,38 +26,11 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         // controleur = new Controleur();
 
         // Barre de menu
-        MenuBar menuBar = new MenuBar();
+        menuBar = new MenuJeu();
         this.getChildren().add(menuBar);
-        VBox.setMargin(menuBar, new Insets(9));
-
-        // Menu des scénarios
-        Menu menuScenarios = new Menu("Scenarios");
-        menuBar.getMenus().add(menuScenarios);
-
-        //listes des scénario du menu
-        File[] scenarios = new File("Scenario").listFiles();
-
-
-        for (int i = 0 ; i < scenarios.length; i++){ // lecture de la LISTE des fichiers
-            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
-            menuItemScenar.setUserData(scenarios);
-
-            // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
-            menuScenarios.getItems().add(menuItemScenar);
-        }
-
-
 
 
         //Informations sur le joueur
-        Menu infosJoueur = new Menu("Infos");
-        MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition().getPosX());
-        MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition().getPosY());
-
-        menuBar.getMenus().add(infosJoueur);
-
-        infosJoueur.getItems().add(menuItemPosX);
-        infosJoueur.getItems().add(menuItemPosY);
 
             labelNombreDePas = new Label("Nombre de pas : 0");
 
@@ -134,9 +101,11 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             );
     }
 
-    public Joueur getJoueur(){
+    public static Joueur getJoueur(){
         return joueur;
     }
+
+    public static MenuBar getMenuBar(){return menuBar;}
 
     public void setTemples(HashSet<Temple> parTemples){
         temples = parTemples;
