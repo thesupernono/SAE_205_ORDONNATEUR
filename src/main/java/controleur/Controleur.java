@@ -20,7 +20,9 @@ public class Controleur implements EventHandler {
 
         // LECTURE DES SCENARIOS
         Object userData = ((MenuItem)event.getSource()).getUserData();
+        System.out.println(userData.getClass());
         if (userData instanceof File) {
+            System.out.println("abvd");
             File fichierScenario = (File) userData;
             System.out.println(fichierScenario.getName());
             // Lecture du fichier
@@ -35,7 +37,7 @@ public class Controleur implements EventHandler {
         }
 
         // GESTION DE LA SOURIS ET DEPLACEMENT JOUEUR
-        Object pointerData = ((Canvas)event.getSource()).getOnMouseClicked();
+        // Object pointerData = ((Canvas)event.getSource()).getOnMouseClicked();
 //        if(pointerData ){
 //            System.out.println("splah!");
 //        }

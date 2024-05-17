@@ -5,6 +5,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
+import vue.HBoxRoot;
 import vue.VBoxTemple;
 
 import java.io.File;
@@ -26,8 +27,10 @@ public class MenuJeu extends MenuBar {
             MenuItem menuItemScenar = new MenuItem(scenario.getName());
             menuItemScenar.setUserData(scenarios);
 
-            // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
             menuScenarios.getItems().add(menuItemScenar);
+
+            menuItemScenar.setUserData(scenarios);
+            menuItemScenar.setOnAction(HBoxRoot.getControleur());
         }
 
 
