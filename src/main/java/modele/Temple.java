@@ -2,25 +2,23 @@ package modele;
 
 
 public class Temple {
-     int [] position;
+     Position position;
      int couleur;
 
 
      //--------------------------Constructeur--------------------------
-     public Temple(int parPositionX, int parPositionY, int parNumCouleur){
-          position = new int[2];
-          position[0] = parPositionX;
-          position[1] = parPositionY;
+     public Temple(int parPosX, int parPosY, int parNumCouleur){
+          position = new Position(parPosX, parPosY);
           couleur = parNumCouleur;
      }
 
 
-     public int [] getPosition(){
+     public Position getPosition(){
           return position;
      }
 
 
      public String toString(){
-          return "position : (" +position[0] + "," + position[1] + ") couleur :" + couleur;
+          return "position : (" +position.getPosX() + "," + position.getPosY() + ") couleur :" + couleur;
      }
 }

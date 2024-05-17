@@ -33,17 +33,15 @@ public class Position{
     // Changement de direction
 
     public void deplacement(String direction){
-        if (direction == "droite")
-            posX ++;
+        switch (direction) {
+            case "D" : posX++;
 
-        else if (direction == "gauche")
-            posX --;
+            case "G" : posX--;
 
-        else if(direction == "haut")
-            posY --;
+            case "H" : posY--;
 
-        else if(direction == "bas")
-            posY --;
+            case "B" : posY--;
+        }
     }
 
 }

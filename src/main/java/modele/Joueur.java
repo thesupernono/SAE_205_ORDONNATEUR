@@ -1,6 +1,6 @@
 package modele;
 
-public class Joueur implements DEPLACEMENT{
+public class Joueur{
     private Position position;
     private Cristal cristaux;
 
@@ -36,18 +36,18 @@ public class Joueur implements DEPLACEMENT{
             // On vérifie sur l'axe x (position[0])
             if(position.getPosX() != positionArrivee.getPosX()){
                 if(position.getPosX() < positionArrivee.getPosX())
-                    position.deplacement(DIRECTION_X[0]); // On se décale à droite
+                    position.deplacement("D"); // On se décale à droite
                 else
-                    position.deplacement(DIRECTION_X[1]); // On se décale à gauche
+                    position.deplacement("G"); // On se décale à gauche
             }
 
 
             // On vérifie sur l'axe y (position[1])
             else if(position.getPosY() != positionArrivee.getPosY()){
                 if(position.getPosY() < positionArrivee.getPosY())
-                    position.deplacement(DIRECTION_Y[0]); // On se décale en bas
+                    position.deplacement("B"); // On se décale en bas
                 else
-                    position.deplacement(DIRECTION_Y[1]); // On se décale en haut
+                    position.deplacement("H"); // On se décale en haut
             }
         }
 

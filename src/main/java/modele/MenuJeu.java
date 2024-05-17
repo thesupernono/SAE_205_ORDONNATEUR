@@ -21,8 +21,8 @@ public class MenuJeu extends MenuBar {
         File[] scenarios = new File("Scenario").listFiles();
 
 
-        for (int i = 0 ; i < scenarios.length; i++){ // lecture de la LISTE des fichiers
-            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
+        for (File scenario : scenarios) { // lecture de la LISTE des fichiers
+            MenuItem menuItemScenar = new MenuItem(scenario.getName());
             menuItemScenar.setUserData(scenarios);
 
             // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
@@ -40,8 +40,8 @@ public class MenuJeu extends MenuBar {
         // Un joueur ( temporaire )
         Joueur joueur = new Joueur(0, 5);
 
-        MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition()[0]);
-        MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition()[1]);
+        MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition().getPosX());
+        MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition().getPosX());
 
         this.getMenus().add(infosJoueur);
 
