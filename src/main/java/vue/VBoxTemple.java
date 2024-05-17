@@ -57,8 +57,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         //Informations sur le joueur
         Menu infosJoueur = new Menu("Infos");
-        MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition()[0]);
-        MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition()[1]);
+        MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition().getPosX());
+        MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition().getPosY());
 
         menuBar.getMenus().add(infosJoueur);
 
@@ -114,8 +114,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             //-----------------------Apprenti-----------------------
             graphiqueContext2D.setFill(COULEURS[1]);
             graphiqueContext2D.fillOval(
-                    joueur.getPosition()[0] * CARRE + CARRE / 8,
-                    joueur.getPosition()[1] * CARRE + CARRE / 4,
+                    joueur.getPosition().getPosX() * CARRE + CARRE / 8,
+                    joueur.getPosition().getPosY() * CARRE + CARRE / 4,
                     LARGEUR_OVALE, HAUTEUR_OVALE);
 
 
