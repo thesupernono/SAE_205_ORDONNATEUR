@@ -1,5 +1,7 @@
 package modele;
 
+import vue.VBoxTemple;
+
 public class Position{
     int posX;
     int posY;
@@ -42,6 +44,8 @@ public class Position{
 
             case "B" : posY--;
         }
+
+        VBoxTemple.getJoueur().ajoutPas();
     }
 
 }

@@ -14,7 +14,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
     private static Joueur joueur;
     private HashSet <Temple> temples;
     private HashSet <Cristal> cristaux;
-    private Label labelNombreDePas;
+    private static Label labelNombreDePas;
     private Canvas canvasCarte;
     private GraphicsContext graphiqueContext2D;
     public static MenuBar menuBar;
@@ -55,7 +55,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             int numCol = 1;
             graphiqueContext2D.setFill(COULEUR_GRILLE);
             for (int i = CARRE; i < TAILLE_MAP[0]; i += CARRE){
-                graphiqueContext2D.fillText(Integer.toString(numCol), i + CARRE/3, CARRE/2);
+                graphiqueContext2D.fillText(Integer.toString(numCol), i + CARRE /3, CARRE/2);
                 numCol ++;
             }
             int nmbColonne = numCol;
@@ -65,7 +65,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             int numLigne = 1;
             graphiqueContext2D.setFill(COULEUR_GRILLE);
             for (int i = CARRE; i < TAILLE_MAP[1]; i += CARRE){
-                graphiqueContext2D.fillText(Integer.toString(numLigne), CARRE/3, i+CARRE/2);
+                graphiqueContext2D.fillText(Integer.toString(numLigne), CARRE/3, i + CARRE/2);
                 numLigne++;
             }
             int nmbLigne = numLigne;
@@ -104,6 +104,11 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
     public static Joueur getJoueur(){
         return joueur;
     }
+
+    public static void updateNombrePas(){
+        labelNombreDePas.setText("Nombre de pas : " + joueur.getPas());
+    }
+
 
     public static MenuBar getMenuBar(){return menuBar;}
 
