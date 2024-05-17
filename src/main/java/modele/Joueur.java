@@ -1,9 +1,12 @@
 package modele;
 
 
+import vue.VBoxTemple;
+
 public class Joueur{
     private Position position;
     private Cristal cristaux;
+    private int pas;
 
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
@@ -12,6 +15,7 @@ public class Joueur{
      */
     public Joueur(int posX, int posY){
         position = new Position(posX, posY);
+        pas = 0;
 
 
         cristaux = null;
@@ -35,7 +39,7 @@ public class Joueur{
         while(position != positionArrivee){
 
 
-            // On vérifie sur l'axe x (position[0])
+            // On vérifie sur l'axe x
             if(position.getPosX() != positionArrivee.getPosX()){
                 if(position.getPosX() < positionArrivee.getPosX())
                     position.deplacement("D"); // On se décale à droite
@@ -44,7 +48,7 @@ public class Joueur{
             }
 
 
-            // On vérifie sur l'axe y (position[1])
+            // On vérifie sur l'axe y
             else if(position.getPosY() != positionArrivee.getPosY()){
                 if(position.getPosY() < positionArrivee.getPosY())
                     position.deplacement("B"); // On se décale en bas
@@ -61,6 +65,15 @@ public class Joueur{
      */
     public Position getPosition(){
         return position;
+    }
+
+    public int getPas(){
+        return pas;
+    }
+
+    public void ajoutPas(){
+        pas++;
+        VBoxTemple.updateNombrePas();
     }
 
 
