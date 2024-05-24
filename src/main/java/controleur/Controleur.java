@@ -8,10 +8,11 @@ import modele.LectureScenario;
 import modele.Temple;
 
 import java.io.File;
+import java.lang.invoke.DelegatingMethodHandle$Holder;
 import java.util.HashSet;
 
 public class Controleur implements EventHandler {
-    LectureScenario scenario;
+    public LectureScenario scenario;
 
     @Override
     public void handle(Event event) {
@@ -29,11 +30,6 @@ public class Controleur implements EventHandler {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-
-
-            // assignation des temples et des cristaux
-            HashSet<Temple> temples = scenario.getTemple();
-            HashSet <Cristal> cristaux = scenario.getCristal();
         }
     }
 }

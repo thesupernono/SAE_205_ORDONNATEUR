@@ -6,9 +6,8 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 public class LectureScenario implements CONSTANTES_MAP{
-    HashSet<Temple> temples = new HashSet<>();
-    HashSet<Cristal> cristaux = new HashSet<>();
-
+    private static HashSet<Temple> temples = new HashSet<>();
+    private static HashSet<Cristal> cristaux = new HashSet<>();
 
     public LectureScenario(String nomFichierScenario) throws Exception{
 
@@ -46,12 +45,11 @@ public class LectureScenario implements CONSTANTES_MAP{
     }
 
 
-    public HashSet <Temple> getTemple() {
+    public static HashSet <Temple> getTemple() {
         return temples;
     }
 
-
-    public HashSet <Cristal> getCristal() {
+    public static HashSet <Cristal> getCristal() {
         return cristaux;
     }
 }

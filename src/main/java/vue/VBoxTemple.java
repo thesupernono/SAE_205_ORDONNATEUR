@@ -8,10 +8,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import modele.CONSTANTES_MAP;
-import modele.Cristal;
-import modele.Joueur;
-import modele.Temple;
+import modele.*;
 
 import java.io.File;
 import java.util.HashSet;
@@ -115,10 +112,25 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                     joueur.getPosition().getPosY() * CARRE + CARRE / 4,
                     LARGEUR_OVALE, HAUTEUR_OVALE);
 
+        //-----------------Cristaux et temples-----------------
+        cristaux = LectureScenario.getCristal();
+        temples = LectureScenario.getTemple();
 
 
 
-            //------------------------Event------------------------
+            /*for(int i=0; i < 11; i++) {
+                for(int j=0; i < 11; i++){
+                    for(int k=0; k < 3; k++)
+                        if(temples.contains(new Temple(i,j,k))) {
+                            graphiqueContext2D.setFill(COULEURS[2]);
+                            graphiqueContext2D.fillRect(
+                                    i * CARRE + CARRE / 8,
+                                    j * CARRE + CARRE / 4,
+                                    LARGEUR_OVALE,HAUTEUR_OVALE);
+                        }
+                }
+            }*/
+        //------------------------Event------------------------
 
             canvasCarte.setOnMouseClicked(event -> {
                 int abscisse = (int) event.getX() / CARRE;

@@ -42,10 +42,9 @@ public class Position{
 
             case "H" : posY--;
 
-            case "B" : posY--;
+            case "B" : posY++;
         }
 
         VBoxTemple.getJoueur().ajoutPas();
     }
-
 }

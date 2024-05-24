@@ -96,7 +96,7 @@ public class Joueur{
     }
 
     public Joueur getJoueur(){
-        return new Joueur(position.posX, position.posY);
+        return new Joueur(position.getPosX(), position.getPosY());
     }
 
     /**

@@ -6,12 +6,12 @@ public interface CONSTANTES_MAP {
 
     //-------------------------Map-------------------------
     int [] TAILLE_FENETRE = {1280, 720};
+    int CARRE = 50;
     //int [] TAILLE_MAP = {TAILLE_FENETRE[0] - 200, TAILLE_FENETRE[1] - 200};
-    int [] TAILLE_MAP = {20, 10};
+    int [] TAILLE_MAP = {CARRE*11,CARRE*11};
     int CENTRE_X = 13;
     int CENTRE_Y = 5;
     Color COULEUR_GRILLE = Color.BLACK;
-    int CARRE = 50;
 
     //------------------------Joueur------------------------
     Color [] COULEURS= {
