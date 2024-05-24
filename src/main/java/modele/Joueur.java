@@ -73,7 +73,7 @@ public class Joueur{
 
     public void ajoutPas(){
         pas++;
-        VBoxTemple.updateNombrePas();
+        // VBoxTemple.updateNombrePas(); la méthode n'existe pas??
     }
 
 
@@ -93,6 +93,10 @@ public class Joueur{
             return cristalDepose;
         }
         return null;
+    }
+
+    public Joueur getJoueur(){
+        return new Joueur(position.posX, position.posY);
     }
 
     /**
