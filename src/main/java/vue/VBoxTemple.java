@@ -16,16 +16,18 @@ import java.util.HashSet;
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
     private static Joueur joueur;
-    private HashSet <Temple> temples;
-    private HashSet <Cristal> cristaux;
+    private static Map map;
+    private HashSet<Temple> temples;
+    private HashSet<Cristal> cristaux;
     private Label labelNombreDePas;
     private Canvas canvasCarte;
-    private GraphicsContext graphiqueContext2D;
+    private static GraphicsContext graphiqueContext2D;
 
     // private Controller controleur;
 
     public VBoxTemple() {
         joueur = new Joueur(CENTRE_X, CENTRE_Y);
+        map = new Map(SCENARIO_DEFAUT);
         // controleur = new Controleur();
 
         // Barre de menu
@@ -41,15 +43,13 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         File[] scenarios = new File("Scenario").listFiles();
 
 
-        for (int i = 0 ; i < scenarios.length; i++){ // lecture de la LISTE des fichiers
+        for (int i = 0; i < scenarios.length; i++) { // lecture de la LISTE des fichiers
             MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
             menuItemScenar.setUserData(scenarios);
 
             // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
             menuScenarios.getItems().add(menuItemScenar);
         }
-
-
 
 
         //Informations sur le joueur
@@ -62,55 +62,52 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         infosJoueur.getItems().add(menuItemPosX);
         infosJoueur.getItems().add(menuItemPosY);
 
-            labelNombreDePas = new Label("Nombre de pas : 0");
+        labelNombreDePas = new Label("Nombre de pas : 0");
 
 
-            //-------------------------Map-------------------------
-            canvasCarte = new Canvas();
-            canvasCarte.setWidth(TAILLE_MAP[0]);
-            canvasCarte.setHeight(TAILLE_MAP[1]);
-            graphiqueContext2D = canvasCarte.getGraphicsContext2D();
+        //-------------------------Map-------------------------
+        canvasCarte = new Canvas();
+        canvasCarte.setWidth(TAILLE_MAP[0]);
+        canvasCarte.setHeight(TAILLE_MAP[1]);
+        graphiqueContext2D = canvasCarte.getGraphicsContext2D();
 
 
-            //-----------------Initiation de carrés-----------------
-            graphiqueContext2D.setStroke(COULEUR_GRILLE);
-            for (int i = 0; i < TAILLE_MAP[0]; i += CARRE){
-                for (int j = 0; j < TAILLE_MAP[1]; j += CARRE){
-                    graphiqueContext2D.strokeRect(i, j, CARRE, CARRE);
-                }
+        //-----------------Initiation de carrés-----------------
+        graphiqueContext2D.setStroke(COULEUR_GRILLE);
+        for (int i = 0; i < TAILLE_MAP[0]; i += CARRE) {
+            for (int j = 0; j < TAILLE_MAP[1]; j += CARRE) {
+                graphiqueContext2D.strokeRect(i, j, CARRE, CARRE);
             }
+        }
 
 
-            //--------------------Numero colonne--------------------
-            int numCol = 1;
-            graphiqueContext2D.setFill(COULEUR_GRILLE);
-            for (int i = CARRE; i < TAILLE_MAP[0]; i += CARRE){
-                graphiqueContext2D.fillText(Integer.toString(numCol), i + CARRE/3, CARRE/2);
-                numCol ++;
-            }
+        //--------------------Numero colonne--------------------
+        int numCol = 1;
+        graphiqueContext2D.setFill(COULEUR_GRILLE);
+        for (int i = CARRE; i < TAILLE_MAP[0]; i += CARRE) {
+            graphiqueContext2D.fillText(Integer.toString(numCol), i + CARRE / 3, CARRE / 2);
+            numCol++;
+        }
 
 
-            //---------------------Numero ligne----------------------
-            int numLigne = 1;
-            graphiqueContext2D.setFill(COULEUR_GRILLE);
-            for (int i = CARRE; i < TAILLE_MAP[1]; i += CARRE){
-                graphiqueContext2D.fillText(Integer.toString(numLigne), CARRE/3, i+CARRE/2);
-                numLigne++;
-            }
+        //---------------------Numero ligne----------------------
+        int numLigne = 1;
+        graphiqueContext2D.setFill(COULEUR_GRILLE);
+        for (int i = CARRE; i < TAILLE_MAP[1]; i += CARRE) {
+            graphiqueContext2D.fillText(Integer.toString(numLigne), CARRE / 3, i + CARRE / 2);
+            numLigne++;
+        }
 
-            //----------------Composants à la racine----------------
-            this.getChildren().add(labelNombreDePas);
-            VBox.setMargin(labelNombreDePas, new Insets(30));
-            this.getChildren().add(canvasCarte);
-            VBox.setMargin(canvasCarte, new Insets(30));
+        //----------------Composants à la racine----------------
+        this.getChildren().add(labelNombreDePas);
+        VBox.setMargin(labelNombreDePas, new Insets(30));
+        this.getChildren().add(canvasCarte);
+        VBox.setMargin(canvasCarte, new Insets(30));
 
 
-            //-----------------------Apprenti-----------------------
-            graphiqueContext2D.setFill(COULEURS[1]);
-            graphiqueContext2D.fillOval(
-                    joueur.getPosition().getPosX() * CARRE + CARRE / 8,
-                    joueur.getPosition().getPosY() * CARRE + CARRE / 4,
-                    LARGEUR_OVALE, HAUTEUR_OVALE);
+        //-----------------------Apprenti-----------------------
+        ElementsGraphiques.dessinerElement(joueur);
+
 
         //-----------------Cristaux et temples-----------------
         cristaux = LectureScenario.getCristal();
@@ -132,9 +129,9 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             }*/
         //------------------------Event------------------------
 
-            canvasCarte.setOnMouseClicked(event -> {
-                int abscisse = (int) event.getX() / CARRE;
-                int ordonnee = (int) event.getY() / CARRE;
+        canvasCarte.setOnMouseClicked(event -> {
+            int abscisse = (int) event.getX() / CARRE;
+            int ordonnee = (int) event.getY() / CARRE;
 
                 if(abscisse < 21) {
                     if(ordonnee < 21) {
@@ -148,19 +145,27 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                 }
             });
 
-        }
+    }
 
-    public static Joueur getJoueur(){
+    public static Joueur getJoueur() {
         return joueur;
     }
 
-    public void setTemples(HashSet<Temple> parTemples){
+    public void setTemples(HashSet<Temple> parTemples) {
         temples = parTemples;
     }
 
 
-    public void setCristaux(HashSet <Cristal> parCristaux){
+    public void setCristaux(HashSet<Cristal> parCristaux) {
         cristaux = parCristaux;
+    }
+
+    public static GraphicsContext getGraphiqueContext2D() {
+        return graphiqueContext2D;
+    }
+
+    public static Map getMap(){
+        return map;
     }
 }
 

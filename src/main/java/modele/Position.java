@@ -3,8 +3,8 @@ package modele;
 import vue.VBoxTemple;
 
 public class Position{
-    int posX;
-    int posY;
+    private int posX;
+    private int posY;
 
 
     //---------------------Constructeur---------------------
