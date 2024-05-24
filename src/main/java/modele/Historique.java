@@ -25,8 +25,6 @@ public class Historique {
 
     // Si un cristal est déposé, pris, ou qu'un temple est complêté, on ajoute un évènement
     public void ajoutEvenement(String message){
-        String evenement = "Vous avez " + message;
-
-        historique.add(evenement);
+        historique.add(message);
     }
 }

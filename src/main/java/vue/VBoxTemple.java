@@ -18,7 +18,7 @@ import java.util.HashSet;
 
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
-    private Joueur joueur;
+    private static Joueur joueur;
     private HashSet <Temple> temples;
     private HashSet <Cristal> cristaux;
     private Label labelNombreDePas;
@@ -91,7 +91,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                 graphiqueContext2D.fillText(Integer.toString(numCol), i + CARRE/3, CARRE/2);
                 numCol ++;
             }
-            int nmbColonne = numCol;
 
 
             //---------------------Numero ligne----------------------
@@ -101,8 +100,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                 graphiqueContext2D.fillText(Integer.toString(numLigne), CARRE/3, i+CARRE/2);
                 numLigne++;
             }
-            int nmbLigne = numLigne;
-
 
             //----------------Composants à la racine----------------
             this.getChildren().add(labelNombreDePas);
@@ -119,23 +116,29 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                     LARGEUR_OVALE, HAUTEUR_OVALE);
 
 
+
+
             //------------------------Event------------------------
-        /*
+
             canvasCarte.setOnMouseClicked(event -> {
                 int abscisse = (int) event.getX() / CARRE;
                 int ordonnee = (int) event.getY() / CARRE;
-                int [] positionCliquee = {abscisse,ordonnee};
-                System.out.println(positionCliquee);
-                graphiqueContext2D.setFill(COULEUR_DESTINATION);
-                graphiqueContext2D.fillRect(
-                        positionCliquee.getAbscisse() * CARRE + CARRE / 8,
-                        positionCliquee.getOrdonnee() * CARRE + CARRE / 4,
-                        LARGEUR_CIBLE, HAUTEUR_CIBLE);
+
+                if(abscisse < 21) {
+                    if(ordonnee < 21) {
+                        System.out.println(abscisse + ", " + ordonnee);
+                        graphiqueContext2D.setFill(COULEUR_DESTINATION);
+                        graphiqueContext2D.fillRect(
+                                abscisse * CARRE + CARRE / 8,
+                                ordonnee * CARRE + CARRE / 4,
+                                LARGEUR_CIBLE, HAUTEUR_CIBLE);
+                    }
+                }
             });
-         */
+
         }
 
-    public Joueur getJoueur(){
+    public static Joueur getJoueur(){
         return joueur;
     }
 
