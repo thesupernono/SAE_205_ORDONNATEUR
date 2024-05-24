@@ -133,17 +133,13 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             int abscisse = (int) event.getX() / CARRE;
             int ordonnee = (int) event.getY() / CARRE;
 
-                if(abscisse < 21) {
-                    if(ordonnee < 21) {
-                        System.out.println(abscisse + ", " + ordonnee);
-                        graphiqueContext2D.setFill(COULEUR_DESTINATION);
-                        graphiqueContext2D.fillRect(
-                                abscisse * CARRE + CARRE / 8,
-                                ordonnee * CARRE + CARRE / 4,
-                                LARGEUR_CIBLE, HAUTEUR_CIBLE);
-                    }
-                }
-            });
+            if (abscisse >= 1 && ordonnee >= 1) {
+                System.out.println(abscisse + ", " + ordonnee);
+                Position posElement = new Position(abscisse, ordonnee);
+                ElementsGraphiques.deplacerElement(posElement, "joueur");
+                //joueur.getPosition().deplacement("H");
+            }
+        });
 
     }
 
