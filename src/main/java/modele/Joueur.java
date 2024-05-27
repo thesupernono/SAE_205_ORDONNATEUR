@@ -1,11 +1,9 @@
 package modele;
 
 
-import vue.VBoxTemple;
-
 public class Joueur{
     private Position position;
-    private Cristal cristaux;
+    private Cristal cristal;
     private int pas;
 
     /**
@@ -18,7 +16,7 @@ public class Joueur{
         pas = 0;
 
 
-        cristaux = null;
+        cristal = null;
     }
 
     /**
@@ -58,7 +56,6 @@ public class Joueur{
         }
 
   }
-
     /**
      * Accesseur de Position
      * @return positionX, positionY
@@ -79,21 +76,39 @@ public class Joueur{
 
     /**
      * Permet de prendre et échanger les cristaux entre eux
-     * @param cristal le cristal en question
-     * @return cristalDepose si le joueur possede déjà un cristal
-     * sinon retourne null
+     * @param parCristal le cristal en question
      */
-    public Cristal prendreCristal(Cristal cristal){
-        if(cristaux == null) {
-            cristaux = cristal;
-        }
-        else{
-            Cristal cristalDepose = cristaux;
-            cristaux = cristal;
-            return cristalDepose;
-        }
-        return null;
+    public void prendreCristal(Cristal parCristal){
+        //if(this.cristal == null) {
+        //    this.cristal = cristal;
+        //}
+        //else{
+        //    Cristal cristalDepose = this.cristal;
+        //    this.cristal = cristal;
+        //}
+        cristal = parCristal;
+
+        // On met la position -1 -1 dans la position pour enlever le cristal du graphique
+        cristal.setPosition(new Position(-1, -1));
+
     }
+
+    /**
+     * méthode qui pose le cristal que l'on a en main
+     * @return le cristal que l'on a en main
+     */
+    public Cristal poserCristal(){
+
+        // On récupère le cristal que l'on va return ( le cristal qu'on a en main)
+        Cristal cristalRetournee = cristal;
+
+        // On enlève le cristal de la main
+        cristal = null;
+
+        // On return le cristal que l'on avait en main
+        return cristal;
+    }
+
 
     public Joueur getJoueur(){
         return new Joueur(position.getPosX(), position.getPosY());

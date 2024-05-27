@@ -74,9 +74,9 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         //-----------------Initiation de carrés-----------------
         graphiqueContext2D.setStroke(COULEUR_GRILLE);
-        for (int i = 0; i < TAILLE_MAP[0]; i += CARRE) {
-            for (int j = 0; j < TAILLE_MAP[1]; j += CARRE) {
-                graphiqueContext2D.strokeRect(i, j, CARRE, CARRE);
+        for (int i = 0; i < TAILLE_MAP[0]; i += TAILLE_CARRE) {
+            for (int j = 0; j < TAILLE_MAP[1]; j += TAILLE_CARRE) {
+                graphiqueContext2D.strokeRect(i, j, TAILLE_CARRE, TAILLE_CARRE);
             }
         }
 
@@ -84,8 +84,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         //--------------------Numero colonne--------------------
         int numCol = 1;
         graphiqueContext2D.setFill(COULEUR_GRILLE);
-        for (int i = CARRE; i < TAILLE_MAP[0]; i += CARRE) {
-            graphiqueContext2D.fillText(Integer.toString(numCol), i + CARRE / 3, CARRE / 2);
+        for (int i = TAILLE_CARRE; i < TAILLE_MAP[0]; i += TAILLE_CARRE) {
+            graphiqueContext2D.fillText(Integer.toString(numCol), i + TAILLE_CARRE / 3, TAILLE_CARRE / 2);
             numCol++;
         }
 
@@ -93,8 +93,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         //---------------------Numero ligne----------------------
         int numLigne = 1;
         graphiqueContext2D.setFill(COULEUR_GRILLE);
-        for (int i = CARRE; i < TAILLE_MAP[1]; i += CARRE) {
-            graphiqueContext2D.fillText(Integer.toString(numLigne), CARRE / 3, i + CARRE / 2);
+        for (int i = TAILLE_CARRE; i < TAILLE_MAP[1]; i += TAILLE_CARRE) {
+            graphiqueContext2D.fillText(Integer.toString(numLigne), TAILLE_CARRE / 3, i + TAILLE_CARRE / 2);
             numLigne++;
         }
 
@@ -137,8 +137,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         //------------------------Event------------------------
 
         canvasCarte.setOnMouseClicked(event -> {
-            int abscisse = (int) event.getX() / CARRE;
-            int ordonnee = (int) event.getY() / CARRE;
+            int abscisse = (int) event.getX() / TAILLE_CARRE;
+            int ordonnee = (int) event.getY() / TAILLE_CARRE;
 
             if (abscisse >= 1 && ordonnee >= 1) {
                 System.out.println(abscisse + ", " + ordonnee);

@@ -14,6 +14,9 @@ public class Cristal {
         return position;
     }
 
+    public void setPosition(Position position) {
+        this.position = position;
+    }
 
     public int getCouleur() {
         return couleur;
