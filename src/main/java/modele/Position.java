@@ -48,13 +48,21 @@ public class Position{
         Position positionDepart = Map.getJoueur().getPosition();
         switch (direction) {
 
-            case "D" : setPosX(posX++);
+            case "D" :
+                posX++;
+                break;
 
-            case "G" : posX--;
+            case "G" :
+                posX--;
+                break;
 
-            case "H" : posY--;
+            case "H" :
+                posY--;
+                break;
 
-            case "B" : posY++;
+            case "B" :
+                posY++;
+                break;
         }
 
         // On reset la position de départ

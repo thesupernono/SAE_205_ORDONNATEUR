@@ -41,7 +41,6 @@ public class Joueur{
 
             // On vérifie sur l'axe x
             if(position.getPosX() != positionArrivee.getPosX()){
-                System.out.println(position.getPosX() + ", " + position.getPosY());
                 if(position.getPosX() < positionArrivee.getPosX())
                     position.deplacement("D"); // On se décale à droite
                 else

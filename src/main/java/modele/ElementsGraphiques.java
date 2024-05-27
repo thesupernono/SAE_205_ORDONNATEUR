@@ -16,8 +16,8 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         graphiqueContext2D.setFill(COULEURS[0]);
 
         graphiqueContext2D.fillRect(
-                joueur.getPosition().getPosX() * TAILLE_CARRE + TAILLE_CARRE / 8,
-                joueur.getPosition().getPosY() * TAILLE_CARRE + TAILLE_CARRE / 4,
+                joueur.getPosition().getPosX() * TAILLE_CARRE,
+                joueur.getPosition().getPosY() * TAILLE_CARRE,
                 LARGEUR_CIBLE, HAUTEUR_CIBLE);
 
     }
@@ -28,8 +28,10 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         int numCouleur = parCristal.getCouleur();
         graphiqueContext2D.setFill(COULEURS[numCouleur]);
 
-        graphiqueContext2D.fillRect(parCristal.getPosition().getPosX(), parCristal.getPosition().getPosY(),
-                                parCristal.getPosition().getPosX() + TAILLE_CARRE, parCristal.getPosition().getPosY() + TAILLE_CARRE);
+        graphiqueContext2D.fillRect(parCristal.getPosition().getPosX()* TAILLE_CARRE + TAILLE_CARRE / 8,
+                                    parCristal.getPosition().getPosY() * TAILLE_CARRE + TAILLE_CARRE / 4,
+                                    TAILLE_CARRE,
+                                    TAILLE_CARRE);
 
     }
 
@@ -41,11 +43,20 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
         graphiqueContext2D.setFill(COULEURS[numCouleur]);
 
-        graphiqueContext2D.fillOval(parTemple.getPosition().getPosX(), parTemple.getPosition().getPosY(),
-                                    parTemple.getPosition().getPosX() + TAILLE_CRISTAL, parTemple.getPosition().getPosY() + TAILLE_CRISTAL);
+        graphiqueContext2D.fillOval(parTemple.getPosition().getPosX() * TAILLE_CARRE,
+                                        parTemple.getPosition().getPosY() * TAILLE_CARRE,
+                                    TAILLE_CRISTAL, TAILLE_CRISTAL);
     }
 
     public static void resetGraphique(Position position){
+        // Si on redessine une case qui est déjà vide, ça ne sert à rien et ça gènere des cubes
+        // Pour rien, donc on vérifie si il y a quelque chose. Si il n'y a rien, on return pour
+        // Annuler la méthode
+        if( !Map.getCoordonneesTemples().containsKey(position) &&
+            !Map.getCoordonneesCristaux().containsKey(position) &&
+            Map.getJoueur().getPosition() != position)
+            return;
+
         // On reset la case
         graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
                 position.getPosY() * TAILLE_CARRE,
