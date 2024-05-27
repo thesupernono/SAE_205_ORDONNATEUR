@@ -32,8 +32,6 @@ public class ExceptionJeu extends Exception implements CONSTANTES_ERREUR, CONSTA
         }
     }
 
-    // public static void
-
     public int getNumErreur(){
         return numErreur;
     }
