@@ -15,12 +15,11 @@ public class ExceptionJeu extends Exception implements CONSTANTES_ERREUR, CONSTA
      * @param parY position Y
      */
     public static void VerifierObjet(int parX, int parY, int parCouleur){
-        //TODO: CHANGER LES INT DANS LES IF AVEC LES CONSTANTES DE CONSTANTES_MAP
         try {
-            if (parX > 10 || parX < 1) {
+            if (parX > NOMBRE_CARRE || parX < 1) {
                 throw new ExceptionJeu(2);
             }
-            else if (parY > 10 || parY < 1) {
+            else if (parY > NOMBRE_CARRE || parY < 1) {
                 throw new ExceptionJeu(2);
             }
             else if (parCouleur > COULEURS.length){
@@ -32,6 +31,8 @@ public class ExceptionJeu extends Exception implements CONSTANTES_ERREUR, CONSTA
             System.exit(e.getNumErreur());
         }
     }
+
+    // public static void
 
     public int getNumErreur(){
         return numErreur;
