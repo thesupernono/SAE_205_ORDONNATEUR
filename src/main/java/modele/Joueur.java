@@ -1,6 +1,8 @@
 package modele;
 
 
+import java.util.HashMap;
+
 public class Joueur{
     private Position position;
     private Cristal cristal;
@@ -75,10 +77,10 @@ public class Joueur{
 
 
     /**
-     * Permet de prendre et échanger les cristaux entre eux
-     * @param parCristal le cristal en question
+     * Permet de prendre un cristal
+     * @param position : la position du cristal
      */
-    public void prendreCristal(Cristal parCristal){
+    public void prendreCristal(Position position){
         //if(this.cristal == null) {
         //    this.cristal = cristal;
         //}
@@ -86,7 +88,9 @@ public class Joueur{
         //    Cristal cristalDepose = this.cristal;
         //    this.cristal = cristal;
         //}
-        cristal = parCristal;
+        HashMap<Position, Cristal> coordonneesCristal = Map.getCoordonneesCristaux();
+
+        cristal = coordonneesCristal.get(position);
 
         // On met la position -1 -1 dans la position pour enlever le cristal du graphique
         cristal.setPosition(new Position(-1, -1));

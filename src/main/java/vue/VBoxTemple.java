@@ -15,7 +15,6 @@ import java.util.HashSet;
 
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
-    private static Joueur joueur;
     private static Map map;
     private HashSet<Temple> temples;
     private HashSet<Cristal> cristaux;
@@ -26,7 +25,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
     // private Controller controleur;
 
     public VBoxTemple() throws Exception {
-        joueur = new Joueur(CENTRE_X, CENTRE_Y);
         map = new Map(SCENARIO_DEFAUT);
         // controleur = new Controleur();
 
@@ -54,8 +52,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         //Informations sur le joueur
         Menu infosJoueur = new Menu("Infos");
-        MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition().getPosX());
-        MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition().getPosY());
+        MenuItem menuItemPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
+        MenuItem menuItemPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
 
         menuBar.getMenus().add(infosJoueur);
 
@@ -105,35 +103,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         VBox.setMargin(canvasCarte, new Insets(30));
 
 
-        //-----------------------Apprenti-----------------------
-        ElementsGraphiques.dessinerElement(joueur);
-
-
-        //-----------------Cristaux et temples-----------------
-        cristaux = LectureScenario.getCristal();
-        temples = LectureScenario.getTemple();
-
-        for (Cristal cristal: cristaux){
-            ElementsGraphiques.dessinerElement(cristal);
-        }
-
-        for (Temple temple: temples){
-            ElementsGraphiques.dessinerElement(temple);
-        }
-
-
-            /*for(int i=0; i < 11; i++) {
-                for(int j=0; i < 11; i++){
-                    for(int k=0; k < 3; k++)
-                        if(temples.contains(new Temple(i,j,k))) {
-                            graphiqueContext2D.setFill(COULEURS[2]);
-                            graphiqueContext2D.fillRect(
-                                    i * CARRE + CARRE / 8,
-                                    j * CARRE + CARRE / 4,
-                                    LARGEUR_OVALE,HAUTEUR_OVALE);
-                        }
-                }
-            }*/
         //------------------------Event------------------------
 
         canvasCarte.setOnMouseClicked(event -> {
@@ -143,15 +112,11 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             if (abscisse >= 1 && ordonnee >= 1) {
                 System.out.println(abscisse + ", " + ordonnee);
                 Position posElement = new Position(abscisse, ordonnee);
-                ElementsGraphiques.deplacerElement(posElement, joueur);
+                ElementsGraphiques.deplacerElement(posElement, Map.getJoueur());
                 //joueur.getPosition().deplacement("H");
             }
         });
 
-    }
-
-    public static Joueur getJoueur() {
-        return joueur;
     }
 
     public void setTemples(HashSet<Temple> parTemples) {

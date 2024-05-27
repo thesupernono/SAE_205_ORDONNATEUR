@@ -45,6 +45,39 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
                                     parTemple.getPosition().getPosX() + TAILLE_CRISTAL, parTemple.getPosition().getPosY() + TAILLE_CRISTAL);
     }
 
+    public static void resetGraphique(Position position){
+        // On reset la case
+        graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
+                position.getPosY() * TAILLE_CARRE,
+                TAILLE_CARRE, TAILLE_CARRE);
+
+        // On redessine un temple si il y en a
+
+        if(Map.getCoordonneesTemples().containsKey(position)){
+
+            // On récupère le temple et on le dessine
+            Temple temple = Map.getCoordonneesTemples().get(position);
+            dessinerElement(temple);
+        }
+
+
+        // On redessine un cristal si il y en a
+        if(Map.getCoordonneesCristaux().containsKey(position)){
+
+            // On récupère le temple et on le dessine
+            Cristal cristal = Map.getCoordonneesCristaux().get(position);
+            dessinerElement(cristal);
+        }
+
+
+        // On redessine le joueur si il est là
+        if (Map.getJoueur().getPosition() == position) {
+            graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
+                    position.getPosY() * TAILLE_CARRE,
+                    TAILLE_CARRE, TAILLE_CARRE);
+        }
+    }
+
     public static void deplacerElement(Position posDepartElement, Joueur joueur) {
 
         // Le joueur contient déjà sa nouvelle position, donc on met juste à jour le graphique
@@ -55,53 +88,11 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
 
         // On redessine le carré pour clear la case
-        graphiqueContext2D.strokeRect(posDepartElement.getPosX() * TAILLE_CARRE,
-                posDepartElement.getPosY() * TAILLE_CARRE,
-                TAILLE_CARRE, TAILLE_CARRE);
-
-        graphiqueContext2D.setFill(COULEUR_GRILLE);
-        graphiqueContext2D.fillRect(
-                posDepartElement.getPosX() * TAILLE_CARRE + TAILLE_CARRE / 8,
-                posDepartElement.getPosY() * TAILLE_CARRE + TAILLE_CARRE / 4,
-                LARGEUR_CIBLE, HAUTEUR_CIBLE);
-
-
-        // On vérifie si il y avait un élément qu'il faut redessiner
-
-        if (coordonneesTemples.containsKey(posDepartElement)) {
-            // Il faut redessiner le temple
-            dessinerElement(coordonneesTemples.get(posDepartElement));
-        }
-
-        if (coordonneesCristaux.containsKey(posDepartElement)) {
-            // Il faut redessiner le cristal
-            dessinerElement(coordonneesCristaux.get(posDepartElement));
-
-        }
+        resetGraphique(posDepartElement);
 
 
         // On redisssine la case d'arrivée
-        // On redessine le carré pour clear la case
-        graphiqueContext2D.strokeRect(joueur.getPosition().getPosX() * TAILLE_CARRE,
-                joueur.getPosition().getPosY() * TAILLE_CARRE,
-                TAILLE_CARRE, TAILLE_CARRE);
-
-
-        // On vérifie si il y avait un élément qu'il faut redessiner
-
-        if (coordonneesTemples.containsKey(posDepartElement)) {
-            // Il faut redessiner le temple
-            dessinerElement(coordonneesTemples.get(posDepartElement));
-        }
-
-        if (coordonneesCristaux.containsKey(posDepartElement)) {
-            // Il faut redessiner le cristal
-            dessinerElement(coordonneesCristaux.get(posDepartElement));
-
-        }
-
-        // On place le joueur
-        dessinerElement(joueur);
+        resetGraphique(joueur.getPosition());
     }
 
     public static void poserCristal(Position position) {
@@ -110,10 +101,10 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
         // On get les treeMap des cristaux et des temples pour pouvoir les ressiner plus tard si besoin
         HashMap<Position, Cristal> coordonneesCristaux = Map.getCoordonneesCristaux();
-        HashMap<Position, Cristal> coordonneesTemples = Map.getCoordonneesCristaux();
-        Joueur joueur = VBoxTemple.getJoueur();
+        HashMap<Position, Temple> coordonneesTemples = Map.getCoordonneesTemples();
+        Joueur joueur = Map.getJoueur();
 
-        // On enlève et récupère le cristal de la main du joueur
+        // On ajoute à la map et récupère le cristal de la main du joueur
         Cristal cristal = joueur.poserCristal();
 
         // On modifie la position dans l'objet cristal
@@ -125,11 +116,19 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
     }
 
-    public static void prendreCristal(Cristal cristal){
+    public static void prendreCristal(Position position){
 
         HashMap<Position, Cristal> coordonneesCristaux = Map.getCoordonneesCristaux();
-        HashMap<Position, Cristal> coordonneesTemples = Map.getCoordonneesCristaux();
+        HashMap<Position, Temple> coordonneesTemples = Map.getCoordonneesTemples();
+        Joueur joueur = Map.getJoueur();
 
-        // On
+        // On récupère le cristal
+        joueur.prendreCristal(position);
+
+        // On remet à jour la case avec le nouveau cristal
+
+        // dessinerElement();
+
+
     }
 }

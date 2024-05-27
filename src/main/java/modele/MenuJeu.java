@@ -40,7 +40,7 @@ public class MenuJeu extends MenuBar {
 
 
         // Un joueur ( temporaire )
-        Joueur joueur = VBoxTemple.getJoueur();
+        Joueur joueur = Map.getJoueur();
 
         MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition().getPosX());
         MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition().getPosX());

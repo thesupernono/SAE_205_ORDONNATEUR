@@ -13,6 +13,7 @@ public class Map implements CONSTANTES_MAP{
 
     private static HashMap<Position, Temple> coordonneesTemples = new HashMap<>();
     private static HashMap<Position, Cristal> coordonneesCristaux = new HashMap<>();
+    private static Joueur joueur;
 
 
     public Map(String parNomFichierScenario) throws Exception {
@@ -21,6 +22,7 @@ public class Map implements CONSTANTES_MAP{
         LectureScenario scenario = new LectureScenario(parNomFichierScenario);
         HashSet<Temple> listeTemple = scenario.getTemple();
         HashSet<Cristal> listeCristal = scenario.getCristal();
+        joueur = new Joueur(CENTRE_X, CENTRE_Y);
 
 
         // On stock les positions de tous les temples
@@ -35,10 +37,36 @@ public class Map implements CONSTANTES_MAP{
         // On stock les positions de tous les cristaux
         for(Cristal cristal: listeCristal){
 
-
             // On initie le cristal
             coordonneesCristaux.put(cristal.getPosition(), cristal);
         }
+
+        // On affiche le joueur
+        ElementsGraphiques.dessinerElement(joueur);
+
+
+        //-----------------Cristaux et temples-----------------
+        for (Temple temple: listeTemple){
+            ElementsGraphiques.dessinerElement(temple);
+        }
+
+        for (Cristal cristal: listeCristal){
+            ElementsGraphiques.dessinerElement(cristal);
+        }
+
+
+            /*for(int i=0; i < 11; i++) {
+                for(int j=0; i < 11; i++){
+                    for(int k=0; k < 3; k++)
+                        if(temples.contains(new Temple(i,j,k))) {
+                            graphiqueContext2D.setFill(COULEURS[2]);
+                            graphiqueContext2D.fillRect(
+                                    i * CARRE + CARRE / 8,
+                                    j * CARRE + CARRE / 4,
+                                    LARGEUR_OVALE,HAUTEUR_OVALE);
+                        }
+                }
+            }*/
     }
 
 
@@ -49,5 +77,9 @@ public class Map implements CONSTANTES_MAP{
 
     public static HashMap<Position, Cristal> getCoordonneesCristaux(){
         return coordonneesCristaux;
+    }
+
+    public static Joueur getJoueur() {
+        return joueur;
     }
 }
