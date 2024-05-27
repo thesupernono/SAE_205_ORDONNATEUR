@@ -5,14 +5,17 @@ import javafx.scene.paint.Color;
 public interface CONSTANTES_MAP {
 
     //-------------------------Map-------------------------
+
+    int NOMBRE_CARRE = 15;
     int [] TAILLE_FENETRE = {1280, 720};
     int TAILLE_CARRE = 50;
     int TAILLE_CRISTAL = 30;
     //int [] TAILLE_MAP = {TAILLE_FENETRE[0] - 200, TAILLE_FENETRE[1] - 200};
-    int [] TAILLE_MAP = {TAILLE_CARRE *11, TAILLE_CARRE *11};
+    int [] TAILLE_MAP = {TAILLE_CARRE *NOMBRE_CARRE, TAILLE_CARRE *NOMBRE_CARRE};
     int CENTRE_X = 13;
     int CENTRE_Y = 5;
     Color COULEUR_GRILLE = Color.BLACK;
+
 
     //------------------------Joueur------------------------
     Color [] COULEURS= {

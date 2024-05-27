@@ -45,7 +45,7 @@ public class Position{
             case "B" : posY--;
         }
 
-        VBoxTemple.getJoueur().ajoutPas();
+        Map.getJoueur().ajoutPas();
     }
 
 }
