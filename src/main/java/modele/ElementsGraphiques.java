@@ -60,6 +60,28 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
                 posDepartElement.getPosY() * CARRE + CARRE / 4,
                 LARGEUR_CIBLE, HAUTEUR_CIBLE);
 
+
+        // On vérifie si il y avait un élément qu'il faut redessiner
+
+        if (coordonneesTemples.containsKey(posDepartElement)) {
+            // Il faut redessiner le temple
+            dessinerElement(coordonneesTemples.get(posDepartElement));
+        }
+
+        if (coordonneesCristaux.containsKey(posDepartElement)) {
+            // Il faut redessiner le cristal
+            dessinerElement(coordonneesCristaux.get(posDepartElement));
+
+        }
+
+
+        // On redisssine la case d'arrivée
+        // On redessine le carré pour clear la case
+        graphiqueContext2D.strokeRect(joueur.getPosition().getPosX() * CARRE,
+                joueur.getPosition().getPosY() * CARRE,
+                CARRE, CARRE);
+
+
         // On vérifie si il y avait un élément qu'il faut redessiner
 
         if (coordonneesTemples.containsKey(posDepartElement)) {
