@@ -17,6 +17,12 @@ public interface CONSTANTES_MAP {
     Color [] COULEURS= {
             Color.AQUA,         // Couleur du joueur
             Color.LIGHTGREEN,
+            Color.PINK,
+            Color.LIGHTGREEN,
+            Color.PINK,
+            Color.LIGHTGREEN,
+            Color.PINK,
+            Color.LIGHTGREEN,
             Color.PINK
     };
     int [] POSITION_DEPART = {CENTRE_X, CENTRE_Y};
