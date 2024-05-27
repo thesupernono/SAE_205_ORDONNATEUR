@@ -17,6 +17,10 @@ public class Temple {
           return position;
      }
 
+     public int getCouleur(){
+          return couleur;
+     }
+
 
      public String toString(){
           return "position : (" +position.getPosX() + "," + position.getPosY() + ") couleur :" + couleur;

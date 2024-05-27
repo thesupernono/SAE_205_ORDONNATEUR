@@ -15,7 +15,7 @@ public interface CONSTANTES_MAP {
 
     //------------------------Joueur------------------------
     Color [] COULEURS= {
-            Color.AQUA,
+            Color.AQUA,         // Couleur du joueur
             Color.LIGHTGREEN,
             Color.PINK
     };

@@ -113,6 +113,13 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         cristaux = LectureScenario.getCristal();
         temples = LectureScenario.getTemple();
 
+        for (Cristal cristal: cristaux){
+            ElementsGraphiques.dessinerElement(cristal);
+        }
+
+        for (Temple temple: temples){
+            ElementsGraphiques.dessinerElement(temple);
+        }
 
 
             /*for(int i=0; i < 11; i++) {

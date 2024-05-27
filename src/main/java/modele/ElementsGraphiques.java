@@ -12,7 +12,7 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
     // Si on dessine un joueur
     public static void dessinerElement(Joueur joueur) {
 
-        graphiqueContext2D.setFill(COULEURS[1]);
+        graphiqueContext2D.setFill(COULEURS[0]);
 
         graphiqueContext2D.fillRect(
                 joueur.getPosition().getPosX() * CARRE + CARRE / 8,
@@ -24,11 +24,20 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
     // Si on dessine un cristal
     public static void dessinerElement(Cristal parCristal) {
 
+        int numCouleur = parCristal.getCouleur();
+
+        graphiqueContext2D.setFill(COULEURS[numCouleur]);
+
+
     }
+
 
     // Si on dessine un temple
     public static void dessinerElement(Temple parTemple) {
 
+        int numCouleur = parTemple.getCouleur();
+
+        graphiqueContext2D.setFill(COULEURS[numCouleur]);
     }
 
     public static void deplacerElement(Position posDepartElement, Joueur joueur) {
@@ -36,8 +45,8 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         // Le joueur contient déjà sa nouvelle position, donc on met juste à jour le graphique
 
         // On get les treeMap des cristaux et des temples pour pouvoir les ressiner plus tard si besoin
-        HashMap<Position, Cristal> coordonneesCristaux = VBoxTemple.getMap().getCoordonneesCristaux();
-        HashMap<Position, Cristal> coordonneesTemples = VBoxTemple.getMap().getCoordonneesCristaux();
+        HashMap<Position, Cristal> coordonneesCristaux = Map.getCoordonneesCristaux();
+        HashMap<Position, Temple> coordonneesTemples = Map.getCoordonneesTemples();
 
 
         // On redessine le carré pour clear la case
@@ -55,18 +64,17 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
         if (coordonneesTemples.containsKey(posDepartElement)) {
             // Il faut redessiner le temple
-
+            dessinerElement(coordonneesTemples.get(posDepartElement));
         }
 
         if (coordonneesCristaux.containsKey(posDepartElement)) {
             // Il faut redessiner le cristal
+            dessinerElement(coordonneesCristaux.get(posDepartElement));
 
         }
 
         // On place le joueur
-
-
-        // On dessine le nouveau élément (joueur ou cristal)
+        dessinerElement(joueur);
     }
 
     public static void deplacerElement(Position posDepartElement, Cristal cristal) {
