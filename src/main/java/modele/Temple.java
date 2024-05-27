@@ -1,7 +1,7 @@
 package modele;
 
 
-public class Temple {
+public class Temple implements CONSTANTES_MAP{
      Position position;
      int couleur;
 
@@ -11,7 +11,6 @@ public class Temple {
           position = new Position(parPosX, parPosY);
           couleur = parNumCouleur;
      }
-
 
      public Position getPosition(){
           return position;

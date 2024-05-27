@@ -9,7 +9,7 @@ public class JoueurTest{
 
     @Test
     void limiteTerrain(){
-        //tests limite >= 12
+        //tests limite >= 11
         testJoueur.deplacement(new Position(12,1));
         assertEquals(11, testJoueur.getPosition().getPosX());
         testJoueur.deplacement(new Position(1,12));
@@ -21,6 +21,5 @@ public class JoueurTest{
         testJoueur.deplacement(new Position(1,0));
         assertEquals(1, testJoueur.getPosition().getPosY());
     }
-
 }
 

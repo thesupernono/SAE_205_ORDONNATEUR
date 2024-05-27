@@ -7,6 +7,9 @@ public class ExceptionJeu extends Exception implements CONSTANTES_ERREUR{
     public ExceptionJeu(int parNumErreur){
         numErreur = parNumErreur;
         messageErreur = MESSAGE_ERREUR[parNumErreur];
-        System.out.println("erreur : " + messageErreur);
+    }
+
+    public String toString(){
+        return "L'application s'est terminé avec le code erreur " + numErreur + ": " + messageErreur;
     }
 }
