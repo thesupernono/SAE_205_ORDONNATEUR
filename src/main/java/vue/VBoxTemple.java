@@ -22,6 +22,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
     // private Controller controleur;
 
     public VBoxTemple() throws Exception {
+
         //-------------------------Map-------------------------
         canvasCarte = new Canvas();
         canvasCarte.setWidth(TAILLE_MAP[0]);
@@ -61,13 +62,14 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         //------------------------Event------------------------
 
         canvasCarte.setOnMouseClicked(event -> {
+            Joueur joueur = Map.getJoueur();
             int abscisse = (int) event.getX() / TAILLE_CARRE;
             int ordonnee = (int) event.getY() / TAILLE_CARRE;
 
             if (abscisse >= 1 && ordonnee >= 1) {
                 System.out.println(abscisse + ", " + ordonnee);
-                Position posElement = new Position(abscisse, ordonnee);
-                ElementsGraphiques.deplacerElement(posElement, Map.getJoueur());
+                Position posArrivee = new Position(abscisse, ordonnee);
+                joueur.deplacement(posArrivee);
                 //joueur.getPosition().deplacement("H");
             }
         });

@@ -83,11 +83,9 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         // Le joueur contient déjà sa nouvelle position, donc on met juste à jour le graphique
 
         // On get les treeMap des cristaux et des temples pour pouvoir les ressiner plus tard si besoin
-        HashMap<Position, Cristal> coordonneesCristaux = Map.getCoordonneesCristaux();
-        HashMap<Position, Temple> coordonneesTemples = Map.getCoordonneesTemples();
 
 
-        // On redessine le carré pour clear la case
+        // On redessine le carré
         resetGraphique(posDepartElement);
 
 
@@ -110,9 +108,8 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         // On modifie la position dans l'objet cristal
         cristal.setPosition(position);
 
-        // Il y a forcément un temple en dessous, donc on le redessine et on dessine le cristal
-        dessinerElement(coordonneesTemples.get(position));
-        dessinerElement(coordonneesCristaux.get(position));
+        // On reset le graphique de la position
+        resetGraphique(position);
 
     }
 
@@ -122,13 +119,12 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         HashMap<Position, Temple> coordonneesTemples = Map.getCoordonneesTemples();
         Joueur joueur = Map.getJoueur();
 
-        // On récupère le cristal
+        // On récupère le cristal et on l'enlève du HashMap
         joueur.prendreCristal(position);
+        coordonneesCristaux.remove(position);
 
         // On remet à jour la case avec le nouveau cristal
-
-        // dessinerElement();
-
+        resetGraphique(position);
 
     }
 }
