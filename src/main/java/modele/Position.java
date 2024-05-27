@@ -8,7 +8,7 @@ public class Position{
 
 
     //---------------------Constructeur---------------------
-    Position(int parPosX, int parPosY){
+    public Position(int parPosX, int parPosY){
         posX = parPosX;
         posY = parPosY;
     }

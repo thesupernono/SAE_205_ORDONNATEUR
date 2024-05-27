@@ -26,4 +26,6 @@ public interface CONSTANTES_MAP {
 
     int LARGEUR_CIBLE = 25;
     int HAUTEUR_CIBLE = 25;
+
+    String SCENARIO_DEFAUT = "Scenario1.txt";
 }

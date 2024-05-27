@@ -68,6 +68,7 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
         // On dessine le nouveau élément (joueur ou cristal)
     }
+
     public static void deplacerElement(Position posDepartElement, Cristal cristal) {
 
         // Le cristal contient déjà sa nouvelle position, donc on met juste à jour le graphique
@@ -77,3 +78,4 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         HashMap<Position, Cristal> coordonneesTemples = VBoxTemple.getMap().getCoordonneesCristaux();
 
     }
+}

@@ -10,7 +10,7 @@ public class HBoxRoot extends HBox {
     private static VBox vBoxTemple;
     private static Controleur controleur;
 
-    public HBoxRoot(){
+    public HBoxRoot() throws Exception {
         // Le controleur
         controleur = new Controleur();
 

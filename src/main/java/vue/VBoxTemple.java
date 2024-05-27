@@ -25,7 +25,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
     // private Controller controleur;
 
-    public VBoxTemple() {
+    public VBoxTemple() throws Exception {
         joueur = new Joueur(CENTRE_X, CENTRE_Y);
         map = new Map(SCENARIO_DEFAUT);
         // controleur = new Controleur();
@@ -136,7 +136,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             if (abscisse >= 1 && ordonnee >= 1) {
                 System.out.println(abscisse + ", " + ordonnee);
                 Position posElement = new Position(abscisse, ordonnee);
-                ElementsGraphiques.deplacerElement(posElement, "joueur");
+                ElementsGraphiques.deplacerElement(posElement, joueur);
                 //joueur.getPosition().deplacement("H");
             }
         });
