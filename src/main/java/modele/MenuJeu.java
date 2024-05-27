@@ -1,53 +1,70 @@
 package modele;
 
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import vue.HBoxRoot;
-import vue.VBoxTemple;
 
 import java.io.File;
 
 public class MenuJeu extends MenuBar {
+    private Label labelNombreDePas;
+    private int nombrePas;
+
+
     public MenuJeu(){
 
-        VBox.setMargin(this, new Insets(9));
+        // Barre de menu
+        MenuBar menuBar = new MenuBar();
+        this.getChildren().add(menuBar);
+        VBox.setMargin(menuBar, new Insets(9));
 
         // Menu des scénarios
         Menu menuScenarios = new Menu("Scenarios");
-        this.getMenus().add(menuScenarios);
+        menuBar.getMenus().add(menuScenarios);
 
         //listes des scénario du menu
         File[] scenarios = new File("Scenario").listFiles();
 
 
-        for (File scenario : scenarios) { // lecture de la LISTE des fichiers
-            MenuItem menuItemScenar = new MenuItem(scenario.getName());
+        for (int i = 0; i < scenarios.length; i++) { // lecture de la LISTE des fichiers
+            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
             menuItemScenar.setUserData(scenarios);
 
+            // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
             menuScenarios.getItems().add(menuItemScenar);
-
-            menuItemScenar.setUserData(scenarios);
-            menuItemScenar.setOnAction(HBoxRoot.getControleur());
         }
 
 
         //Informations sur le joueur
-        //TODO: changer l'endroit ou et affiché les infos joueur lors de la mise en place du GridPane
-        Menu infosJoueur = new Menu("infos");
+        Menu infosJoueur = new Menu("Infos");
+        MenuItem menuItemPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
+        MenuItem menuItemPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
 
-
-        // Un joueur ( temporaire )
-        Joueur joueur = Map.getJoueur();
-
-        MenuItem menuItemPosX = new MenuItem("Position X: " + joueur.getPosition().getPosX());
-        MenuItem menuItemPosY = new MenuItem("Position Y: " + joueur.getPosition().getPosX());
-
-        this.getMenus().add(infosJoueur);
+        menuBar.getMenus().add(infosJoueur);
 
         infosJoueur.getItems().add(menuItemPosX);
         infosJoueur.getItems().add(menuItemPosY);
+
+
+        nombrePas = 0;
+        labelNombreDePas = new Label("Nombre de pas : 0");
+
+
+        //----------------Composants à la racine----------------
+        this.getChildren().add(labelNombreDePas);
+        VBox.setMargin(labelNombreDePas, new Insets(30));
+    }
+
+
+    public Label getLabelNombreDePas(){
+        return  labelNombreDePas;
+    }
+
+    public void setNombreDePas(int parNombrePas){
+        nombrePas = parNombrePas;
+        labelNombreDePas = new Label("Nombre de pas : " + nombrePas);
     }
 }

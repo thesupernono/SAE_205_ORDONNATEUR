@@ -16,58 +16,19 @@ import java.util.HashSet;
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
     private static Map map;
-    private HashSet<Temple> temples;
-    private HashSet<Cristal> cristaux;
-    private Label labelNombreDePas;
     private Canvas canvasCarte;
     private static GraphicsContext graphiqueContext2D;
 
     // private Controller controleur;
 
     public VBoxTemple() throws Exception {
-        map = new Map(SCENARIO_DEFAUT);
-        // controleur = new Controleur();
-
-        // Barre de menu
-        MenuBar menuBar = new MenuBar();
-        this.getChildren().add(menuBar);
-        VBox.setMargin(menuBar, new Insets(9));
-
-        // Menu des scénarios
-        Menu menuScenarios = new Menu("Scenarios");
-        menuBar.getMenus().add(menuScenarios);
-
-        //listes des scénario du menu
-        File[] scenarios = new File("Scenario").listFiles();
-
-
-        for (int i = 0; i < scenarios.length; i++) { // lecture de la LISTE des fichiers
-            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
-            menuItemScenar.setUserData(scenarios);
-
-            // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
-            menuScenarios.getItems().add(menuItemScenar);
-        }
-
-
-        //Informations sur le joueur
-        Menu infosJoueur = new Menu("Infos");
-        MenuItem menuItemPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
-        MenuItem menuItemPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
-
-        menuBar.getMenus().add(infosJoueur);
-
-        infosJoueur.getItems().add(menuItemPosX);
-        infosJoueur.getItems().add(menuItemPosY);
-
-        labelNombreDePas = new Label("Nombre de pas : 0");
-
-
         //-------------------------Map-------------------------
         canvasCarte = new Canvas();
         canvasCarte.setWidth(TAILLE_MAP[0]);
         canvasCarte.setHeight(TAILLE_MAP[1]);
         graphiqueContext2D = canvasCarte.getGraphicsContext2D();
+
+        map = new Map(SCENARIO_DEFAUT);
 
 
         //-----------------Initiation de carrés-----------------
@@ -96,12 +57,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             numLigne++;
         }
 
-        //----------------Composants à la racine----------------
-        this.getChildren().add(labelNombreDePas);
-        VBox.setMargin(labelNombreDePas, new Insets(30));
-        this.getChildren().add(canvasCarte);
-        VBox.setMargin(canvasCarte, new Insets(30));
-
 
         //------------------------Event------------------------
 
@@ -117,15 +72,13 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             }
         });
 
-    }
-
-    public void setTemples(HashSet<Temple> parTemples) {
-        temples = parTemples;
-    }
+        MenuJeu menuJeu = new MenuJeu();
 
 
-    public void setCristaux(HashSet<Cristal> parCristaux) {
-        cristaux = parCristaux;
+        this.getChildren().add(menuJeu);
+        this.getChildren().add(canvasCarte);
+        VBox.setMargin(canvasCarte, new Insets(30));
+
     }
 
     public static GraphicsContext getGraphiqueContext2D() {

@@ -6,15 +6,22 @@ public interface CONSTANTES_MAP {
 
     //-------------------------Map-------------------------
 
-    int NOMBRE_CARRE = 15;
+    // carré
+    int NOMBRE_CARRE = 30;
+    int TAILLE_CARRE = 30;
+
+
+    // fenetres
     int [] TAILLE_FENETRE = {1280, 720};
-    int TAILLE_CARRE = 50;
-    int TAILLE_CRISTAL = 30;
-    //int [] TAILLE_MAP = {TAILLE_FENETRE[0] - 200, TAILLE_FENETRE[1] - 200};
-    int [] TAILLE_MAP = {TAILLE_CARRE *NOMBRE_CARRE, TAILLE_CARRE *NOMBRE_CARRE};
-    int CENTRE_X = 13;
-    int CENTRE_Y = 5;
+    int TAILLE_CRISTAL = TAILLE_CARRE - 10;
+    int [] TAILLE_MAP = {TAILLE_CARRE * NOMBRE_CARRE, TAILLE_CARRE * NOMBRE_CARRE};
+
+
+    // Centre et couleur de la grille
+    int CENTRE_X = NOMBRE_CARRE / 2;
+    int CENTRE_Y = NOMBRE_CARRE / 2;
     Color COULEUR_GRILLE = Color.BLACK;
+
 
 
     //------------------------Joueur------------------------
@@ -35,8 +42,8 @@ public interface CONSTANTES_MAP {
     int HAUTEUR_OVALE = 30;
     Color COULEUR_DESTINATION = Color.RED;
 
-    int LARGEUR_CIBLE = 25;
-    int HAUTEUR_CIBLE = 25;
+    int LARGEUR_CIBLE = TAILLE_CARRE;
+    int HAUTEUR_CIBLE = TAILLE_CARRE;
 
     String SCENARIO_DEFAUT = "Scenario1.txt";
 }
