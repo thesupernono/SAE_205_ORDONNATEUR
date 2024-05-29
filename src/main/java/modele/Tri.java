@@ -23,7 +23,7 @@ public class Tri implements CONSTANTES_MAP{
             };*/
             int distance = temple.getPosition().getPosX() - posJoueur.getPosX() + temple.getPosition().getPosY() - posJoueur.getPosY();
 
-            if
+            // if
         }
     }
 
