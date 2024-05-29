@@ -1,6 +1,6 @@
 package modele;
 
-import vue.VBoxTemple;
+import static java.lang.Math.abs;
 
 public class Position{
     private int posX;
@@ -37,6 +37,34 @@ public class Position{
     public void teleporteur(int parPosX, int parPosY){
         posX = parPosX;
         posY = parPosY;
+    }
+
+    /**
+     * Permet de calculer la distance entre deux points
+     *
+     * @param parDepart position de départ
+     * @param parArrive position d'arrivé
+     * @return la distance calculé
+     */
+    public int distance(Position parDepart, Position parArrive){
+        int disEntrePointsX = 0;
+        int disEntrePointsY = 0;
+
+        if(parDepart.posX > parArrive.posX) {
+            disEntrePointsX = abs(parDepart.posX - parArrive.getPosX());
+        }
+        else{
+            disEntrePointsX = abs(parArrive.getPosX() - parDepart.posX);
+        }
+
+        if(parDepart.posY > parArrive.posY) {
+            disEntrePointsY = abs(parDepart.getPosY() - parArrive.getPosY());
+        }
+        else{
+            disEntrePointsY = abs(parArrive.getPosY() - parDepart.posY);
+        }
+
+        return disEntrePointsX + disEntrePointsY;
     }
 
 
