@@ -42,26 +42,25 @@ public class Position{
     /**
      * Permet de calculer la distance entre deux points
      *
-     * @param parDepart position de départ
      * @param parArrive position d'arrivé
      * @return la distance calculé
      */
-    public int distance(Position parDepart, Position parArrive){
+    public int distance(Position parArrive){
         int disEntrePointsX = 0;
         int disEntrePointsY = 0;
 
-        if(parDepart.posX > parArrive.posX) {
-            disEntrePointsX = abs(parDepart.posX - parArrive.getPosX());
+        if(this.posX > parArrive.posX) {
+            disEntrePointsX = abs(this.posX - parArrive.getPosX());
         }
         else{
-            disEntrePointsX = abs(parArrive.getPosX() - parDepart.posX);
+            disEntrePointsX = abs(parArrive.getPosX() - this.posX);
         }
 
-        if(parDepart.posY > parArrive.posY) {
-            disEntrePointsY = abs(parDepart.getPosY() - parArrive.getPosY());
+        if(this.posY > parArrive.posY) {
+            disEntrePointsY = abs(this.getPosY() - parArrive.getPosY());
         }
         else{
-            disEntrePointsY = abs(parArrive.getPosY() - parDepart.posY);
+            disEntrePointsY = abs(parArrive.getPosY() - this.posY);
         }
 
         return disEntrePointsX + disEntrePointsY;
