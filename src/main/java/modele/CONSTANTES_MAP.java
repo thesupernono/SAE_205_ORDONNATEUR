@@ -8,7 +8,7 @@ public interface CONSTANTES_MAP {
 
     // carré
     int NOMBRE_CARRE = 30;
-    int TAILLE_CARRE = 30;
+    int TAILLE_CARRE = 25;
 
 
     // fenetres
@@ -41,9 +41,8 @@ public interface CONSTANTES_MAP {
     int LARGEUR_OVALE = 30;
     int HAUTEUR_OVALE = 30;
     Color COULEUR_DESTINATION = Color.RED;
+    Color COULEUR_FOND = Color.WHITE;
 
-    int LARGEUR_CIBLE = TAILLE_CARRE;
-    int HAUTEUR_CIBLE = TAILLE_CARRE;
 
     String SCENARIO_DEFAUT = "Scenario1.txt";
 }

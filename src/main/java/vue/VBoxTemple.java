@@ -25,17 +25,17 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         //-------------------------Map-------------------------
         canvasCarte = new Canvas();
-        canvasCarte.setWidth(TAILLE_MAP[0]);
+        canvasCarte.setWidth(TAILLE_MAP[0]); // NOMBRE_CARRE * TAILLE_CARRE ?
         canvasCarte.setHeight(TAILLE_MAP[1]);
         graphiqueContext2D = canvasCarte.getGraphicsContext2D();
 
         map = new Map(SCENARIO_DEFAUT);
 
 
-        //-----------------Initiation de carrés-----------------
+        //-----------------Initiation des bordures des carrés-----------------
         graphiqueContext2D.setStroke(COULEUR_GRILLE);
-        for (int i = 0; i < TAILLE_MAP[0]; i += TAILLE_CARRE) {
-            for (int j = 0; j < TAILLE_MAP[1]; j += TAILLE_CARRE) {
+        for (int i = 0; i < NOMBRE_CARRE * TAILLE_CARRE; i += TAILLE_CARRE) {
+            for (int j = 0; j < NOMBRE_CARRE * TAILLE_CARRE; j += TAILLE_CARRE) {
                 graphiqueContext2D.strokeRect(i, j, TAILLE_CARRE, TAILLE_CARRE);
             }
         }
@@ -44,7 +44,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         //--------------------Numero colonne--------------------
         int numCol = 1;
         graphiqueContext2D.setFill(COULEUR_GRILLE);
-        for (int i = TAILLE_CARRE; i < TAILLE_MAP[0]; i += TAILLE_CARRE) {
+        for (int i = TAILLE_CARRE; i < NOMBRE_CARRE * TAILLE_CARRE; i += TAILLE_CARRE) {
             graphiqueContext2D.fillText(Integer.toString(numCol), i + TAILLE_CARRE / 3, TAILLE_CARRE / 2);
             numCol++;
         }
@@ -53,7 +53,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         //---------------------Numero ligne----------------------
         int numLigne = 1;
         graphiqueContext2D.setFill(COULEUR_GRILLE);
-        for (int i = TAILLE_CARRE; i < TAILLE_MAP[1]; i += TAILLE_CARRE) {
+        for (int i = TAILLE_CARRE; i < NOMBRE_CARRE * TAILLE_CARRE; i += TAILLE_CARRE) {
             graphiqueContext2D.fillText(Integer.toString(numLigne), TAILLE_CARRE / 3, i + TAILLE_CARRE / 2);
             numLigne++;
         }
@@ -70,7 +70,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                 System.out.println(abscisse + ", " + ordonnee);
                 Position posArrivee = new Position(abscisse, ordonnee);
                 joueur.deplacement(posArrivee);
-                //joueur.getPosition().deplacement("H");
             }
         });
 

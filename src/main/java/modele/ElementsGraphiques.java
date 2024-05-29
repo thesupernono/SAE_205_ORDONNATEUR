@@ -18,8 +18,18 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         graphiqueContext2D.fillRect(
                 joueur.getPosition().getPosX() * TAILLE_CARRE,
                 joueur.getPosition().getPosY() * TAILLE_CARRE,
-                LARGEUR_CIBLE, HAUTEUR_CIBLE);
+                TAILLE_CARRE, TAILLE_CARRE);
 
+    }
+
+    public static void dessinerVide(Position position){
+        graphiqueContext2D.setFill(COULEUR_FOND);
+
+        graphiqueContext2D.fillRect(
+                position.getPosX() * TAILLE_CARRE,
+                position.getPosY() * TAILLE_CARRE,
+                TAILLE_CARRE, TAILLE_CARRE);
+        System.out.println("On reset une position :)");
     }
 
     // Si on dessine un cristal
@@ -57,10 +67,15 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
             Map.getJoueur().getPosition() != position)
             return;
 
-        // On reset la case
+        // On reset les bordures de la case
+        graphiqueContext2D.setFill(COULEUR_GRILLE);
         graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
                 position.getPosY() * TAILLE_CARRE,
                 TAILLE_CARRE, TAILLE_CARRE);
+
+        // On reset le carré
+        ElementsGraphiques.dessinerVide(position);
+
 
         // On redessine un temple si il y en a
 
@@ -83,9 +98,7 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
         // On redessine le joueur si il est là
         if (Map.getJoueur().getPosition() == position) {
-            graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
-                    position.getPosY() * TAILLE_CARRE,
-                    TAILLE_CARRE, TAILLE_CARRE);
+            dessinerElement(Map.getJoueur());
         }
     }
 
