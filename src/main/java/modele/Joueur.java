@@ -36,7 +36,7 @@ public class Joueur{
      * @param positionArrivee (int []) : position d'arrivée
      */
     public void deplacement(Position positionArrivee){
-        while(position.getPosX() != positionArrivee.getPosX() && position.getPosY() != positionArrivee.getPosY()){
+        while(position.getPosX() != positionArrivee.getPosX() || position.getPosY() != positionArrivee.getPosY()){
 
 
             // On vérifie sur l'axe x

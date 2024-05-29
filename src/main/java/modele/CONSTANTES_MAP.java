@@ -38,8 +38,6 @@ public interface CONSTANTES_MAP {
     };
 
     int [] POSITION_DEPART = {CENTRE_X, CENTRE_Y};
-    int LARGEUR_OVALE = 30;
-    int HAUTEUR_OVALE = 30;
     Color COULEUR_DESTINATION = Color.RED;
     Color COULEUR_FOND = Color.WHITE;
 
