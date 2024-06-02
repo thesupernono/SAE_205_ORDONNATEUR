@@ -20,8 +20,6 @@ public class Controleur implements EventHandler {
 
         if (userData instanceof File) {
             File fichierScenario = (File) userData;
-            System.out.println(fichierScenario.getName());
-            // Lecture du fichier
             try {
                 scenario = new LectureScenario(fichierScenario.getName());
             } catch (Exception e) {

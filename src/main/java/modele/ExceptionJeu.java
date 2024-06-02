@@ -27,7 +27,6 @@ public class ExceptionJeu extends Exception implements CONSTANTES_ERREUR, CONSTA
             }
         }
         catch(ExceptionJeu e){
-            System.out.println(e.toString());
             System.exit(e.getNumErreur());
         }
     }

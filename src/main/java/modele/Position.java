@@ -71,8 +71,8 @@ public class Position{
 
     public void deplacement(String direction){
 
-        System.out.println("Déplacement vers " + direction);
-        Position positionDepart = Map.getJoueur().getPosition();
+        // On récupère la position de départ en créant une nouvelle position pour éviter qu'elle soit affectée par les changements
+        Position positionDepart = new Position(Map.getJoueur().getPosition().getPosX(), Map.getJoueur().getPosition().getPosY());
         switch (direction) {
 
             case "D" :
@@ -99,6 +99,11 @@ public class Position{
         ElementsGraphiques.resetGraphique(Map.getJoueur().getPosition());
 
         Map.getJoueur().ajoutPas();
+    }
+
+
+    public String toString(){
+        return "(" + posX + ", " + posY + ")";
     }
 
 }

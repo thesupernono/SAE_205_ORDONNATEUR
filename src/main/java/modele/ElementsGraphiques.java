@@ -1,6 +1,7 @@
 package modele;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import vue.VBoxTemple;
 
 import java.util.HashMap;
@@ -29,17 +30,22 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
                 position.getPosX() * TAILLE_CARRE,
                 position.getPosY() * TAILLE_CARRE,
                 TAILLE_CARRE, TAILLE_CARRE);
-        System.out.println("On reset une position :)");
-    }
+
+        // On reset les bordures de la case
+        graphiqueContext2D.setFill(COULEUR_GRILLE);
+        graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
+                position.getPosY() * TAILLE_CARRE,
+                TAILLE_CARRE, TAILLE_CARRE);
+        }
 
     // Si on dessine un cristal
-    public static void dessinerElement(Cristal parCristal) {
+    public static void dessinerElement(Temple parTemple) {
 
-        int numCouleur = parCristal.getCouleur();
+        int numCouleur = parTemple.getCouleur();
         graphiqueContext2D.setFill(COULEURS[numCouleur]);
 
-        graphiqueContext2D.fillRect(parCristal.getPosition().getPosX()* TAILLE_CARRE + TAILLE_CARRE / 8,
-                                    parCristal.getPosition().getPosY() * TAILLE_CARRE + TAILLE_CARRE / 4,
+        graphiqueContext2D.fillRect(parTemple.getPosition().getPosX()* TAILLE_CARRE + TAILLE_CARRE / 8,
+                                    parTemple.getPosition().getPosY() * TAILLE_CARRE + TAILLE_CARRE / 4,
                                     TAILLE_CARRE,
                                     TAILLE_CARRE);
 
@@ -47,39 +53,26 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
 
     // Si on dessine un temple
-    public static void dessinerElement(Temple parTemple) {
+    public static void dessinerElement(Cristal parCristal) {
 
-        int numCouleur = parTemple.getCouleur();
+        int numCouleur = parCristal.getCouleur();
 
         graphiqueContext2D.setFill(COULEURS[numCouleur]);
 
-        graphiqueContext2D.fillOval(parTemple.getPosition().getPosX() * TAILLE_CARRE,
-                                        parTemple.getPosition().getPosY() * TAILLE_CARRE,
+        graphiqueContext2D.fillOval(parCristal.getPosition().getPosX() * TAILLE_CARRE,
+                                    parCristal.getPosition().getPosY() * TAILLE_CARRE,
                                     TAILLE_CRISTAL, TAILLE_CRISTAL);
     }
 
     public static void resetGraphique(Position position){
-        // Si on redessine une case qui est déjà vide, ça ne sert à rien et ça gènere des cubes
-        // Pour rien, donc on vérifie si il y a quelque chose. Si il n'y a rien, on return pour
-        // Annuler la méthode
-        if( !Map.getCoordonneesTemples().containsKey(position) &&
-            !Map.getCoordonneesCristaux().containsKey(position) &&
-            Map.getJoueur().getPosition() != position)
-            return;
-
-        // On reset les bordures de la case
-        graphiqueContext2D.setFill(COULEUR_GRILLE);
-        graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
-                position.getPosY() * TAILLE_CARRE,
-                TAILLE_CARRE, TAILLE_CARRE);
 
         // On reset le carré
         ElementsGraphiques.dessinerVide(position);
 
 
         // On redessine un temple si il y en a
-
         if(Map.getCoordonneesTemples().containsKey(position)){
+            System.out.println("Un temple a été redessiné");
 
             // On récupère le temple et on le dessine
             Temple temple = Map.getCoordonneesTemples().get(position);
@@ -89,6 +82,7 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
         // On redessine un cristal si il y en a
         if(Map.getCoordonneesCristaux().containsKey(position)){
+            System.out.println("Un cristal a été redessiné");
 
             // On récupère le temple et on le dessine
             Cristal cristal = Map.getCoordonneesCristaux().get(position);

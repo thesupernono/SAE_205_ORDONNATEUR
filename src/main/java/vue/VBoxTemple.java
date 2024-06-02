@@ -67,7 +67,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             int ordonnee = (int) event.getY() / TAILLE_CARRE;
 
             if (abscisse >= 1 && ordonnee >= 1) {
-                System.out.println(abscisse + ", " + ordonnee);
                 Position posArrivee = new Position(abscisse, ordonnee);
                 joueur.deplacement(posArrivee);
             }

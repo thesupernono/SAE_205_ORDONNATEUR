@@ -22,6 +22,9 @@ public class Map implements CONSTANTES_MAP{
         LectureScenario scenario = new LectureScenario(parNomFichierScenario);
         HashSet<Temple> listeTemple = scenario.getTemple();
         HashSet<Cristal> listeCristal = scenario.getCristal();
+        System.out.println("--------------------");
+        System.out.println("Position des Temples : " + listeTemple);
+        System.out.println("position des Cistaux : " + listeCristal);
         joueur = new Joueur(CENTRE_X, CENTRE_Y);
 
 

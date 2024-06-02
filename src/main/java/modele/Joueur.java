@@ -30,6 +30,10 @@ public class Joueur{
       position.teleporteur(posX, posY);
     }
 
+    public void setPosition(Position nouvPosition){
+        position = nouvPosition;
+    }
+
 
     /**
      * Déplace le joueur jusqu'à qu'il soit arrivé
