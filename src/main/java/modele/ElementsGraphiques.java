@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import vue.VBoxTemple;
 
 import java.util.HashMap;
+import java.util.TreeSet;
 
 public class ElementsGraphiques implements CONSTANTES_MAP {
 
@@ -64,51 +65,37 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
                                     TAILLE_CRISTAL, TAILLE_CRISTAL);
     }
 
-    public static void resetGraphique(Position position){
+    public static void resetGraphique(Position positionReset){
 
         // On reset le carré
-        ElementsGraphiques.dessinerVide(position);
+        ElementsGraphiques.dessinerVide(positionReset);
 
+        // On récupère le temple si il y en a un et on le dessine
+        for(Position posTemple : Map.getCoordonneesTemples().keySet()){
 
-        // On redessine un temple si il y en a
-        if(Map.getCoordonneesTemples().containsKey(position)){
-            System.out.println("Un temple a été redessiné");
+            if(posTemple.equals(positionReset)){
 
-            // On récupère le temple et on le dessine
-            Temple temple = Map.getCoordonneesTemples().get(position);
-            dessinerElement(temple);
+                Temple temple = Map.getCoordonneesTemples().get(posTemple);
+                dessinerElement(temple);
+            }
         }
 
 
-        // On redessine un cristal si il y en a
-        if(Map.getCoordonneesCristaux().containsKey(position)){
-            System.out.println("Un cristal a été redessiné");
+        // On redessine un cristal si il y en a un et on le dessine
+        for (Position posCistal : Map.getCoordonneesCristaux().keySet())
+            if(posCistal.equals(positionReset)){
 
-            // On récupère le temple et on le dessine
-            Cristal cristal = Map.getCoordonneesCristaux().get(position);
-            dessinerElement(cristal);
-        }
+                // On récupère le temple et on le dessine
+                Cristal cristal = Map.getCoordonneesCristaux().get(posCistal);
+                dessinerElement(cristal);
+            }
+
 
 
         // On redessine le joueur si il est là
-        if (Map.getJoueur().getPosition() == position) {
+        if (Map.getJoueur().getPosition() == positionReset) {
             dessinerElement(Map.getJoueur());
         }
-    }
-
-    public static void deplacerElement(Position posDepartElement, Joueur joueur) {
-
-        // Le joueur contient déjà sa nouvelle position, donc on met juste à jour le graphique
-
-        // On get les treeMap des cristaux et des temples pour pouvoir les ressiner plus tard si besoin
-
-
-        // On redessine le carré
-        resetGraphique(posDepartElement);
-
-
-        // On redisssine la case d'arrivée
-        resetGraphique(joueur.getPosition());
     }
 
     public static void poserCristal(Position position) {

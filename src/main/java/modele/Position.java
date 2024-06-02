@@ -106,4 +106,9 @@ public class Position{
         return "(" + posX + ", " + posY + ")";
     }
 
+    public boolean equals(Position posComparee) {
+        if (posComparee.getPosX() == posX && posComparee.getPosY() == posY)
+            return true;
+        return false;
+    }
 }
