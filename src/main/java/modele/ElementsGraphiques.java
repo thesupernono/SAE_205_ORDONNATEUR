@@ -45,8 +45,8 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         int numCouleur = parTemple.getCouleur();
         graphiqueContext2D.setFill(COULEURS[numCouleur]);
 
-        graphiqueContext2D.fillRect(parTemple.getPosition().getPosX()* TAILLE_CARRE + TAILLE_CARRE / 8,
-                                    parTemple.getPosition().getPosY() * TAILLE_CARRE + TAILLE_CARRE / 4,
+        graphiqueContext2D.fillRect(parTemple.getPosition().getPosX()* TAILLE_CARRE,
+                                    parTemple.getPosition().getPosY() * TAILLE_CARRE,
                                     TAILLE_CARRE,
                                     TAILLE_CARRE);
 
@@ -60,8 +60,13 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
         graphiqueContext2D.setFill(COULEURS[numCouleur]);
 
-        graphiqueContext2D.fillOval(parCristal.getPosition().getPosX() * TAILLE_CARRE,
-                                    parCristal.getPosition().getPosY() * TAILLE_CARRE,
+        // Entre le cristal et le quadrillage, il faut un écart pour pouvoir le centrer
+        // On va donc calculer cet écart :
+        int ecart = (TAILLE_CARRE - TAILLE_CRISTAL) / 2;
+
+        // On déssine le cristal
+        graphiqueContext2D.fillOval(parCristal.getPosition().getPosX() * TAILLE_CARRE + ecart,
+                                    parCristal.getPosition().getPosY() * TAILLE_CARRE + ecart,
                                     TAILLE_CRISTAL, TAILLE_CRISTAL);
     }
 
