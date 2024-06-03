@@ -24,14 +24,14 @@ public interface CONSTANTES_MAP {
 
 
 
-    //------------------------Joueur------------------------
+    //------------------------Couleurs------------------------
     Color [] COULEURS = {
             Color.rgb(102, 145, 232, 0.91),         // Couleur du joueur
             Color.rgb(102, 232, 105, 0.91),
             Color.rgb(235, 92, 88, 0.92),
-            Color.rgb(255, 255, 0, 1), // ---------------------
-            Color.rgb(220, 101, 215, 0.86), // ---------------------
-            Color.rgb(101, 57, 161, 0.63), // Couleurs à modifier
+            Color.rgb(255, 255, 0, 1),
+            Color.rgb(220, 101, 215, 0.86),
+            Color.rgb(101, 57, 161, 0.63),
             Color.CYAN,
             Color.NAVY,
     };
@@ -46,6 +46,7 @@ public interface CONSTANTES_MAP {
             "bleu cyan",
             "bleu foncé"
     };
+
 
     int [] POSITION_DEPART = {CENTRE_X, CENTRE_Y};
     Color COULEUR_DESTINATION = Color.RED;
