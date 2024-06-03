@@ -18,6 +18,7 @@ public class Controleur implements EventHandler {
     public void handle(Event event) {
         Object userData = ((MenuItem)event.getSource()).getUserData();
 
+        // Changement de sénario :
         if (userData instanceof File) {
             File fichierScenario = (File) userData;
             try {
@@ -29,6 +30,11 @@ public class Controleur implements EventHandler {
             // assignation des temples et des cristaux
             HashSet<Temple> temples = scenario.getTemple();
             HashSet <Cristal> cristaux = scenario.getCristal();
+
+        }
+
+        // Si on prend ou pose un cristal
+        if (userData instanceof Cristal){
 
         }
     }

@@ -1,6 +1,7 @@
 package modele;
 
 
+import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 
 import java.util.HashMap;
@@ -9,6 +10,8 @@ public class Joueur{
     private Position position;
     private Cristal cristal;
     private int pas;
+    private Label LabelPas = new Label("Vous avez fait 0 pas");
+
     private TableView<String> historique;
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
@@ -37,6 +40,10 @@ public class Joueur{
 
     public void setPosition(Position nouvPosition){
         position = nouvPosition;
+    }
+
+    public Label getLabelPas(){
+        return LabelPas;
     }
 
     public TableView<String> getHistorique(){
@@ -89,6 +96,7 @@ public class Joueur{
 
     public void ajoutPas(){
         pas++;
+        LabelPas.setText("Vous avez fait " + pas + " pas");
         // VBoxTemple.updateNombrePas(); la méthode n'existe pas??
     }
 
