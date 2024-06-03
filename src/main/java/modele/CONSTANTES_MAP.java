@@ -26,23 +26,25 @@ public interface CONSTANTES_MAP {
 
     //------------------------Joueur------------------------
     Color [] COULEURS = {
-            Color.AQUA,         // Couleur du joueur
-            Color.LIGHTGREEN,
-            Color.PINK,
-            Color.DARKMAGENTA,
-            Color.ORANGE,
-            Color.LIGHTGREEN, // Couleurs encore à modifié à partir de celle ci inclu
-            Color.PINK,
-            Color.LIGHTGREEN,
-            Color.PINK
+            Color.rgb(102, 145, 232, 0.91),         // Couleur du joueur
+            Color.rgb(102, 232, 105, 0.91),
+            Color.rgb(235, 92, 88, 0.92),
+            Color.rgb(255, 255, 0, 1), // ---------------------
+            Color.rgb(220, 101, 215, 0.86), // ---------------------
+            Color.rgb(101, 57, 161, 0.63), // Couleurs à modifier
+            Color.CYAN,
+            Color.NAVY,
     };
 
     String [] NOM_COULEURS = {
-            "aqua",             // couleur du joueur
+            "bleu",             // couleur du joueur
             "vert clair",
+            "rouge",
+            "jaune",
             "rose",
-            "magenta foncé",
-            "ORANGE"            // De la même manière, il faut définir les couleurs ici
+            "violet",
+            "bleu cyan",
+            "bleu foncé"
     };
 
     int [] POSITION_DEPART = {CENTRE_X, CENTRE_Y};

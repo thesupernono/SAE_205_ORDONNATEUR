@@ -123,6 +123,24 @@ public class Joueur{
      * @return le cristal que l'on a en main
      */
     public void poserCristal(){
+        // On vérifie si on est bien sur un temple et le récupère en fonction de la position du joueur
+        Position posTemple = null;
+        for(Position posChercheTemple: Map.getCoordonneesTemples().keySet()){
+            if (posChercheTemple.equals(Map.getJoueur().getPosition()))
+                posTemple = posChercheTemple;
+        }
+
+        if (posTemple == null)
+            // TODO: Il faudra lever une exception car on n'est pas sur un temple
+            //  et l'afficher sur le graphique avec une petite phrase
+            return;
+
+        // On récupère le temple
+        Temple temple = Map.getCoordonneesTemples().get(posTemple);
+
+        // On vérifie si ce n'est pas le temple sur lequel il doit aller
+
+        // if (cristal.getCouleur() == )
     }
 
 
