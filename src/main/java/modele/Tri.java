@@ -11,24 +11,47 @@ public class Tri implements CONSTANTES_MAP{
 
 
     /**
-     * Fait un tri basique en bulle
+     * Fait un tri basique par couleurs en bulle
      */
     public void TriBasique(){
-        for(int i=0; i < hashTemples.size(); i++){ // on parcours tout les temples pour trouver les distances à trier
-            if(i < hashTemples.size() - 1) {// verifie si nous sommes pas en fin de tableau
-                int distanceJoueur = posJoueur.distance(listeTemples[i].getPosition());
-                int distanceDapres = posJoueur.distance(listeTemples[i + 1].getPosition());
-                if(distanceJoueur < distanceDapres){
-                    Temple tampon = listeTemples[i + 1];
-                    listeTemples[i + 1] = listeTemples[i];
-                    listeTemples[i] = tampon;
+        int taille = listeTemples.length;
+        Temple tampon;
+        for(int i=0; i < taille; i++) { //parcours la liste
+            for(int j=1; j < (taille-i); j++) {
+                if(listeTemples[j-1].getCouleur() > listeTemples[j].getCouleur()) {
+                    //echanges les elements
+                    tampon = listeTemples[j-1];
+                    listeTemples[j-1] = listeTemples[j];
+                    listeTemples[j] = tampon;
                 }
             }
         }
     }
 
-    public void TriHeuristique(Position [] parPositions){
+    /**
+     * Fait un tri heuristique distances
+     */
+    public void TriHeuristique(){
+        for (int i = 0; i < listeTemples.length; i++) { // on parcours tout les temples pour trouver les distances à trier
+            boolean templesTriee = true; // variable permettant de stopper la boucle si le tri est terminé
 
+            for(int j = 0; j < listeTemples.length - 1; j++){// verifie si nous sommes pas en fin de tableau
+                int distance = posJoueur.distance(listeTemples[j].getPosition());
+                int distanceDapres = posJoueur.distance(listeTemples[j+1].getPosition());
+                if (distanceDapres < distance){
+                    // echange les éléments
+                    Temple tampon = listeTemples[j + 1];
+                    listeTemples[j + 1] = listeTemples[j];
+                    listeTemples[j] = tampon;
+
+                    // continue le tableau en mettant la variable en false
+                    templesTriee = false;
+                }
+            }
+            if (templesTriee){
+                break; // arrete la boucle
+            }
+        }
     }
 
     public Collection<Temple> getHashTemples(){
@@ -38,7 +61,7 @@ public class Tri implements CONSTANTES_MAP{
     public String toString() {
         String string = "";
         for (Temple temple : listeTemples) {
-            string += "[" + temple.getPosition().getPosX() + ", " + temple.getPosition().getPosY() + ", " + temple.getPosition().distance(posJoueur) +"] ";
+            string += "[" + temple.getPosition().getPosX() + ", " + temple.getPosition().getPosY() + ", " + temple.getPosition().distance(posJoueur) + ", " + temple.getCouleur() + "] ";
         }
         return string;
     }
