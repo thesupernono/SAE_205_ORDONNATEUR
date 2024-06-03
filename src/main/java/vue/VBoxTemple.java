@@ -79,10 +79,13 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         // ----------------TRI-----------------
         Tri tri = new Tri();
+        System.out.println("Tri basique");
         tri.TriBasique();
         System.out.println(tri.toString());
-        System.out.println(tri.toString());
 
+        System.out.println("Tri heuristique:");
+        tri.TriHeuristique();
+        System.out.println(tri.toString());
 
         this.getChildren().add(menuJeu);
         this.getChildren().add(canvasCarte);
