@@ -113,10 +113,10 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         Joueur joueur = Map.getJoueur();
 
         // On ajoute à la map et récupère le cristal de la main du joueur
-        Cristal cristal = joueur.poserCristal();
+        joueur.poserCristal();
 
         // On modifie la position dans l'objet cristal
-        cristal.setPosition(position);
+        // cristal.setPosition(position);
 
         // On reset le graphique de la position
         resetGraphique(position);

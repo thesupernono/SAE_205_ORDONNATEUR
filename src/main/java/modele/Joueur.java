@@ -3,6 +3,7 @@ package modele;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import vue.VBoxInfos;
 
 import java.util.HashMap;
 
@@ -18,7 +19,7 @@ public class Joueur{
      * @param posX position x du joueur
      * @param posY position y du joueur
      */
-    public Joueur(int posX, int posY){
+    public Joueur(int posX, int posY) {
         position = new Position(posX, posY);
         pas = 0;
 
@@ -27,15 +28,6 @@ public class Joueur{
 
 
         cristal = null;
-    }
-
-    /**
-     * Téléporteur pour vérifier si le joueur peut bien sé déplacer
-     * @param posX (int) : position à téléporter (en x)
-     * @param posY (int) : position à téléporter (en y)
-     */
-    public void teleporteur(int posX, int posY){
-      position.teleporteur(posX, posY);
     }
 
     public void setPosition(Position nouvPosition){
@@ -53,6 +45,7 @@ public class Joueur{
     public Cristal getCristal(){
         return cristal;
     }
+
 
 
     /**
@@ -106,19 +99,22 @@ public class Joueur{
      * @param position : la position du cristal
      */
     public void prendreCristal(Position position){
-        //if(this.cristal == null) {
-        //    this.cristal = cristal;
-        //}
-        //else{
-        //    Cristal cristalDepose = this.cristal;
-        //    this.cristal = cristal;
-        //}
+
+        if (cristal != null)
+            //TODO: exception : on ne peut pas récupérer un cristal si on en a déjà un en main
+            return;
+
+
         HashMap<Position, Cristal> coordonneesCristal = Map.getCoordonneesCristaux();
+
+        // On enlève le cristal de la map
+
+        Map.getCoordonneesCristaux().remove(position);
 
         cristal = coordonneesCristal.get(position);
 
-        // On met la position -1 -1 dans la position pour enlever le cristal du graphique
-        cristal.setPosition(new Position(-1, -1));
+
+
 
     }
 
@@ -126,16 +122,7 @@ public class Joueur{
      * méthode qui pose le cristal que l'on a en main
      * @return le cristal que l'on a en main
      */
-    public Cristal poserCristal(){
-
-        // On récupère le cristal que l'on va return ( le cristal qu'on a en main)
-        Cristal cristalRetournee = cristal;
-
-        // On enlève le cristal de la main
-        cristal = null;
-
-        // On return le cristal que l'on avait en main
-        return cristal;
+    public void poserCristal(){
     }
 
 

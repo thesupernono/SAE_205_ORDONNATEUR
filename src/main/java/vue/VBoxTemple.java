@@ -71,6 +71,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
             if (abscisse >= 1 && ordonnee >= 1) {
                 Position posArrivee = new Position(abscisse, ordonnee);
+                VBoxInfos.verifPossession(posArrivee);
                 joueur.deplacement(posArrivee);
             }
         });

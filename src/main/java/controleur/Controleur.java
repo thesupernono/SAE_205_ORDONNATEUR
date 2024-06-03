@@ -2,10 +2,10 @@ package controleur;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
-import modele.Cristal;
-import modele.LectureScenario;
-import modele.Temple;
+import javafx.scene.control.ToggleButton;
+import modele.*;
 import javafx.scene.canvas.GraphicsContext;
 import java.io.File;
 import java.util.HashSet;
@@ -16,11 +16,11 @@ public class Controleur implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        Object userData = ((MenuItem)event.getSource()).getUserData();
+        System.out.println(event.getSource());
 
         // Changement de sénario :
-        if (userData instanceof File) {
-            File fichierScenario = (File) userData;
+        if (event.getSource() instanceof File) {
+            File fichierScenario = (File) event.getSource();
             try {
                 scenario = new LectureScenario(fichierScenario.getName());
             } catch (Exception e) {
@@ -34,8 +34,37 @@ public class Controleur implements EventHandler {
         }
 
         // Si on prend ou pose un cristal
-        if (userData instanceof Cristal){
+        if (event.getSource() instanceof Button){
 
+            // On récupère le boutton
+            Button boutton = (Button) event.getSource();
+
+            // Si ce n'est pas possible, la fonction renvoie pour le moment un string
+
+            if(boutton.getUserData() instanceof String){
+                System.out.println("Erreur récupérée ");
+                System.out.println((String) boutton.getUserData());
+            }
+
+            // Si on pose le cristal sur un temple, et que c'est possible
+            if (boutton.getUserData() instanceof Temple){
+                System.out.println("Temple récupérée ");
+
+
+                // On récupère le temple sur lequel on est
+                Temple temple = (Temple)boutton.getUserData();
+
+            }
+
+            // Si on prend le cristal et que c'est possible
+            if (boutton.getUserData() instanceof Cristal){
+                // On défini le cristal
+                Cristal cristal = (Cristal)boutton.getUserData();
+
+
+                // On essaye de le met dans la main
+                Map.getJoueur().prendreCristal(cristal.getPosition());
+            }
         }
     }
 

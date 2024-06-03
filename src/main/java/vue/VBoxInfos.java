@@ -9,12 +9,13 @@ import modele.CONSTANTES_MAP;
 import javafx.scene.control.TableView;
 import modele.Cristal;
 import modele.Map;
+import modele.Position;
 
 public class VBoxInfos extends VBox implements CONSTANTES_MAP {
     private Label nombrePasLabel;
-    private Button prendreCristal;
-    private Button poserCristal;
-    private Label possession;
+    private static Button peuxPrendreCristal;
+    private static Button peuxPoserCristal;
+    private static Label possessionLabel;
 
     private TableView<String> historique = Map.getJoueur().getHistorique();
 
@@ -22,17 +23,17 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
 
         // Initiation des variables
         nombrePasLabel = Map.getJoueur().getLabelPas();
-        prendreCristal = new Button("Prendre le cristal");
-        poserCristal = new Button("Poser le cristal");
-        possession = new Label("Vous n'avez aucun cristal");
+        peuxPrendreCristal = new Button("Prendre le cristal");
+        peuxPoserCristal = new Button("Poser le cristal");
+        possessionLabel = new Label("Vous n'avez aucun cristal");
 
         // Ajout sur la fenêtre
 
         // affichage
         this.getChildren().add(nombrePasLabel);
-        this.getChildren().add(prendreCristal);
-        this.getChildren().add(poserCristal);
-        this.getChildren().add(possession);
+        this.getChildren().add(peuxPrendreCristal);
+        this.getChildren().add(peuxPoserCristal);
+        this.getChildren().add(possessionLabel);
         this.getChildren().add(historique);
 
         TableColumn<String, String> intituleColumn = new TableColumn<>("historique");
@@ -40,38 +41,47 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         intituleColumn.setCellValueFactory(new PropertyValueFactory<>("historique"));
         historique.getColumns().add(intituleColumn);
 
-        actualiseePossession();
-
-        prendreCristal.setOnAction(HBoxRoot.getControleur());
-        poserCristal.setOnAction(HBoxRoot.getControleur());
+        peuxPrendreCristal.setOnAction(HBoxRoot.getControleur());
+        peuxPoserCristal.setOnAction(HBoxRoot.getControleur());
 
     }
 
-    public void actualiseePossession(){
+    public static void verifPossession(Position positionArrivee){
+        // On les initialise à impossible et on change si c'est possible
+        peuxPrendreCristal.setUserData("Impossible");
+        peuxPoserCristal.setUserData("Impossible");
+
+        // System.out.println("Vérif Possession lancé !!");
+        // System.out.println("--------------------");
         if (Map.getJoueur().getCristal() != null){
-            possession = new Label("Vous avez le cristal" + COULEURS[Map.getJoueur().getCristal().getCouleur()]);
-        }
-        else{
-            possession = new Label("Vous n'avez aucun cristal");
+            int numCouleur = Map.getJoueur().getCristal().getCouleur();
+            System.out.println("Numéro de la couleur : " + numCouleur);
+            possessionLabel.setText("Vous avez le cristal " + NOM_COULEURS[numCouleur]);
         }
 
         // On associe les bouttons aux actions
-        // On vérifie si on est sur un cristal avant de le prendre
-        if (Map.getCoordonneesCristaux().get(Map.getJoueur().getPosition()) != null){
-            Cristal cristalIci = Map.getCoordonneesCristaux().get(Map.getJoueur().getPosition());
-            prendreCristal.setUserData(cristalIci);
-        }
-        else{
-            prendreCristal.setUserData("Impossible");
+        // On vérifie si il y a un cristal à la position du joueur
+        System.out.println(positionArrivee);
+
+        for (Position posCristal: Map.getCoordonneesCristaux().keySet()) {
+            if (positionArrivee.equals(posCristal)) {
+                // Si il y a un cristal qui est à cette position
+                // on le récupère et on l'associe au bouton getCristal
+
+                Cristal cristalIci = Map.getCoordonneesCristaux().get(posCristal);
+                peuxPrendreCristal.setUserData(cristalIci);
+            }
         }
 
         // On vérifie si on a un cristal
         if (Map.getJoueur().getCristal() != null) {
-            Cristal cristalPossede = Map.getJoueur().getCristal();
-            poserCristal.setUserData(cristalPossede);
-        }
-        else{
-            poserCristal.setUserData("Impossible");
+            // On vérifie si on est sur un temple
+            for(Position posTemple: Map.getCoordonneesTemples().keySet()){
+                if(posTemple.equals(positionArrivee)) {
+                    System.out.println("Cristal peut être posé sur le temple");
+                    peuxPoserCristal.setUserData(Map.getCoordonneesTemples().get(posTemple));
+                }
+            }
 
         }
     }

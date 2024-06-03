@@ -13,7 +13,7 @@ public class Historique {
 
     //--------------------------Ajout Evenement--------------------------
 
-    // Si un joueur se déplace, on ajoute un évènement
+    // Si un joueur se déplace d'un point A à un point B, on ajoute un évènement
     public void ajoutEvenement(Position positionJoueur) throws ExceptionJeu {
 
         // On vérifie si la position est correcte
