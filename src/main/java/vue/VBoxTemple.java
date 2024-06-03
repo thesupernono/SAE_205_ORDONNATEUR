@@ -34,8 +34,11 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         //-----------------Initiation des bordures des carrés-----------------
         graphiqueContext2D.setStroke(COULEUR_GRILLE);
+
+        // On met pour chaque carré une bordure, + 1 pour l'affichage du nombre de ligne et de colone
         for (int i = 0; i < NOMBRE_CARRE * TAILLE_CARRE; i += TAILLE_CARRE) {
             for (int j = 0; j < NOMBRE_CARRE * TAILLE_CARRE; j += TAILLE_CARRE) {
+                System.out.println("carré en " + i + ", " + j);
                 graphiqueContext2D.strokeRect(i, j, TAILLE_CARRE, TAILLE_CARRE);
             }
         }

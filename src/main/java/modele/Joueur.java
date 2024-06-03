@@ -1,13 +1,15 @@
 package modele;
 
 
+import javafx.scene.control.TableView;
+
 import java.util.HashMap;
 
 public class Joueur{
     private Position position;
     private Cristal cristal;
     private int pas;
-
+    private TableView<String> historique;
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
      * @param posX position x du joueur
@@ -16,6 +18,9 @@ public class Joueur{
     public Joueur(int posX, int posY){
         position = new Position(posX, posY);
         pas = 0;
+
+        // On défini son historique
+        historique = new TableView<>();
 
 
         cristal = null;
@@ -32,6 +37,10 @@ public class Joueur{
 
     public void setPosition(Position nouvPosition){
         position = nouvPosition;
+    }
+
+    public TableView<String> getHistorique(){
+        return historique;
     }
 
 

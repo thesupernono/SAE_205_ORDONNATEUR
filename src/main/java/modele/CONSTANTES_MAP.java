@@ -7,8 +7,8 @@ public interface CONSTANTES_MAP {
     //-------------------------Map-------------------------
 
     // carré
-    int NOMBRE_CARRE = 30;
-    int TAILLE_CARRE = 25;
+    int NOMBRE_CARRE = 21;
+    int TAILLE_CARRE = 20;
 
 
     // fenetres
