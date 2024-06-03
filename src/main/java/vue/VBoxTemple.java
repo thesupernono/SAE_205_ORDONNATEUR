@@ -79,11 +79,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         // ----------------TRI-----------------
         Tri tri = new Tri();
-        /*
         tri.TriBasique();
         System.out.println(tri.toString());
-        */
-        System.out.println(tri.getHashTemples());
         System.out.println(tri.toString());
 
 
