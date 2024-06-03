@@ -76,6 +76,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         });
 
         MenuJeu menuJeu = new MenuJeu();
+        VBox.setMargin(menuJeu,new Insets(10));
 
         // ----------------TRI-----------------
         Tri tri = new Tri();

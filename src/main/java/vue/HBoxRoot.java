@@ -3,6 +3,7 @@ package vue;
 import controleur.Controleur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import modele.MenuJeu;
 
 
 public class HBoxRoot extends HBox {
@@ -13,10 +14,10 @@ public class HBoxRoot extends HBox {
 
     public HBoxRoot() throws Exception {
         // Le controleur
-        controleur = new Controleur();
-
+        controleur = new Controleur();;
         vBoxTemple = new VBoxTemple();
         vBoxInfos = new VBoxInfos();
+
         this.getChildren().add(vBoxTemple);
         this.getChildren().add(vBoxInfos);
     }

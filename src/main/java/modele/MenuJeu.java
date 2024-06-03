@@ -15,7 +15,6 @@ public class MenuJeu extends MenuBar {
 
 
     public MenuJeu(){
-
         // Barre de menu
         MenuBar menuBar = new MenuBar();
         this.getChildren().add(menuBar);
@@ -23,7 +22,6 @@ public class MenuJeu extends MenuBar {
 
         // Menu des scénarios
         Menu menuScenarios = new Menu("Scenarios");
-        menuBar.getMenus().add(menuScenarios);
 
         //listes des scénario du menu
         File[] scenarios = new File("Scenario").listFiles();
@@ -42,12 +40,16 @@ public class MenuJeu extends MenuBar {
         Menu infosJoueur = new Menu("Infos");
         MenuItem menuItemPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
         MenuItem menuItemPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
+        infosJoueur.getItems().addAll(menuItemPosX, menuItemPosY);
 
-        menuBar.getMenus().add(infosJoueur);
+        //Selection de Tri
+        Menu triMenu = new Menu("Algorithmes");
+        MenuItem menuTriBulle = new MenuItem("Tri bulle");
+        MenuItem menuTriHeur = new MenuItem("Tri Heuristique");
+        triMenu.getItems().addAll(menuTriBulle, menuTriHeur);
 
-        infosJoueur.getItems().add(menuItemPosX);
-        infosJoueur.getItems().add(menuItemPosY);
 
+        menuBar.getMenus().addAll(menuScenarios,infosJoueur,triMenu); // ajoute tout les menu ensemble
 
         nombrePas = 0;
         labelNombreDePas = new Label("Nombre de pas : 0");
