@@ -43,6 +43,10 @@ public class Joueur{
         return historique;
     }
 
+    public Cristal getCristal(){
+        return cristal;
+    }
+
 
     /**
      * Déplace le joueur jusqu'à qu'il soit arrivé
