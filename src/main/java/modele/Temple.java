@@ -1,6 +1,7 @@
 package modele;
 
 
+import exception.ExceptionPosition;
 import interfaces.CONSTANTES_MAP;
 
 public class Temple implements CONSTANTES_MAP {
@@ -12,7 +13,10 @@ public class Temple implements CONSTANTES_MAP {
      public Temple(int parPosX, int parPosY, int parNumCouleur){
           position = new Position(parPosX, parPosY);
           couleur = parNumCouleur;
-          ExceptionJeu.VerifierPositionObjet(position, this);
+
+          // On vérifie si la position et la couleur sont correcte
+          ExceptionPosition.VerifierPositionObjet(position, this);
+          ExceptionPosition.VerifierCouleurObjet(couleur);
      }
 
      public Position getPosition(){

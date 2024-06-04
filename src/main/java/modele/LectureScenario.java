@@ -1,6 +1,7 @@
 package modele;
 
 
+import exception.ExceptionPosition;
 import interfaces.CONSTANTES_MAP;
 
 import java.io.File;
@@ -40,7 +41,7 @@ public class LectureScenario implements CONSTANTES_MAP {
 
             // On vérifie si la position du temple et du cristal est correcte
             Position positionVerif = new Position(positionX, positionY);
-            ExceptionJeu.VerifierPositionObjet(positionVerif, nouveauTemple);
+            ExceptionPosition.VerifierPositionObjet(positionVerif, nouveauTemple);
 
             // On passe proprement à la ligne suivante :
             if (scanner.hasNextLine()){

@@ -1,8 +1,8 @@
 package modele;
 
 
+import exception.ExceptionPosition;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
 import vue.VBoxInfos;
 
 import java.util.HashMap;
@@ -30,7 +30,7 @@ public class Joueur{
         cristalEnMain = null;
 
         // On vérifie si le joueur a une position correcte
-        ExceptionJeu.VerifierPositionObjet(position, this);
+        ExceptionPosition.VerifierPositionObjet(position, this);
     }
 
     public void setPosition(Position nouvPosition){
@@ -57,7 +57,8 @@ public class Joueur{
      */
     public void deplacement(Position positionArrivee){
         Map.getJoueur().getHistorique().ajoutEvenement(position, positionArrivee);
-        while(position.getPosX() != positionArrivee.getPosX() || position.getPosY() != positionArrivee.getPosY()){
+        while(position.getPosX() != positionArrivee.getPosX()
+           || position.getPosY() != positionArrivee.getPosY()){
 
 
             // On vérifie sur l'axe x
