@@ -3,7 +3,6 @@ package exception;
 import interfaces.CONSTANTES_ERREUR;
 import interfaces.CONSTANTES_MAP;
 
-import static exception.ExceptionProcedure.procedureErreur;
 
 public class ExceptionManquant extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP {
     int numErreur;
@@ -21,8 +20,9 @@ public class ExceptionManquant extends Exception implements CONSTANTES_ERREUR, C
                 // donc il ne faut pas que d'autres éléments aient la même couleur
                 throw new ExceptionPosition(2);
             }
-        } catch(ExceptionPosition e){
-            procedureErreur(e);
+        } catch(ExceptionPosition erreur){
+            System.out.println(erreur.getMessageErreur());
+            System.exit(erreur.getNumErreur());
         }
     }
 

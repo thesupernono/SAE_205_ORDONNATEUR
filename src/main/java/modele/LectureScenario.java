@@ -1,6 +1,7 @@
 package modele;
 
 
+import exception.ExceptionImpossible;
 import exception.ExceptionPosition;
 import interfaces.CONSTANTES_MAP;
 
@@ -14,8 +15,17 @@ public class LectureScenario implements CONSTANTES_MAP {
 
     public LectureScenario(String nomFichierScenario) throws Exception{
 
+        // On clear les temples et les cristaux quand on relit un nouveau scenario
+        temples.clear();
+        cristaux.clear();
+
+        Scanner scanner; // on prépare un scanner
         // On charge le fichier
-        Scanner scanner = new Scanner(new File("Scenario" + File.separator + nomFichierScenario)).useDelimiter(";");
+        try {
+            scanner = new Scanner(new File("Scenario" + File.separator + nomFichierScenario)).useDelimiter(";");
+        } catch (Exception erreur){
+            throw new ExceptionImpossible(1);
+        }
 
 
         // On analyse élément par élément
@@ -59,4 +69,5 @@ public class LectureScenario implements CONSTANTES_MAP {
     public static HashSet <Cristal> getCristal() {
         return cristaux;
     }
+
 }

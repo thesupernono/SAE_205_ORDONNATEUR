@@ -11,6 +11,7 @@ import modele.Cristal;
 
 
 public class VBoxInfos extends VBox implements CONSTANTES_MAP {
+    public static boolean premierLancement = true;
     private Label nombrePasLabel;
     private static Button peuxPrendreCristal;
     private static Button peuxPoserCristal;

@@ -8,7 +8,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
-import controleur.Controleur;
+
 import modele.*;
 
 import java.io.File;
@@ -16,10 +16,8 @@ import java.io.File;
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
     private static Map map;
-    private Canvas canvasCarte;
+    private static Canvas canvasCarte;
     private static GraphicsContext graphiqueContext2D;
-
-    private Controleur controleur;
 
     public VBoxTemple() throws Exception {
 
@@ -31,6 +29,75 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         map = new Map(SCENARIO_DEFAUT);
 
+        // On initie la map en la faisant reset
+        resetMap();
+
+        // ---------------------Menu---------------------
+        // Barre de menu
+        MenuBar menuBar = new MenuBar();
+        VBox.setMargin(menuBar, new Insets(9));
+
+        // Menu des scénarios
+        Menu menuScenarios = new Menu("Scenarios");
+
+        //listes des scénario du menu
+        File[] scenarios = new File("Scenario").listFiles();
+
+
+        for (int i = 0; i < scenarios.length; i++) { // lecture de la LISTE des fichiers
+            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
+            File fichierScenario = scenarios[i];
+            menuItemScenar.setUserData(fichierScenario);
+
+            menuItemScenar.setOnAction(HBoxRoot.getControleur());
+            menuScenarios.getItems().add(menuItemScenar);
+        }
+
+
+        //Informations sur le joueur
+        Menu infosJoueur = new Menu("Infos");
+        MenuItem menuItemJoueurPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
+        MenuItem menuItemJoueurPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
+        infosJoueur.getItems().addAll(menuItemJoueurPosX, menuItemJoueurPosY);
+
+        //Selection de Tri
+        Menu triMenu = new Menu("Algorithmes");
+        MenuItem menuTriBulle = new MenuItem("Tri bulle");
+        MenuItem menuTriHeur = new MenuItem("Tri Heuristique");
+        triMenu.getItems().addAll(menuTriBulle, menuTriHeur);
+
+
+        menuBar.getMenus().addAll(menuScenarios,infosJoueur,triMenu); // ajoute tout les menu ensemble
+        this.getChildren().add(menuBar);
+
+        // ----------------TRI-----------------
+        Tri tri = new Tri();
+        System.out.println("Tri basique");
+        tri.TriBasique();
+        System.out.println(tri.toString());
+
+        System.out.println("Tri heuristique:");
+        tri.TriHeuristique();
+        System.out.println(tri.toString());
+
+        this.getChildren().add(canvasCarte);
+        VBox.setMargin(canvasCarte, new Insets(30));
+    }
+
+    public static GraphicsContext getGraphiqueContext2D() {
+        return graphiqueContext2D;
+    }
+
+    public static Map getMap(){
+        return map;
+    }
+
+    public static void setMap(Map nouvelleMap){
+        map = nouvelleMap;
+    }
+
+    public static void resetMap(){
+        System.out.println("Reset lancé");
 
         //-----------------Initiation des bordures des carrés-----------------
         graphiqueContext2D.setStroke(COULEUR_GRILLE);
@@ -38,7 +105,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         // On met pour chaque carré une bordure, + 1 pour l'affichage du nombre de ligne et de colone
         for (int i = 0; i < NOMBRE_CARRE * TAILLE_CARRE; i += TAILLE_CARRE) {
             for (int j = 0; j < NOMBRE_CARRE * TAILLE_CARRE; j += TAILLE_CARRE) {
-                System.out.println("carré en " + i + ", " + j);
                 graphiqueContext2D.strokeRect(i, j, TAILLE_CARRE, TAILLE_CARRE);
             }
         }
@@ -75,64 +141,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                 joueur.deplacement(posArrivee);
             }
         });
-
-        // ---------------------Menu---------------------
-        // Barre de menu
-        MenuBar menuBar = new MenuBar();
-        VBox.setMargin(menuBar, new Insets(9));
-
-        // Menu des scénarios
-        Menu menuScenarios = new Menu("Scenarios");
-
-        //listes des scénario du menu
-        File[] scenarios = new File("Scenario").listFiles();
-
-
-        for (int i = 0; i < scenarios.length; i++) { // lecture de la LISTE des fichiers
-            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
-            menuItemScenar.setUserData(scenarios);
-
-            menuItemScenar.setOnAction(controleur);
-            menuScenarios.getItems().add(menuItemScenar);
-        }
-
-
-        //Informations sur le joueur
-        Menu infosJoueur = new Menu("Infos");
-        MenuItem menuItemPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
-        MenuItem menuItemPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
-        infosJoueur.getItems().addAll(menuItemPosX, menuItemPosY);
-
-        //Selection de Tri
-        Menu triMenu = new Menu("Algorithmes");
-        MenuItem menuTriBulle = new MenuItem("Tri bulle");
-        MenuItem menuTriHeur = new MenuItem("Tri Heuristique");
-        triMenu.getItems().addAll(menuTriBulle, menuTriHeur);
-
-
-        menuBar.getMenus().addAll(menuScenarios,infosJoueur,triMenu); // ajoute tout les menu ensemble
-        this.getChildren().add(menuBar);
-
-        // ----------------TRI-----------------
-        Tri tri = new Tri();
-        System.out.println("Tri basique");
-        tri.TriBasique();
-        System.out.println(tri.toString());
-
-        System.out.println("Tri heuristique:");
-        tri.TriHeuristique();
-        System.out.println(tri.toString());
-
-        this.getChildren().add(canvasCarte);
-        VBox.setMargin(canvasCarte, new Insets(30));
-    }
-
-    public static GraphicsContext getGraphiqueContext2D() {
-        return graphiqueContext2D;
-    }
-
-    public static Map getMap(){
-        return map;
     }
 }
 

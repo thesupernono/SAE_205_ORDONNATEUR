@@ -55,5 +55,5 @@ public interface CONSTANTES_MAP {
     Color COULEUR_FOND = Color.WHITE;
 
 
-    String SCENARIO_DEFAUT = "Scenario1.txt";
+    String SCENARIO_DEFAUT = "scenario1.txt";
 }

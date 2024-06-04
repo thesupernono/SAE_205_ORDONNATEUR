@@ -1,6 +1,8 @@
 package modele;
 
 import interfaces.CONSTANTES_MAP;
+import vue.VBoxInfos;
+import vue.VBoxTemple;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -17,10 +19,19 @@ public class Map implements CONSTANTES_MAP {
 
     public Map(String parNomFichierScenario) throws Exception {
 
+        // On récupère la liste des éléments généré pour éviter redessiner que les cases qui en on besoin
+
+        // Etant donné que les cristaux ne peuvent être posé que sur les temples
+
+        VBoxTemple.resetMap();
+        resetCoordonnees();
+
         // On génère la map
-        LectureScenario scenario = new LectureScenario(parNomFichierScenario);
-        HashSet<Temple> listeTemple = scenario.getTemple();
-        HashSet<Cristal> listeCristal = scenario.getCristal();
+        new LectureScenario(parNomFichierScenario);
+
+        // On récupère les informations de la lecture du derner scenario
+        HashSet<Temple> listeTemple = LectureScenario.getTemple();
+        HashSet<Cristal> listeCristal = LectureScenario.getCristal();
         System.out.println("--------------------");
         System.out.println("Position des Temples : " + listeTemple);
         System.out.println("position des Cistaux : " + listeCristal);
@@ -28,7 +39,7 @@ public class Map implements CONSTANTES_MAP {
 
 
         // On stock les positions de tous les temples
-        for(Temple temple: listeTemple){
+        for (Temple temple : listeTemple) {
 
 
             // On initie le temple
@@ -37,17 +48,24 @@ public class Map implements CONSTANTES_MAP {
 
 
         // On stock les positions de tous les cristaux
-        for(Cristal cristal: listeCristal){
+        for (Cristal cristal : listeCristal) {
 
             // On initie le cristal
             coordonneesCristaux.put(cristal.getPosition(), cristal);
         }
 
-        // On affiche le joueur
-        ElementsGraphiques.dessinerElement(joueur);
+        // On clear la map, au cas où il y avait déjà un scenario
+        VBoxTemple.resetMap();
 
 
         //-----------------Cristaux et temples-----------------
+        // On reset les graphique des anciens éléments
+        if (!VBoxInfos.premierLancement){
+            ElementsGraphiques.resetAll();
+        System.out.println("---------resetAll--------------");
+    }
+        VBoxInfos.premierLancement = false;
+
         for (Temple temple: listeTemple){
             ElementsGraphiques.dessinerElement(temple);
         }
@@ -55,20 +73,8 @@ public class Map implements CONSTANTES_MAP {
         for (Cristal cristal: listeCristal){
             ElementsGraphiques.dessinerElement(cristal);
         }
-
-
-            /*for(int i=0; i < 11; i++) {
-                for(int j=0; i < 11; i++){
-                    for(int k=0; k < 3; k++)
-                        if(temples.contains(new Temple(i,j,k))) {
-                            graphiqueContext2D.setFill(COULEURS[2]);
-                            graphiqueContext2D.fillRect(
-                                    i * CARRE + CARRE / 8,
-                                    j * CARRE + CARRE / 4,
-                                    LARGEUR_OVALE,HAUTEUR_OVALE);
-                        }
-                }
-            }*/
+        // On affiche le joueur
+        ElementsGraphiques.dessinerElement(joueur);
     }
 
 
@@ -83,5 +89,10 @@ public class Map implements CONSTANTES_MAP {
 
     public static Joueur getJoueur() {
         return joueur;
+    }
+
+    public void resetCoordonnees(){
+        coordonneesCristaux.clear();
+        coordonneesTemples.clear();
     }
 }

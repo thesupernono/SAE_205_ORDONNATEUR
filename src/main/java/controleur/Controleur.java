@@ -1,5 +1,6 @@
 package controleur;
 
+import exception.ExceptionImpossible;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -8,6 +9,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleButton;
 import modele.*;
 import javafx.scene.canvas.GraphicsContext;
+import vue.VBoxTemple;
+
 import java.io.File;
 import java.util.HashSet;
 
@@ -20,17 +23,32 @@ public class Controleur implements EventHandler {
         // System.out.println(event.getSource());
 
         // Changement de sénario :
-        if (event.getSource() instanceof File) {
-            File fichierScenario = (File) event.getSource();
-            try {
-                scenario = new LectureScenario(fichierScenario.getName());
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+        if (event.getSource() instanceof MenuItem) {
+            System.out.println("Fichier reçu");
+            File fichierScenario = (File) ((MenuItem) event.getSource()).getUserData();
 
-            // assignation des temples et des cristaux
-            HashSet<Temple> temples = scenario.getTemple();
-            HashSet <Cristal> cristaux = scenario.getCristal();
+            // on tente de généré la nouvelle map
+            Map nouvelleMap = null;
+            try {
+                nouvelleMap = new Map(fichierScenario.getName());
+            } catch (Exception erreur) {
+                try {
+                    throw new ExceptionImpossible(1);
+                } catch (ExceptionImpossible e) { // Si l'erreur ne marche pas (impossible)
+                }
+            }
+            // Si la map a bien été générée :
+            if(nouvelleMap != null) {
+
+                // On set la nouvelle map comme étant la map actuelle
+                VBoxTemple.setMap(nouvelleMap);
+
+                // On récupère des temples et des cristaux du nouveau scenario
+                HashSet<Temple> temples = LectureScenario.getTemple();
+                HashSet<Cristal> cristaux = LectureScenario.getCristal();
+
+                System.out.println("La map a changé");
+            }
 
         }
 
@@ -55,7 +73,12 @@ public class Controleur implements EventHandler {
 
             if(boutton.getUserData() instanceof String){
                 System.out.println("Action impossible ");
-                //TODO : faire un raise exception
+                try {
+                    throw new ExceptionImpossible(0);
+                } catch (ExceptionImpossible erreur) {
+                    // TODO : Il faudra l'adapter en graphique
+                    System.out.println(erreur.getMessageErreur());
+                }
             }
 
             // Si on pose le cristal sur un temple, et que c'est possible

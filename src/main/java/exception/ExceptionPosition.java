@@ -6,7 +6,6 @@ import modele.Joueur;
 import modele.Position;
 import modele.Temple;
 
-import static exception.ExceptionProcedure.procedureErreur;
 
 public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP {
     int numErreur;
@@ -34,8 +33,9 @@ public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, C
                     throw new ExceptionPosition(2);
             }
         }
-        catch(ExceptionPosition e){
-            procedureErreur(e);
+        catch(ExceptionPosition erreur){
+            System.out.println(erreur.getMessageErreur());
+            System.exit(erreur.getNumErreur());
         }
     }
 
