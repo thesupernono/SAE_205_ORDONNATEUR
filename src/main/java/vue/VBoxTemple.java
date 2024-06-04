@@ -13,12 +13,19 @@ import modele.*;
 
 import java.io.File;
 
+/**
+ * Box de la partie graphique des cristaux, des temples et du joueur
+ */
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
     private static Map map;
     private static Canvas canvasCarte;
     private static GraphicsContext graphiqueContext2D;
 
+    /**
+     * Constructeur de la partie graphique
+     * @throws Exception : gestion des erreurs de la map et des génération des cristaux / temples
+     */
     public VBoxTemple() throws Exception {
 
         //-------------------------Map-------------------------
@@ -53,13 +60,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             menuScenarios.getItems().add(menuItemScenar);
         }
 
-
-        //Informations sur le joueur
-        Menu infosJoueur = new Menu("Infos");
-        MenuItem menuItemJoueurPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
-        MenuItem menuItemJoueurPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
-        infosJoueur.getItems().addAll(menuItemJoueurPosX, menuItemJoueurPosY);
-
         //Selection de Tri
         Menu triMenu = new Menu("Algorithmes");
         MenuItem menuTriBulle = new MenuItem("Tri bulle");
@@ -67,35 +67,41 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         triMenu.getItems().addAll(menuTriBulle, menuTriHeur);
 
 
-        menuBar.getMenus().addAll(menuScenarios,infosJoueur,triMenu); // ajoute tout les menu ensemble
+        menuBar.getMenus().addAll(menuScenarios,triMenu); // ajoute tous les menus ensemble
         this.getChildren().add(menuBar);
 
-        // ----------------TRI-----------------
-        Tri tri = new Tri();
-        System.out.println("Tri basique");
-        tri.TriBasique();
-        System.out.println(tri.toString());
-
-        System.out.println("Tri heuristique:");
-        tri.TriHeuristique();
-        System.out.println(tri.toString());
 
         this.getChildren().add(canvasCarte);
         VBox.setMargin(canvasCarte, new Insets(30));
     }
 
+    /**
+     * getter du graphique
+     * @return le graphique de type GraphicsContext
+     */
     public static GraphicsContext getGraphiqueContext2D() {
         return graphiqueContext2D;
     }
 
+    /**
+     * getter de la map
+     * @return la map
+     */
     public static Map getMap(){
         return map;
     }
 
+    /**
+     * setter static d'une nouvelle map
+     * @param nouvelleMap : la nouvelle map à associé
+     */
     public static void setMap(Map nouvelleMap){
         map = nouvelleMap;
     }
 
+    /**
+     * Méthode static pour reset entièrement la map
+     */
     public static void resetMap(){
         System.out.println("Reset lancé");
 

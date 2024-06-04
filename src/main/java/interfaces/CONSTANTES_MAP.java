@@ -2,6 +2,9 @@ package interfaces;
 
 import javafx.scene.paint.Color;
 
+/**
+ * interface des constantes de la map
+ */
 public interface CONSTANTES_MAP {
 
     //-------------------------Map-------------------------
@@ -18,13 +21,33 @@ public interface CONSTANTES_MAP {
 
 
     // Centre et couleur de la grille
+    /**
+     * On cherche le centre sur l'axe X
+     */
     int CENTRE_X = NOMBRE_CARRE / 2;
+    /**
+     * On cherche le centre sur l'axe Y
+     */
     int CENTRE_Y = NOMBRE_CARRE / 2;
+
+    /**
+     * On défini la couleur des grillage (les bordures des carrés)
+     */
     Color COULEUR_GRILLE = Color.BLACK;
 
+    /**
+     * On défini la couleur des carrés vide (du fond)
+     */
+    Color COULEUR_FOND = Color.WHITE;
 
 
     //------------------------Couleurs------------------------
+
+    /**
+     * Tableau de toutes les couleurs utilisées
+     * toutes les couleurs sont pour les couples temples / cristaux
+     * sauf la première couleur qui est pour le joueur
+     */
     Color [] COULEURS = {
             Color.rgb(102, 145, 232, 0.91),         // Couleur du joueur
             Color.rgb(102, 232, 105, 0.91),
@@ -36,7 +59,9 @@ public interface CONSTANTES_MAP {
             Color.NAVY,
             Color.BROWN
     };
-
+    /**
+     * On reprend le nom de chacune des couleurs afin de pouvoir les aficher à l'utilisateur
+     */
     String [] NOM_COULEURS = {
             "bleu",             // couleur du joueur
             "vert clair",
@@ -49,11 +74,8 @@ public interface CONSTANTES_MAP {
             "marron"
     };
 
-
-    int [] POSITION_DEPART = {CENTRE_X, CENTRE_Y};
-    Color COULEUR_DESTINATION = Color.RED;
-    Color COULEUR_FOND = Color.WHITE;
-
-
+    /**
+     * On défini le scenario à charger par défaut
+     */
     String SCENARIO_DEFAUT = "scenario1.txt";
 }

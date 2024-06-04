@@ -9,10 +9,19 @@ import java.io.File;
 import java.util.HashSet;
 import java.util.Scanner;
 
+/**
+ * Systeme de lecture d'un scenario
+ */
 public class LectureScenario implements CONSTANTES_MAP {
     private static HashSet<Temple> temples = new HashSet<>();
     private static HashSet<Cristal> cristaux = new HashSet<>();
 
+    /**
+     * Constructeur de l'objet à partir du nom du fichier que l'on veut charger
+     * @param nomFichierScenario : le nom du fichier que l'on veut charger
+     * @throws Exception :  le fait de charger un fichier peut produire des erreurs,
+     *                      si le fichier est mal configuré
+     */
     public LectureScenario(String nomFichierScenario) throws Exception{
 
         // On clear les temples et les cristaux quand on relit un nouveau scenario
@@ -62,11 +71,19 @@ public class LectureScenario implements CONSTANTES_MAP {
     }
 
 
-    public static HashSet <Temple> getTemple() {
+    /**
+     * getter des temples
+     * @return un HashSet de tous les temples chargés du fichier
+     */
+    public static HashSet <Temple> getTemples() {
         return temples;
     }
 
-    public static HashSet <Cristal> getCristal() {
+    /**
+     * getter des cristaux
+     * @return un HashSet de tous les cristaux chargés du fichier
+     */
+    public static HashSet <Cristal> getCristaux() {
         return cristaux;
     }
 

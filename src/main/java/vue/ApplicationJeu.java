@@ -6,7 +6,16 @@ import javafx.stage.Stage;
 
 import static interfaces.CONSTANTES_MAP.TAILLE_FENETRE;
 
+/**
+ * Application pour démarrer notre jeu
+ */
 public class ApplicationJeu extends Application {
+
+    /**
+     * Démarrage de l'application
+     * @param stage : Fenêtre donnée
+     * @throws Exception : gestion des erreurs de HBoxRoot
+     */
     @Override
     public void start(Stage stage) throws Exception {
         HBoxRoot root = new HBoxRoot();
@@ -15,6 +24,11 @@ public class ApplicationJeu extends Application {
         stage.setTitle("SAE ORDONNATEUR");
         stage.show();
     }
+
+    /**
+     * Méthode appellée par défaut pour démarrer l'applcation
+     * @param args : listre non utilisé de paramètre
+     */
     public static void main(String [] args){
         Application.launch();
     }

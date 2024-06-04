@@ -9,16 +9,24 @@ import modele.Historique;
 import modele.Position;
 import modele.Cristal;
 
-
+/**
+ * Box des informations sur le joueur, son historique, pour prendre et poser le cristal
+ * ainsi que pour réaliser des parcours
+ */
 public class VBoxInfos extends VBox implements CONSTANTES_MAP {
     public static boolean premierLancement = true;
     private Label nombrePasLabel;
     private static Button peuxPrendreCristal;
     private static Button peuxPoserCristal;
+    private static Button boutonParcoursBasique;
+    private static Button boutonParcoursHeuristique;
     private static Label possessionLabel;
 
     private Historique historique = Map.getJoueur().getHistorique();
 
+    /**
+     * Constructeur pour pouvoir afficher tous les éléments
+     */
     public VBoxInfos(){
 
         // Initiation des variables
@@ -27,6 +35,9 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         peuxPoserCristal = new Button("Poser le cristal");
         possessionLabel = new Label("Vous n'avez pas de cristal en main");
 
+        boutonParcoursBasique = new Button("Réaliser un parcours basique");
+        boutonParcoursHeuristique = new Button("Réaliser un parcours heuristique");
+
         // Ajout sur la fenêtre
 
         // affichage
@@ -34,13 +45,27 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         this.getChildren().add(peuxPrendreCristal);
         this.getChildren().add(peuxPoserCristal);
         this.getChildren().add(possessionLabel);
+        this.getChildren().add(boutonParcoursBasique);
+        this.getChildren().add(boutonParcoursHeuristique);
         this.getChildren().add(historique.getTableView());
 
         peuxPrendreCristal.setOnAction(HBoxRoot.getControleur());
         peuxPoserCristal.setOnAction(HBoxRoot.getControleur());
 
+        boutonParcoursBasique.setOnAction(HBoxRoot.getControleur());
+        boutonParcoursHeuristique.setOnAction(HBoxRoot.getControleur());
+
+        boutonParcoursBasique.setUserData("Tri heuristique");
+        boutonParcoursHeuristique.setUserData("Tri basique");
     }
 
+    /**
+     * Méthode satic qui permet d'actualiser les boutons
+     * pour que le joueur puisse récupérer les cristaux quand il est dessus
+     * et pour ne pas qu'on puisse les récupérer si on a changer de case
+     * @param positionArrivee : position où l'on est / où l'on va, soit la position qu'il faut prendre
+     *                          en compte pour vérifier si il y a bien un cristal, si on peut poser ext
+     */
     public static void verifPossession(Position positionArrivee){
         // On les initialise à impossible et on change si c'est possible
         peuxPrendreCristal.setUserData("Impossible");

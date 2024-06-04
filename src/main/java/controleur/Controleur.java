@@ -4,23 +4,20 @@ import exception.ExceptionImpossible;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.ToggleButton;
 import modele.*;
-import javafx.scene.canvas.GraphicsContext;
 import vue.VBoxTemple;
 
 import java.io.File;
 import java.util.HashSet;
 
+/**
+ * Class Controleur pour géré les communications entre les vues
+ */
 public class Controleur implements EventHandler {
-    LectureScenario scenario;
-    GraphicsContext graphiqueContext2D;
 
     @Override
     public void handle(Event event) {
-        // System.out.println(event.getSource());
 
         // Changement de sénario :
         if (event.getSource() instanceof MenuItem) {
@@ -44,8 +41,8 @@ public class Controleur implements EventHandler {
                 VBoxTemple.setMap(nouvelleMap);
 
                 // On récupère des temples et des cristaux du nouveau scenario
-                HashSet<Temple> temples = LectureScenario.getTemple();
-                HashSet<Cristal> cristaux = LectureScenario.getCristal();
+                HashSet<Temple> temples = LectureScenario.getTemples();
+                HashSet<Cristal> cristaux = LectureScenario.getCristaux();
 
                 System.out.println("La map a changé");
             }
@@ -69,9 +66,23 @@ public class Controleur implements EventHandler {
             // On récupère le boutton
             Button boutton = (Button) event.getSource();
 
+            // ----------------TRI-----------------
+            if(boutton.getUserData() == "Tri basique"){
+                Tri tri = new Tri();
+                System.out.println("Tri basique");
+                tri.TriBasique();
+                System.out.println(tri.toString());
+            }
+
+            else if (boutton.getUserData() == "Tri heuristique"){
+                Tri tri = new Tri();
+                System.out.println("Tri heuristique:");
+                tri.TriHeuristique();
+                System.out.println(tri.toString());
+            }
             // Si ce n'est pas possible, la fonction renvoie pour le moment un string
 
-            if(boutton.getUserData() instanceof String){
+            else if(boutton.getUserData() instanceof String){
                 System.out.println("Action impossible ");
                 try {
                     throw new ExceptionImpossible(0);

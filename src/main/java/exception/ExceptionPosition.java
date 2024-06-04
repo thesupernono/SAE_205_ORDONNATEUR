@@ -6,11 +6,17 @@ import modele.Joueur;
 import modele.Position;
 import modele.Temple;
 
-
+/**
+ * Gestion des erreurs des positions
+ */
 public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP {
     int numErreur;
     String messageErreur;
 
+    /**
+     * Constructeur à partir du code d'erreur
+     * @param parNumErreur : le code erreur
+     */
     public ExceptionPosition(int parNumErreur){
         numErreur = parNumErreur;
         messageErreur = MESSAGE_ERREUR_POSITION[parNumErreur];
@@ -39,12 +45,24 @@ public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, C
         }
     }
 
+    /**
+     * getter du numéro de l'erreur
+     * @return : numéro de l'erreur
+     */
     public int getNumErreur(){
         return numErreur;
     }
 
+    /**
+     * getter du message d'erreur
+     * @return message d'erreur
+     */
     public String getMessageErreur(){return messageErreur;}
 
+    /**
+     * Méthode toString afin de voir l'erreur avec le message
+     * @return : la phrase du toString
+     */
     public String toString(){
         return "L'application s'est terminé avec le code erreur " + numErreur + ": " + messageErreur;
     }

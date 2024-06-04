@@ -7,6 +7,9 @@ import vue.VBoxTemple;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * Gestion des map à partir des scenarios
+ */
 public class Map implements CONSTANTES_MAP {
 
     // Les cristaux et les temples sont stockés avec comme clé leur position (position_x, position_y)
@@ -17,6 +20,11 @@ public class Map implements CONSTANTES_MAP {
     private static Joueur joueur;
 
 
+    /**
+     * Constructeur de la map à partir du nom du fichier de configuration
+     * @param parNomFichierScenario : nom du fichier du scenario
+     * @throws Exception : gestion des erreurs, si le fichier est mal configuré
+     */
     public Map(String parNomFichierScenario) throws Exception {
 
         // On récupère la liste des éléments généré pour éviter redessiner que les cases qui en on besoin
@@ -30,8 +38,8 @@ public class Map implements CONSTANTES_MAP {
         new LectureScenario(parNomFichierScenario);
 
         // On récupère les informations de la lecture du derner scenario
-        HashSet<Temple> listeTemple = LectureScenario.getTemple();
-        HashSet<Cristal> listeCristal = LectureScenario.getCristal();
+        HashSet<Temple> listeTemple = LectureScenario.getTemples();
+        HashSet<Cristal> listeCristal = LectureScenario.getCristaux();
         System.out.println("--------------------");
         System.out.println("Position des Temples : " + listeTemple);
         System.out.println("position des Cistaux : " + listeCristal);
@@ -62,8 +70,8 @@ public class Map implements CONSTANTES_MAP {
         // On reset les graphique des anciens éléments
         if (!VBoxInfos.premierLancement){
             ElementsGraphiques.resetAll();
-        System.out.println("---------resetAll--------------");
-    }
+            System.out.println("---------resetAll--------------");
+        }
         VBoxInfos.premierLancement = false;
 
         for (Temple temple: listeTemple){
@@ -78,11 +86,20 @@ public class Map implements CONSTANTES_MAP {
     }
 
 
+    /**
+     * getter du HashMap qui contient comme clé toutes les positions des temples
+     * et en valeur du temple qui y est associé
+     * @return le HashMap de l'association position / temple
+     */
     public static HashMap<Position, Temple> getCoordonneesTemples(){
         return coordonneesTemples;
     }
 
-
+    /**
+     * getter du HashMap qui contient comme clé toutes les positions des cristaux
+     * et en valeur du cristal qui y est associé
+     * @return le HashMap de l'association position / cristal
+     */
     public static HashMap<Position, Cristal> getCoordonneesCristaux(){
         return coordonneesCristaux;
     }

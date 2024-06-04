@@ -5,6 +5,9 @@ import interfaces.CONSTANTES_MAP;
 import java.util.Collection;
 import java.util.HashMap;
 
+/**
+ * Objet qui contient les différents tris
+ */
 public class Tri implements CONSTANTES_MAP {
 
     private final HashMap <Position, Temple> hashTemples = Map.getCoordonneesTemples();
@@ -54,17 +57,5 @@ public class Tri implements CONSTANTES_MAP {
                 break; // arrete la boucle
             }
         }
-    }
-
-    public Collection<Temple> getHashTemples(){
-        return hashTemples.values();
-    }
-
-    public String toString() {
-        String string = "";
-        for (Temple temple : listeTemples) {
-            string += "[" + temple.getPosition().getPosX() + ", " + temple.getPosition().getPosY() + ", " + temple.getPosition().distance(posJoueur) + ", " + temple.getCouleur() + "] ";
-        }
-        return string;
     }
 }

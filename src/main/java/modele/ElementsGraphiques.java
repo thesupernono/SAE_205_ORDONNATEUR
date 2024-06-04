@@ -5,23 +5,17 @@ import javafx.scene.canvas.GraphicsContext;
 import vue.VBoxInfos;
 import vue.VBoxTemple;
 
+/**
+ * Classe indépendante pour gérer les éléments graphique
+ */
 public class ElementsGraphiques implements CONSTANTES_MAP {
 
     private static GraphicsContext graphiqueContext2D = VBoxTemple.getGraphiqueContext2D();
 
-
-    // Si on dessine un joueur
-    public static void dessinerElement(Joueur joueur) {
-
-        graphiqueContext2D.setFill(COULEURS[0]);
-
-        graphiqueContext2D.fillRect(
-                joueur.getPosition().getPosX() * TAILLE_CARRE,
-                joueur.getPosition().getPosY() * TAILLE_CARRE,
-                TAILLE_CARRE, TAILLE_CARRE);
-
-    }
-
+    /**
+     * méthode static afin de redessiner une case vide
+     * @param position : la position du carré que l'on souhaite redessiner
+     */
     public static void dessinerVide(Position position){
         graphiqueContext2D.setFill(COULEUR_FOND);
 
@@ -35,9 +29,27 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         graphiqueContext2D.strokeRect(position.getPosX() * TAILLE_CARRE,
                 position.getPosY() * TAILLE_CARRE,
                 TAILLE_CARRE, TAILLE_CARRE);
-        }
+    }
 
-    // Si on dessine un cristal
+    /**
+     * Méthode static pour dessiner graphiquement un joueur
+     * @param joueur : joueur à dessiner
+     */
+    public static void dessinerElement(Joueur joueur) {
+
+        graphiqueContext2D.setFill(COULEURS[0]);
+
+        graphiqueContext2D.fillRect(
+                joueur.getPosition().getPosX() * TAILLE_CARRE,
+                joueur.getPosition().getPosY() * TAILLE_CARRE,
+                TAILLE_CARRE, TAILLE_CARRE);
+
+    }
+
+    /**
+     * Méthode static pour dessiner graphiquement un temple
+     * @param parTemple : le temple à dessiner
+     */
     public static void dessinerElement(Temple parTemple) {
 
         int numCouleur = parTemple.getCouleur();
@@ -51,7 +63,10 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
     }
 
 
-    // Si on dessine un temple
+    /**
+     * Méthode static pour dessiner graphiquement un cristal
+     * @param parCristal
+     */
     public static void dessinerElement(Cristal parCristal) {
 
         int numCouleur = parCristal.getCouleur();
@@ -68,6 +83,10 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
                                     TAILLE_CRISTAL, TAILLE_CRISTAL);
     }
 
+    /**
+     * Méthode static pour reset une case en fonction de sa position
+     * @param positionReset : position de la case à reset
+     */
     public static void resetGraphique(Position positionReset){
 
         // On reset le carré
@@ -82,7 +101,6 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
                 dessinerElement(temple);
             }
         }
-
 
         // On redessine un cristal si il y en a un et on le dessine
         for (Position posCistal : Map.getCoordonneesCristaux().keySet())

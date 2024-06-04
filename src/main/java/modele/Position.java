@@ -2,12 +2,21 @@ package modele;
 
 import static java.lang.Math.abs;
 
+/**
+ * Gestion des position dans un objet indépendant
+ */
 public class Position{
     private int posX;
     private int posY;
 
 
     //---------------------Constructeur---------------------
+
+    /**
+     * Constructeur d'une position en fonction de son abscisse et de son ordonnée
+     * @param parPosX : abscisse
+     * @param parPosY : ordonnée
+     */
     public Position(int parPosX, int parPosY){
         posX = parPosX;
         posY = parPosY;
@@ -15,28 +24,21 @@ public class Position{
 
 
     //---------------------Getter---------------------
+
+    /**
+     * Getter sur l'axe abscisse (l'axe X)
+     * @return la position sur l'axe abscisse
+     */
     public int getPosX() {
         return posX;
     }
 
-
+    /**
+     * Getter sur l'axe ordonnée (l'axe Y)
+     * @return la position sur l'axe ordonnée
+     */
     public int getPosY() {
         return posY;
-    }
-
-    public void setPosX(int parPosX){
-        posX = parPosX;
-    }
-
-    public void setPosY(int parPosY){
-        posY = parPosY;
-    }
-
-
-    // Téléporteur (le temps des tests)
-    public void teleporteur(int parPosX, int parPosY){
-        posX = parPosX;
-        posY = parPosY;
     }
 
     /**
@@ -67,7 +69,10 @@ public class Position{
     }
 
 
-    // Changement de direction
+    /**
+     * Gestion d'un déplacement en fonction de sa direction : Haut (H), Bas (B), Droite (D), Gauche (G)
+     * @param direction : H B D G
+     */
 
     public void deplacement(String direction){
 
@@ -101,14 +106,22 @@ public class Position{
         Map.getJoueur().ajoutPas();
     }
 
-
-    public String toString(){
-        return "(" + posX + ", " + posY + ")";
-    }
-
+    /**
+     * Méthode pour savoir si deux position sont égales
+     * @param posComparee : position à comparé
+     * @return un booléen, true si les deux positions sont égales, false sinon
+     */
     public boolean equals(Position posComparee) {
         if (posComparee.getPosX() == posX && posComparee.getPosY() == posY)
             return true;
         return false;
+    }
+
+    /**
+     * Méthode toString pour le débuggage pour voir la position
+     * @return la position au format String
+     */
+    public String toString(){
+        return "(" + posX + ", " + posY + ")";
     }
 }

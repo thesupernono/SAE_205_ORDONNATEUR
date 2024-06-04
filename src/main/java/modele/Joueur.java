@@ -136,7 +136,7 @@ public class Joueur{
 
     /**
      * méthode qui pose le cristal que l'on a en main
-     * Le temple en paramètre est le temple sur lequel on est
+     * @param temple : le temple sur lequel on est
      */
     public void poserCristal(Temple temple){
         // On vérifie si on a bien un cristal
