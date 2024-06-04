@@ -16,7 +16,7 @@ public class Controleur implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        System.out.println(event.getSource());
+        // System.out.println(event.getSource());
 
         // Changement de sénario :
         if (event.getSource() instanceof File) {
@@ -42,8 +42,8 @@ public class Controleur implements EventHandler {
             // Si ce n'est pas possible, la fonction renvoie pour le moment un string
 
             if(boutton.getUserData() instanceof String){
-                System.out.println("Erreur récupérée ");
-                System.out.println((String) boutton.getUserData());
+                System.out.println("Action impossible ");
+                //TODO : faire un raise exception
             }
 
             // Si on pose le cristal sur un temple, et que c'est possible
@@ -53,6 +53,8 @@ public class Controleur implements EventHandler {
 
                 // On récupère le temple sur lequel on est
                 Temple temple = (Temple)boutton.getUserData();
+
+                Map.getJoueur().poserCristal(temple);
 
             }
 

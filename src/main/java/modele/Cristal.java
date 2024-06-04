@@ -9,6 +9,10 @@ public class Cristal {
         couleur = parCouleur;
     }
 
+    public Cristal copy(){
+        return new Cristal(position.getPosX(), position.getPosY(), couleur);
+    }
+
 
     public Position getPosition() {
         return position;

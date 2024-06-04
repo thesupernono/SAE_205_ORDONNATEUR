@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Joueur{
     private Position position;
-    private Cristal cristal;
+    private Cristal cristalEnMain;
     private int pas;
     private Label LabelPas = new Label("Vous avez fait 0 pas");
 
@@ -27,7 +27,7 @@ public class Joueur{
         historique = new TableView<>();
 
 
-        cristal = null;
+        cristalEnMain = null;
     }
 
     public void setPosition(Position nouvPosition){
@@ -42,8 +42,8 @@ public class Joueur{
         return historique;
     }
 
-    public Cristal getCristal(){
-        return cristal;
+    public Cristal getCristalEnMain(){
+        return cristalEnMain;
     }
 
 
@@ -100,52 +100,81 @@ public class Joueur{
      */
     public void prendreCristal(Position position){
 
-        if (cristal != null)
+        if (cristalEnMain != null) {
+            System.out.println("Vous avez déjà un cristal en main");
             //TODO: exception : on ne peut pas récupérer un cristal si on en a déjà un en main
             return;
+        }
 
 
         HashMap<Position, Cristal> coordonneesCristal = Map.getCoordonneesCristaux();
 
-        // On enlève le cristal de la map
+        // On cherche l'objet cristal à partir de sa position
+        // Et on prend le cristal dans la main
+        for(Position posCristal: coordonneesCristal.keySet()){
+            if(posCristal.equals(position)){
+                cristalEnMain = coordonneesCristal.get(posCristal);
 
-        Map.getCoordonneesCristaux().remove(position);
+                // On enlève le cristal de la map
+                Map.getCoordonneesCristaux().remove(posCristal);
 
-        cristal = coordonneesCristal.get(position);
+                // On arrète la boucle
+                break;
+            }
+        }
 
 
-
+        // On remet à jour les infos
+        VBoxInfos.verifPossession(position);
 
     }
 
     /**
      * méthode qui pose le cristal que l'on a en main
-     * @return le cristal que l'on a en main
+     * Le temple en paramètre est le temple sur lequel on est
      */
-    public void poserCristal(){
-        // On vérifie si on est bien sur un temple et le récupère en fonction de la position du joueur
-        Position posTemple = null;
-        for(Position posChercheTemple: Map.getCoordonneesTemples().keySet()){
-            if (posChercheTemple.equals(Map.getJoueur().getPosition()))
-                posTemple = posChercheTemple;
-        }
-
-        if (posTemple == null)
-            // TODO: Il faudra lever une exception car on n'est pas sur un temple
-            //  et l'afficher sur le graphique avec une petite phrase
+    public void poserCristal(Temple temple){
+        // On vérifie si on a bien un cristal
+        if(cristalEnMain == null)
+            // TODO: faire une exception : on a pas de cristal et on veut en poser un
             return;
 
-        // On récupère le temple
-        Temple temple = Map.getCoordonneesTemples().get(posTemple);
+        System.out.println("première verif passée");
 
-        // On vérifie si ce n'est pas le temple sur lequel il doit aller
+        // On vérifie si c'est le temple qui doit recevoir le cristal que l'on a
+        // Si c'est le cas, on peut l'enlever de nôtre main et on a pas besoin de l'afficher de nouveau
+        if (cristalEnMain.getCouleur() == temple.getCouleur()){
+            cristalEnMain = null;
+            ElementsGraphiques.resetGraphique(temple.getPosition());
+            return;
+        }
+        System.out.println("deuxème verif passée");
 
-        // if (cristal.getCouleur() == )
-    }
+        // Sinon, on commence par vérifier si on peut poser le cristal là où l'on est
+        // C'est à dire si il n'y a pas déjà un cristal sur le temple
+        for(Position posCristalCheck: Map.getCoordonneesCristaux().keySet()){
+            if(posCristalCheck.equals(temple.getPosition()))
+                //TODO: Dire que c'est impossible de poser un cristal là où il y en a déjà un
+                return;
+        }
+
+        // Si on est arrivé là c'est que tout est bon, on peut poser le cristal
+        // On fait une copie du cristal pour ne pas le perdre quand on l'enlèvera de la main
+        Cristal cristalTemp = cristalEnMain.copy();
+
+        // On l'ajouter sur la map
+        Map.getCoordonneesCristaux().put(temple.getPosition(), cristalTemp);
+        System.out.println("------------------");
+        System.out.println(Map.getCoordonneesCristaux());
+
+        // On le retire de nôtre main
+        cristalEnMain = null;
+
+        System.out.println("cristal posé");
 
 
-    public Joueur getJoueur(){
-        return new Joueur(position.getPosX(), position.getPosY());
+        // On remet à jour les infos
+        VBoxInfos.verifPossession(position);
     }
 
     /**

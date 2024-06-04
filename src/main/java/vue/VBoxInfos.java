@@ -25,7 +25,7 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         nombrePasLabel = Map.getJoueur().getLabelPas();
         peuxPrendreCristal = new Button("Prendre le cristal");
         peuxPoserCristal = new Button("Poser le cristal");
-        possessionLabel = new Label("Vous n'avez aucun cristal");
+        possessionLabel = new Label("Vous n'avez pas de cristal en main");
 
         // Ajout sur la fenêtre
 
@@ -53,10 +53,13 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
 
         // System.out.println("Vérif Possession lancé !!");
         // System.out.println("--------------------");
-        if (Map.getJoueur().getCristal() != null){
-            int numCouleur = Map.getJoueur().getCristal().getCouleur();
+        if (Map.getJoueur().getCristalEnMain() != null){
+            int numCouleur = Map.getJoueur().getCristalEnMain().getCouleur();
             System.out.println("Numéro de la couleur : " + numCouleur);
             possessionLabel.setText("Vous avez le cristal " + NOM_COULEURS[numCouleur]);
+        }
+        else{
+            possessionLabel.setText("Vous n'avez pas de cristal en main");
         }
 
         // On associe les bouttons aux actions
@@ -74,7 +77,7 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         }
 
         // On vérifie si on a un cristal
-        if (Map.getJoueur().getCristal() != null) {
+        if (Map.getJoueur().getCristalEnMain() != null) {
             // On vérifie si on est sur un temple
             for(Position posTemple: Map.getCoordonneesTemples().keySet()){
                 if(posTemple.equals(positionArrivee)) {
