@@ -76,8 +76,42 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             }
         });
 
-        MenuJeu menuJeu = new MenuJeu();
-        VBox.setMargin(menuJeu,new Insets(10));
+        // ---------------------Menu---------------------
+        // Barre de menu
+        MenuBar menuBar = new MenuBar();
+        VBox.setMargin(menuBar, new Insets(9));
+
+        // Menu des scénarios
+        Menu menuScenarios = new Menu("Scenarios");
+
+        //listes des scénario du menu
+        File[] scenarios = new File("Scenario").listFiles();
+
+
+        for (int i = 0; i < scenarios.length; i++) { // lecture de la LISTE des fichiers
+            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
+            menuItemScenar.setUserData(scenarios);
+
+            // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
+            menuScenarios.getItems().add(menuItemScenar);
+        }
+
+
+        //Informations sur le joueur
+        Menu infosJoueur = new Menu("Infos");
+        MenuItem menuItemPosX = new MenuItem("Position X: " + Map.getJoueur().getPosition().getPosX());
+        MenuItem menuItemPosY = new MenuItem("Position Y: " + Map.getJoueur().getPosition().getPosY());
+        infosJoueur.getItems().addAll(menuItemPosX, menuItemPosY);
+
+        //Selection de Tri
+        Menu triMenu = new Menu("Algorithmes");
+        MenuItem menuTriBulle = new MenuItem("Tri bulle");
+        MenuItem menuTriHeur = new MenuItem("Tri Heuristique");
+        triMenu.getItems().addAll(menuTriBulle, menuTriHeur);
+
+
+        menuBar.getMenus().addAll(menuScenarios,infosJoueur,triMenu); // ajoute tout les menu ensemble
+        this.getChildren().add(menuBar);
 
         // ----------------TRI-----------------
         Tri tri = new Tri();
@@ -89,10 +123,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         tri.TriHeuristique();
         System.out.println(tri.toString());
 
-        this.getChildren().add(menuJeu);
         this.getChildren().add(canvasCarte);
         VBox.setMargin(canvasCarte, new Insets(30));
-
     }
 
     public static GraphicsContext getGraphiqueContext2D() {

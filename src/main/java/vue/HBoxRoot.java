@@ -3,7 +3,6 @@ package vue;
 import controleur.Controleur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import modele.MenuJeu;
 
 
 public class HBoxRoot extends HBox {
