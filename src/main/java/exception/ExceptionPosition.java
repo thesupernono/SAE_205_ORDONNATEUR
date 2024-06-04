@@ -39,18 +39,6 @@ public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, C
         }
     }
 
-    public static void VerifierCouleurObjet(int numCouleur){
-        try{
-            if (numCouleur > COULEURS.length || numCouleur < 1){
-                // La couleur 1 est prise par le joueur
-                // donc il ne faut pas que d'autres éléments aient la même couleur
-                throw new ExceptionPosition(3);
-            }
-        } catch(ExceptionPosition e){
-            procedureErreur(e);
-        }
-    }
-
     public int getNumErreur(){
         return numErreur;
     }

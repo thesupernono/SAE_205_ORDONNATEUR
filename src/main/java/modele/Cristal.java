@@ -1,5 +1,6 @@
 package modele;
 
+import exception.ExceptionManquant;
 import exception.ExceptionPosition;
 
 public class Cristal {
@@ -12,7 +13,7 @@ public class Cristal {
 
         // On vérifie si la position et la couleur sont correcte
         ExceptionPosition.VerifierPositionObjet(position, this);
-        ExceptionPosition.VerifierCouleurObjet(couleur);
+        ExceptionManquant.VerifierCouleurObjet(couleur);
     }
 
     public Cristal copy(){

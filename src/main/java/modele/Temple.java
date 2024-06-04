@@ -1,6 +1,7 @@
 package modele;
 
 
+import exception.ExceptionManquant;
 import exception.ExceptionPosition;
 import interfaces.CONSTANTES_MAP;
 
@@ -16,7 +17,7 @@ public class Temple implements CONSTANTES_MAP {
 
           // On vérifie si la position et la couleur sont correcte
           ExceptionPosition.VerifierPositionObjet(position, this);
-          ExceptionPosition.VerifierCouleurObjet(couleur);
+          ExceptionManquant.VerifierCouleurObjet(couleur);
      }
 
      public Position getPosition(){
