@@ -12,7 +12,7 @@ public class Temple implements CONSTANTES_MAP {
      public Temple(int parPosX, int parPosY, int parNumCouleur){
           position = new Position(parPosX, parPosY);
           couleur = parNumCouleur;
-          ExceptionJeu.VerifierObjet(position.getPosX(),position.getPosY(),couleur);
+          ExceptionJeu.VerifierPositionObjet(position, this);
      }
 
      public Position getPosition(){

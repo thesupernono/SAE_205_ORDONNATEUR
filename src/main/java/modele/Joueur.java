@@ -28,6 +28,9 @@ public class Joueur{
 
         // On ne met rien dans sa main par défaut
         cristalEnMain = null;
+
+        // On vérifie si le joueur a une position correcte
+        ExceptionJeu.VerifierPositionObjet(position, this);
     }
 
     public void setPosition(Position nouvPosition){

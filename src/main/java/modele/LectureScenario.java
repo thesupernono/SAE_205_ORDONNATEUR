@@ -38,6 +38,10 @@ public class LectureScenario implements CONSTANTES_MAP {
             cristaux.add(nouveauCristal);
 
 
+            // On vérifie si la position du temple et du cristal est correcte
+            Position positionVerif = new Position(positionX, positionY);
+            ExceptionJeu.VerifierPositionObjet(positionVerif, nouveauTemple);
+
             // On passe proprement à la ligne suivante :
             if (scanner.hasNextLine()){
                 scanner.nextLine();

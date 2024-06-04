@@ -7,11 +7,13 @@ public interface CONSTANTES_ERREUR {
      *          0                   :   position.length != 0 (pas que 2 données rentrée pour une position)
      */
     public String [] MESSAGE_ERREUR = {
-            "Position non valide",
-            "Cristal manquant dans le fichier scenario",
-            "Position d'un temple impossible",
-            "Position du joueur impossible",
-            "Couleur non valide",
-            "Aucun temple dans le fichier scenario"
+            "Position du joueur non valide",                            // 0
+            "Position d'un temple / cristal n'est pas valide",          // 1
+            "Position d'un objet n'est pas valide",                     // 2
+
+            "Le numéro de la couleur ne correspond à aucune couleur",   // 3
+
+            "Cristal manquant dans le fichier scenario",                // 4
+            "Aucun temple dans le fichier scenario"                     // 5
     };
 }
