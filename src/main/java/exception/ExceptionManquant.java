@@ -7,7 +7,10 @@ import interfaces.CONSTANTES_MAP;
  * Gestion des erreurs quand il manque des éléments
  */
 public class ExceptionManquant extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP {
+    /** code erreur */
     int numErreur;
+
+    /** message d'erreur */
     String messageErreur;
 
     /**

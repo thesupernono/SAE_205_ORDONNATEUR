@@ -7,7 +7,10 @@ import interfaces.CONSTANTES_MAP;
  * Gestion des cas où l'on essaye de faire des choses impossible
  */
 public class ExceptionImpossible extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP {
+    /** numéro de l'erreur */
     int numErreur;
+
+    /** message d'erreur */
     String messageErreur;
 
     /**

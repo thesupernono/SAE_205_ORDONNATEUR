@@ -10,13 +10,17 @@ public interface CONSTANTES_MAP {
     //-------------------------Map-------------------------
 
     // carré
+    /** numbre de carré (la map c'est nombre de carré sur le noombre de carré)     */
     int NOMBRE_CARRE = 31;
+    /** taille de chaque carré */
     int TAILLE_CARRE = 20;
 
 
-    // fenetres
+    /** taille de la fenetres */
     int [] TAILLE_FENETRE = {1280, 720};
+    /** Taille de chaque cristal */
     int TAILLE_CRISTAL = TAILLE_CARRE - 10;
+    /** Taille de la map*/
     int [] TAILLE_MAP = {TAILLE_CARRE * NOMBRE_CARRE, TAILLE_CARRE * NOMBRE_CARRE};
 
 

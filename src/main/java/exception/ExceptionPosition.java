@@ -10,7 +10,10 @@ import modele.Temple;
  * Gestion des erreurs des positions
  */
 public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP {
+    /** code erreur */
     int numErreur;
+
+    /** message d'erreur */
     String messageErreur;
 
     /**
@@ -24,7 +27,9 @@ public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, C
 
     /**
      * Regarde si la Position selectionné est dans les limite de la map.
-     * @param position position
+     * @param position : position
+     * @param element : element sur lequel on vérifie la position
+     *                  afin de générer une erreur plus précise si besoin
      */
     public static void VerifierPositionObjet(Position position, Object element){
         try {

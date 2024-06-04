@@ -65,7 +65,7 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
 
     /**
      * Méthode static pour dessiner graphiquement un cristal
-     * @param parCristal
+     * @param parCristal : cristal à dessiner
      */
     public static void dessinerElement(Cristal parCristal) {
 
@@ -122,6 +122,9 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         VBoxInfos.verifPossession(positionReset);
     }
 
+    /**
+     * Méthode static pour reset toutes les cases du graphique
+     */
     public static void resetAll(){
         for(int numLigne = 1; numLigne < NOMBRE_CARRE - 1; numLigne += 1){
             for(int numColonne = 1; numColonne < NOMBRE_CARRE - 1; numColonne += 1){

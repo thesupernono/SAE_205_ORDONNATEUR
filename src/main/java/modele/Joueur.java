@@ -7,6 +7,10 @@ import vue.VBoxInfos;
 
 import java.util.HashMap;
 
+/**
+ * Objet joueur qui contient sa position, son cristal en main (qui vaut null quand il ne porte rien),
+ * son nombre de pas, et le label sur ce nombre de pas
+ */
 public class Joueur{
     private Position position;
     private Cristal cristalEnMain;
@@ -33,18 +37,34 @@ public class Joueur{
         ExceptionPosition.VerifierPositionObjet(position, this);
     }
 
+    /**
+     * setter d'une nouvelle position
+     * @param nouvPosition : la nouvelle position du joueur
+     */
     public void setPosition(Position nouvPosition){
         position = nouvPosition;
     }
 
+    /**
+     * getter du label du nombre de pas
+     * @return le label du nombre de pas
+     */
     public Label getLabelPas(){
         return LabelPas;
     }
 
+    /**
+     * getter de l'historique du joueur
+     * @return l'historique
+     */
     public Historique getHistorique(){
         return historique;
     }
 
+    /**
+     * getter du cristal en main
+     * @return le cristal en main
+     */
     public Cristal getCristalEnMain(){
         return cristalEnMain;
     }
@@ -88,10 +108,17 @@ public class Joueur{
         return position;
     }
 
+    /**
+     * getter du nombre de pas du joueur
+     * @return le nombre de pas de type int
+     */
     public int getPas(){
         return pas;
     }
 
+    /**
+     * méthode pour ajouter un pas
+     */
     public void ajoutPas(){
         pas++;
         LabelPas.setText("Vous avez fait " + pas + " pas");

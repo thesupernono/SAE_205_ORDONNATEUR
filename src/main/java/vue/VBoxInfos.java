@@ -14,6 +14,10 @@ import modele.Cristal;
  * ainsi que pour réaliser des parcours
  */
 public class VBoxInfos extends VBox implements CONSTANTES_MAP {
+    /**
+     * Attribut pour vérifier si ce lancement est le premier,
+     * afin de savoir si on peut récupérer les ancien éléments
+     */
     public static boolean premierLancement = true;
     private Label nombrePasLabel;
     private static Button peuxPrendreCristal;

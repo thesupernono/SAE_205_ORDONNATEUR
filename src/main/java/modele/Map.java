@@ -104,10 +104,17 @@ public class Map implements CONSTANTES_MAP {
         return coordonneesCristaux;
     }
 
+    /**
+     * getter du joueur 
+     * @return le joueur
+     */
     public static Joueur getJoueur() {
         return joueur;
     }
 
+    /**
+     * méthode pour reset les ensemble HashMap qui contient le couple Position Cristal et Position Temple
+     */
     public void resetCoordonnees(){
         coordonneesCristaux.clear();
         coordonneesTemples.clear();
