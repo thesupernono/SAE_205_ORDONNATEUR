@@ -13,7 +13,7 @@ public class Joueur{
     private int pas;
     private Label LabelPas = new Label("Vous avez fait 0 pas");
 
-    private TableView<String> historique;
+    private Historique historique;
     /**
      * Créer un joueur avec sa position sur la carte et son identifiant (numéro de joueur)
      * @param posX position x du joueur
@@ -24,9 +24,9 @@ public class Joueur{
         pas = 0;
 
         // On défini son historique
-        historique = new TableView<>();
+        historique = new Historique();
 
-
+        // On ne met rien dans sa main par défaut
         cristalEnMain = null;
     }
 
@@ -38,7 +38,7 @@ public class Joueur{
         return LabelPas;
     }
 
-    public TableView<String> getHistorique(){
+    public Historique getHistorique(){
         return historique;
     }
 
@@ -53,6 +53,7 @@ public class Joueur{
      * @param positionArrivee (int []) : position d'arrivée
      */
     public void deplacement(Position positionArrivee){
+        Map.getJoueur().getHistorique().ajoutEvenement(position, positionArrivee);
         while(position.getPosX() != positionArrivee.getPosX() || position.getPosY() != positionArrivee.getPosY()){
 
 
