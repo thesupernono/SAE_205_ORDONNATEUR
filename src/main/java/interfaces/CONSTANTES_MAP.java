@@ -1,4 +1,4 @@
-package modele;
+package interfaces;
 
 import javafx.scene.paint.Color;
 
@@ -34,6 +34,7 @@ public interface CONSTANTES_MAP {
             Color.rgb(101, 57, 161, 0.63),
             Color.CYAN,
             Color.NAVY,
+            Color.BROWN
     };
 
     String [] NOM_COULEURS = {
@@ -44,7 +45,8 @@ public interface CONSTANTES_MAP {
             "rose",
             "violet",
             "bleu cyan",
-            "bleu foncé"
+            "bleu foncé",
+            "marron"
     };
 
 

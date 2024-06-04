@@ -1,17 +1,17 @@
 package vue;
 
+import interfaces.CONSTANTES_MAP;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
+import controleur.Controleur;
 import modele.*;
 
 import java.io.File;
-import java.util.HashSet;
 
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
@@ -19,7 +19,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
     private Canvas canvasCarte;
     private static GraphicsContext graphiqueContext2D;
 
-    // private Controller controleur;
+    private Controleur controleur;
 
     public VBoxTemple() throws Exception {
 
@@ -92,7 +92,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
             menuItemScenar.setUserData(scenarios);
 
-            // menuItemScenar.setOnAction(controleur); Quand on aura un controleur fonctionnel
+            menuItemScenar.setOnAction(controleur);
             menuScenarios.getItems().add(menuItemScenar);
         }
 

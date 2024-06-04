@@ -1,4 +1,4 @@
-package modele;
+package interfaces;
 
 public interface CONSTANTES_ERREUR {
     /**

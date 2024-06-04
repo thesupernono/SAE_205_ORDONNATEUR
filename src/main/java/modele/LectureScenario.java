@@ -1,11 +1,13 @@
 package modele;
 
 
+import interfaces.CONSTANTES_MAP;
+
 import java.io.File;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class LectureScenario implements CONSTANTES_MAP{
+public class LectureScenario implements CONSTANTES_MAP {
     private static HashSet<Temple> temples = new HashSet<>();
     private static HashSet<Cristal> cristaux = new HashSet<>();
 

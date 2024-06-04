@@ -1,12 +1,9 @@
 package modele;
 
+import interfaces.CONSTANTES_MAP;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
 import vue.VBoxInfos;
 import vue.VBoxTemple;
-
-import java.util.HashMap;
-import java.util.TreeSet;
 
 public class ElementsGraphiques implements CONSTANTES_MAP {
 

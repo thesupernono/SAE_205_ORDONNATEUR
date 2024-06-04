@@ -4,7 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static modele.CONSTANTES_MAP.TAILLE_FENETRE;
+import static interfaces.CONSTANTES_MAP.TAILLE_FENETRE;
 
 public class ApplicationJeu extends Application {
     @Override

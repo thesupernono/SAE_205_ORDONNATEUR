@@ -1,7 +1,9 @@
 package modele;
 
 
-public class Temple implements CONSTANTES_MAP{
+import interfaces.CONSTANTES_MAP;
+
+public class Temple implements CONSTANTES_MAP {
      Position position;
      int couleur;
 

@@ -1,12 +1,11 @@
 package modele;
 
-import javafx.scene.canvas.GraphicsContext;
-import vue.VBoxTemple;
+import interfaces.CONSTANTES_MAP;
 
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Map implements CONSTANTES_MAP{
+public class Map implements CONSTANTES_MAP {
 
     // Les cristaux et les temples sont stockés avec comme clé leur position (position_x, position_y)
     // Ils ont comme valeur un

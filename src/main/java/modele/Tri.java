@@ -1,9 +1,11 @@
 package modele;
 
+import interfaces.CONSTANTES_MAP;
+
 import java.util.Collection;
 import java.util.HashMap;
 
-public class Tri implements CONSTANTES_MAP{
+public class Tri implements CONSTANTES_MAP {
 
     private final HashMap <Position, Temple> hashTemples = Map.getCoordonneesTemples();
     private Temple [] listeTemples = hashTemples.values().toArray(Temple []::new); // convertit hashTemples en Array

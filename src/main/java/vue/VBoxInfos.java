@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
-import modele.CONSTANTES_MAP;
+import interfaces.CONSTANTES_MAP;
 import javafx.scene.control.TableView;
 import modele.Cristal;
 import modele.Map;

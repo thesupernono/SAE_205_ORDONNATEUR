@@ -1,6 +1,9 @@
 package modele;
 
-public class ExceptionJeu extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP{
+import interfaces.CONSTANTES_ERREUR;
+import interfaces.CONSTANTES_MAP;
+
+public class ExceptionJeu extends Exception implements CONSTANTES_ERREUR, CONSTANTES_MAP {
     int numErreur;
     String messageErreur;
 

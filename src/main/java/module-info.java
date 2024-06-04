@@ -7,4 +7,5 @@ module org.example.sae_205_ordonnateur {
 
     exports modele;
     exports vue;
+    exports interfaces;
 }

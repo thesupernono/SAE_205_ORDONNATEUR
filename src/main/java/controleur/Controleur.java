@@ -3,6 +3,7 @@ package controleur;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ToggleButton;
 import modele.*;
@@ -32,6 +33,17 @@ public class Controleur implements EventHandler {
             HashSet <Cristal> cristaux = scenario.getCristal();
 
         }
+
+        /*
+        if (event.getSource() instanceof Menu) {
+            File fichierScenario = (File) event.getSource();
+            try {
+                scenario = new LectureScenario(nomScenario);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        */
 
         // Si on prend ou pose un cristal
         if (event.getSource() instanceof Button){
