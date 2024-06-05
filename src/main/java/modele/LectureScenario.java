@@ -80,8 +80,9 @@ public class LectureScenario implements CONSTANTES_MAP {
             // On récupère sa position
             int couleurTemple = temple.getCouleur();
             for(Cristal cristal: cristaux){
-                if(cristal.getCouleur() == couleurTemple){
+                if (cristal.getCouleur() == couleurTemple) {
                     verifTemple = true;
+                    break;
                 }
             }
 

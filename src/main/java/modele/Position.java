@@ -115,8 +115,6 @@ public class Position{
         ElementsGraphiques.resetGraphique(Map.getJoueur().getPosition());
 
         Map.getJoueur().ajoutPas();
-
-        Map.getJoueur().getHistorique().ajoutEvenement(positionDepart, new Position(posX, posY));
     }
 
     /**

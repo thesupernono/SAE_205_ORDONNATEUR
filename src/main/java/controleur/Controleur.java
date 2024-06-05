@@ -39,12 +39,6 @@ public class Controleur implements EventHandler {
 
                 // On set la nouvelle map comme étant la map actuelle
                 VBoxTemple.setMap(nouvelleMap);
-
-                // On récupère des temples et des cristaux du nouveau scenario
-                HashSet<Temple> temples = LectureScenario.getTemples();
-                HashSet<Cristal> cristaux = LectureScenario.getCristaux();
-
-                System.out.println("La map a changé");
             }
 
         }
@@ -62,7 +56,7 @@ public class Controleur implements EventHandler {
             }
 
             else if (boutton.getUserData() == "Tri heuristique"){
-                Temple [] ordreTemple = Tri.TriBasique();
+                Temple [] ordreTemple = Tri.TriHeuristique();
                 Tri.parcours(ordreTemple);
             }
             // Si ce n'est pas possible, la fonction renvoie pour le moment un string
@@ -91,9 +85,6 @@ public class Controleur implements EventHandler {
 
             // Si on prend le cristal et que c'est possible
             if (boutton.getUserData() instanceof Cristal){
-                // On défini le cristal
-                Cristal cristal = (Cristal)boutton.getUserData();
-
 
                 // On essaye de le met dans la main
                 Map.getJoueur().prendreCristal();

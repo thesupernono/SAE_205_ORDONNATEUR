@@ -9,8 +9,6 @@ import modele.Historique;
 import modele.Position;
 import modele.Cristal;
 
-import static interfaces.CONSTANTES_ERREUR.MOUVEMENT_INTERDIT;
-
 /**
  * Box des informations sur le joueur, son historique, pour prendre et poser le cristal
  * ainsi que pour réaliser des parcours
@@ -21,11 +19,11 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
      * afin de savoir si on peut récupérer les ancien éléments
      */
     public static boolean premierLancement = true;
-    private static Label nombrePasLabel;
+    private Label nombrePasLabel;
     private static Button peuxPrendreCristal;
     private static Button peuxPoserCristal;
-    private static Button boutonParcoursBasique;
-    private static Button boutonParcoursHeuristique;
+    private Button boutonParcoursBasique;
+    private Button boutonParcoursHeuristique;
     private static Label possessionLabel;
 
     private Historique historique = Map.getJoueur().getHistorique();
@@ -77,8 +75,6 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         peuxPrendreCristal.setUserData("Impossible");
         peuxPoserCristal.setUserData("Impossible");
 
-        // System.out.println("Vérif Possession lancé !!");
-        // System.out.println("--------------------");
         if (Map.getJoueur().getCristalEnMain() != null){
             int numCouleur = Map.getJoueur().getCristalEnMain().getCouleur();
             possessionLabel.setText("Vous avez le cristal " + NOM_COULEURS[numCouleur]);

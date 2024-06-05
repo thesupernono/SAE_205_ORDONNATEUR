@@ -19,7 +19,7 @@ public class HBoxRoot extends HBox {
      */
     public HBoxRoot() throws Exception {
         // Le controleur
-        controleur = new Controleur();;
+        controleur = new Controleur();
         vBoxTemple = new VBoxTemple();
         vBoxInfos = new VBoxInfos();
 

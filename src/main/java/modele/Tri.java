@@ -1,11 +1,8 @@
 package modele;
 
 import interfaces.CONSTANTES_MAP;
-import vue.VBoxTemple;
 
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 
 /**
  * Objet qui contient les différents tris

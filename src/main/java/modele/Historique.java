@@ -4,6 +4,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.util.HashSet;
+
 /**
  * Gestionnaire de l'historique
  */
@@ -16,11 +18,11 @@ public class Historique {
      */
     public Historique(){
         historique = new TableView<>();
-        historiqueDetails = new TableColumn<>("Historique");
+        historiqueDetails = new TableColumn<>("String");
 
         historiqueDetails.setCellValueFactory(new PropertyValueFactory<>("String"));
         // L'historique n'est pas encore fonctionnel
-        // historique.getColumns().add(historiqueDetails);
+        historique.getColumns().add(historiqueDetails);
 
     }
 

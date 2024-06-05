@@ -8,9 +8,6 @@ import vue.VBoxTemple;
 
 import java.util.HashMap;
 
-import static interfaces.CONSTANTES_MAP.CENTRE_X;
-import static interfaces.CONSTANTES_MAP.CENTRE_Y;
-
 /**
  * Objet joueur qui contient sa position, son cristal en main (qui vaut null quand il ne porte rien),
  * son nombre de pas, et le label sur ce nombre de pas
