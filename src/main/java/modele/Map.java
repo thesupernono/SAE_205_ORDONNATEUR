@@ -64,7 +64,6 @@ public class Map implements CONSTANTES_MAP {
             coordonneesCristaux.put(cristal.getPosition(), cristal);
         }
 
-
         //-----------------Cristaux et temples-----------------
         // On reset les graphique des anciens éléments
         if (!VBoxInfos.premierLancement){
@@ -82,6 +81,7 @@ public class Map implements CONSTANTES_MAP {
         }
         // On affiche le joueur
         ElementsGraphiques.dessinerElement(joueur);
+
     }
 
 

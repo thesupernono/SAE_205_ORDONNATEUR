@@ -61,7 +61,8 @@ public interface CONSTANTES_MAP {
             Color.rgb(101, 57, 161, 0.63),
             Color.CYAN,
             Color.NAVY,
-            Color.BROWN
+            Color.BROWN,
+            Color.DARKGREY
     };
     /**
      * On reprend le nom de chacune des couleurs afin de pouvoir les aficher à l'utilisateur
@@ -75,7 +76,8 @@ public interface CONSTANTES_MAP {
             "violet",
             "bleu cyan",
             "bleu foncé",
-            "marron"
+            "marron",
+            "Gris foncé"
     };
 
     /**

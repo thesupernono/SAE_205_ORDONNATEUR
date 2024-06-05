@@ -57,7 +57,6 @@ public class Controleur implements EventHandler {
 
             // ----------------TRI-----------------
             if(boutton.getUserData() == "Tri basique"){
-                System.out.println("Tri basique");
                 Temple [] ordreTemple = Tri.TriBasique();
                 Tri.parcours(ordreTemple);
             }

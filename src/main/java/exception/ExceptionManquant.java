@@ -29,11 +29,13 @@ public class ExceptionManquant extends Exception implements CONSTANTES_ERREUR, C
     public static void VerifierCouleurObjet(int numCouleur){
         try{
             if (numCouleur >= COULEURS.length || numCouleur < 1){
+                System.out.println(numCouleur);
                 // La couleur 1 est prise par le joueur
                 // donc il ne faut pas que d'autres éléments aient la même couleur
-                throw new ExceptionPosition(2);
+                System.out.println("LAAAA");
+                throw new ExceptionManquant(2);
             }
-        } catch(ExceptionPosition erreur){
+        } catch(ExceptionManquant erreur){
             System.out.println(erreur.getMessageErreur());
             System.exit(erreur.getNumErreur());
         }

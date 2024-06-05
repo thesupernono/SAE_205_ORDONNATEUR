@@ -40,8 +40,10 @@ public class ExceptionPosition extends Exception implements CONSTANTES_ERREUR, C
                 else if (element instanceof Temple)
                     // Si le temple est mal initié pour un temple, c'est aussi le cas pour un cristal
                     throw new ExceptionPosition(1);
-                else
+                else {
+                    System.out.println("C'est iCI");
                     throw new ExceptionPosition(2);
+                }
             }
         }
         catch(ExceptionPosition erreur){
