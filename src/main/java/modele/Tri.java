@@ -14,6 +14,7 @@ public class Tri implements CONSTANTES_MAP {
 
     /**
      * Fait un tri basique par couleurs en bulle
+     * @return : retourne un tableau te temple, sachant qu'il faut commencer par le premier et finir par le dernier
      */
     public static Temple [] TriBasique(){
         HashMap <Position, Temple> hashTemples = Map.getCoordonneesTemples();
@@ -35,6 +36,7 @@ public class Tri implements CONSTANTES_MAP {
 
     /**
      * Fait un tri heuristique distances
+     * @return : retourne un tableau te temple, sachant qu'il faut commencer par le premier et finir par le dernier
      */
     public static Temple [] TriHeuristique(){
         HashMap <Position, Temple> hashTemples = Map.getCoordonneesTemples();
