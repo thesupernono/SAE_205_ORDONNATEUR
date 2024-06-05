@@ -59,14 +59,7 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
             menuScenarios.getItems().add(menuItemScenar);
         }
 
-        //Selection de Tri
-        Menu triMenu = new Menu("Algorithmes");
-        MenuItem menuTriBulle = new MenuItem("Tri bulle");
-        MenuItem menuTriHeur = new MenuItem("Tri Heuristique");
-        triMenu.getItems().addAll(menuTriBulle, menuTriHeur);
-
-
-        menuBar.getMenus().addAll(menuScenarios,triMenu); // ajoute tous les menus ensemble
+        menuBar.getMenus().addAll(menuScenarios); // ajout du menu à la barre
         this.getChildren().add(menuBar);
 
 

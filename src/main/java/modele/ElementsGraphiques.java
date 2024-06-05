@@ -126,15 +126,13 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
      * Méthode static pour reset toutes les cases du graphique
      */
     public static void resetAll(){
-        for(int numLigne = 1; numLigne < NOMBRE_CARRE - 1; numLigne += 1){
-            for(int numColonne = 1; numColonne < NOMBRE_CARRE - 1; numColonne += 1){
+        // On fait débuter numLigne et numColonne à 1 car on veut garder les numéros de ligne / colonne
+        for(int numLigne = 1; numLigne < NOMBRE_CARRE; numLigne += 1){
+            for(int numColonne = 1; numColonne < NOMBRE_CARRE; numColonne += 1){
                 Position posAReset = new Position(numColonne, numLigne);
+                System.out.println("Reset position" + posAReset);
                 dessinerVide(posAReset);
-
-                numColonne += 1;
             }
-
-            numLigne += 1;
         }
     }
 }
