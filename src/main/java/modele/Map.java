@@ -45,7 +45,15 @@ public class Map implements CONSTANTES_MAP {
         System.out.println("--------------------");
         System.out.println("Position des Temples : " + listeTemple);
         System.out.println("position des Cistaux : " + listeCristal);
-        joueur = new Joueur(CENTRE_X, CENTRE_Y);
+
+        // à la première initialisation, on ne doit pas reset le joueur car
+        // sinon on essaye de le reset alors qu'il n'existe pas encore
+        // Dans ce cas il faut le créer
+        if(joueur != null)
+            joueur.reset();
+        else{
+            joueur = new Joueur();
+        }
 
 
         // On stock les positions de tous les temples

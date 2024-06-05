@@ -19,7 +19,7 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
      * afin de savoir si on peut récupérer les ancien éléments
      */
     public static boolean premierLancement = true;
-    private Label nombrePasLabel;
+    private static Label nombrePasLabel;
     private static Button peuxPrendreCristal;
     private static Button peuxPoserCristal;
     private static Button boutonParcoursBasique;
@@ -79,7 +79,6 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         // System.out.println("--------------------");
         if (Map.getJoueur().getCristalEnMain() != null){
             int numCouleur = Map.getJoueur().getCristalEnMain().getCouleur();
-            System.out.println("Numéro de la couleur : " + numCouleur);
             possessionLabel.setText("Vous avez le cristal " + NOM_COULEURS[numCouleur]);
         }
         else{

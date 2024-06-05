@@ -2,6 +2,7 @@ package modele;
 
 
 import exception.ExceptionImpossible;
+import exception.ExceptionManquant;
 import exception.ExceptionPosition;
 import interfaces.CONSTANTES_MAP;
 
@@ -67,6 +68,29 @@ public class LectureScenario implements CONSTANTES_MAP {
                 scanner.nextLine();
             }
 
+        }
+
+        // On vérifie si tous les temples sont finissables, sinon c'est que la configuration du fichier
+        // a mal été fait et que le jeu n'est pas finissable
+        for(Temple temple: temples){
+            // Pour vérifier, on met une variable que l'on initie à false et qui vaut true quand
+            // la couleur d'un temple est la couleur d'un cristal
+            boolean verifTemple = false;
+
+            // On récupère sa position
+            int couleurTemple = temple.getCouleur();
+            for(Cristal cristal: cristaux){
+                if(cristal.getCouleur() == couleurTemple){
+                    verifTemple = true;
+                }
+            }
+
+            // Si aucun cristal n'a la même couleur qu'un temple
+            // C'est qu'il y a un problème
+            // Et dans ce cas, le jeu n'est pas finissable
+            if(!verifTemple){
+                throw new ExceptionManquant(3);
+            }
         }
     }
 

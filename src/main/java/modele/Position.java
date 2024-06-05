@@ -1,5 +1,7 @@
 package modele;
 
+import static interfaces.CONSTANTES_MAP.CENTRE_X;
+import static interfaces.CONSTANTES_MAP.CENTRE_Y;
 import static java.lang.Math.abs;
 
 /**
@@ -20,6 +22,15 @@ public class Position{
     public Position(int parPosX, int parPosY){
         posX = parPosX;
         posY = parPosY;
+    }
+
+    /**
+     * Constructeur sans paramètre qui crée automatiquement un élément au centre de la map
+     */
+    public Position(){
+        posX = CENTRE_X;
+        posY = CENTRE_Y;
+
     }
 
 
@@ -103,6 +114,7 @@ public class Position{
         // On reset la position d'arrivée
         ElementsGraphiques.resetGraphique(Map.getJoueur().getPosition());
 
+        System.out.println("pas à ajouté");
         Map.getJoueur().ajoutPas();
     }
 

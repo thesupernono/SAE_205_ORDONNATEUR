@@ -7,6 +7,9 @@ import vue.VBoxInfos;
 
 import java.util.HashMap;
 
+import static interfaces.CONSTANTES_MAP.CENTRE_X;
+import static interfaces.CONSTANTES_MAP.CENTRE_Y;
+
 /**
  * Objet joueur qui contient sa position, son cristal en main (qui vaut null quand il ne porte rien),
  * son nombre de pas, et le label sur ce nombre de pas
@@ -25,6 +28,23 @@ public class Joueur{
      */
     public Joueur(int posX, int posY) {
         position = new Position(posX, posY);
+        pas = 0;
+
+        // On défini son historique
+        historique = new Historique();
+
+        // On ne met rien dans sa main par défaut
+        cristalEnMain = null;
+
+        // On vérifie si le joueur a une position correcte
+        ExceptionPosition.VerifierPositionObjet(position, this);
+    }
+
+    /**
+     * Constructeur sans paramètre qui met le joueur au centre
+     */
+    public Joueur(){
+        position = new Position();
         pas = 0;
 
         // On défini son historique
@@ -127,6 +147,7 @@ public class Joueur{
     }
 
 
+
     /**
      * Permet de prendre un cristal
      */
@@ -208,6 +229,16 @@ public class Joueur{
 
         // On remet à jour les infos
         VBoxInfos.verifPossession(position);
+    }
+
+    /**
+     * Méthode qui permet de reset le joueur
+     */
+    public void reset(){
+        position = new Position();
+        pas = 0;
+        LabelPas.setText("Vous avez fait " + pas + " pas");
+
     }
 
     /**

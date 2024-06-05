@@ -130,7 +130,6 @@ public class ElementsGraphiques implements CONSTANTES_MAP {
         for(int numLigne = 1; numLigne < NOMBRE_CARRE; numLigne += 1){
             for(int numColonne = 1; numColonne < NOMBRE_CARRE; numColonne += 1){
                 Position posAReset = new Position(numColonne, numLigne);
-                System.out.println("Reset position" + posAReset);
                 dessinerVide(posAReset);
             }
         }

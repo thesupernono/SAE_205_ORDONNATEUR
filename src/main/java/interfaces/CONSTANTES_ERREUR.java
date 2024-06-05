@@ -19,7 +19,8 @@ public interface CONSTANTES_ERREUR {
     public String [] MESSAGE_ERREUR_MANQUANT = {
             "Cristal manquant dans le fichier scenario",                    // 0
             "Aucun temple dans le fichier scenario",                        // 1
-            "Le numéro de la couleur n'est pas configuré"                   // 2
+            "Le numéro de la couleur n'est pas configuré",                  // 2
+            "Au moins un temple n'a pas son cristal associé"                // 3
     };
     /**
      * liste des message des phrases pour gérer les erreurs lors d'une action impossible
