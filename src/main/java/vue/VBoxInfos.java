@@ -25,6 +25,7 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
     private Button boutonParcoursBasique;
     private Button boutonParcoursHeuristique;
     private static Label possessionLabel;
+    private Label labelHistoriqueNonFini;
 
     private Historique historique = Map.getJoueur().getHistorique();
 
@@ -42,6 +43,8 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         boutonParcoursBasique = new Button("Réaliser un parcours basique");
         boutonParcoursHeuristique = new Button("Réaliser un parcours heuristique");
 
+        labelHistoriqueNonFini = new Label("Navré mais nous n'avons pas eu le temps de faire l'historique");
+
         // Ajout sur la fenêtre
 
         // affichage
@@ -50,6 +53,7 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         this.getChildren().add(peuxPoserCristal);
         this.getChildren().add(possessionLabel);
         this.getChildren().add(historique.getTableView());
+        this.getChildren().add(labelHistoriqueNonFini);
         this.getChildren().add(boutonParcoursBasique);
         this.getChildren().add(boutonParcoursHeuristique);
 

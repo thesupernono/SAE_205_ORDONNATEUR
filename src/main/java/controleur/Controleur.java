@@ -57,7 +57,6 @@ public class Controleur implements EventHandler {
 
             else if (boutton.getUserData() == "Tri heuristique"){
                 Temple [] ordreTemple = Tri.TriHeuristique();
-                Tri.parcours(ordreTemple);
             }
             // Si ce n'est pas possible, la fonction renvoie pour le moment un string
 

@@ -10,8 +10,8 @@ import java.util.HashSet;
  * Gestionnaire de l'historique
  */
 public class Historique {
-    TableView<String> historique;
-    TableColumn<String, String> historiqueDetails;
+    TableView<EvenementHistorique> historique;
+    TableColumn<EvenementHistorique, String> historiqueDetails;
 
     /**
      * Constructeur de l'historique pour l'initié
@@ -31,7 +31,7 @@ public class Historique {
      * getter de la TableView de l'historique
      * @return l'historique de type TableView
      */
-    public TableView<String> getTableView(){
+    public TableView<EvenementHistorique> getTableView(){
         return historique;
     }
 
@@ -46,8 +46,9 @@ public class Historique {
         System.out.println("Ajout d'une position ");
         // On vérifie si la position est correcte
 
-        String evenement = "Le joueur c'est déplacé de (" + positionDepart.getPosX() +", " + positionDepart.getPosY() +
+        String message = "Le joueur c'est déplacé de (" + positionDepart.getPosX() +", " + positionDepart.getPosY() +
                 ") jusuqu'en (" + positionArrivee.getPosX() + ", " + positionArrivee.getPosY() + ")";
+        EvenementHistorique evenement = new EvenementHistorique(message);
         historique.getItems().add(evenement);
     }
 
@@ -57,14 +58,15 @@ public class Historique {
      * @param cristal : le cristal en question
      */
     public void ajoutEvenement(Cristal cristal){
-        String evenement;
+        String message;
         if(Map.getJoueur().getCristalEnMain() != null) {
-            evenement = "Le cristal " + cristal.getCouleur() + " a été récupéré";
+            message = "Le cristal " + cristal.getCouleur() + " a été récupéré";
         }
         else{
-            evenement = "Le cristal" + cristal.getCouleur() + " a été posé";
+            message = "Le cristal" + cristal.getCouleur() + " a été posé";
         }
 
+        EvenementHistorique evenement = new EvenementHistorique(message);
         historique.getItems().add(evenement);
     }
 }

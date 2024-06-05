@@ -31,8 +31,6 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
      * @throws Exception : gestion des erreurs de la map et des génération des cristaux / temples
      */
     public VBoxTemple() throws Exception {
-        erreur = new Label();
-        this.getChildren().add(erreur);
 
         //-------------------------Map-------------------------
         canvasCarte = new Canvas();
@@ -67,6 +65,12 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
         menuBar.getMenus().addAll(menuScenarios); // ajout du menu à la barre
         this.getChildren().add(menuBar);
+
+        // affichage de l'erreur directement en haut du graphique
+        erreur = new Label();
+        this.getChildren().add(erreur);
+
+        VBox.setMargin(erreur, new Insets(30));
 
 
         this.getChildren().add(canvasCarte);

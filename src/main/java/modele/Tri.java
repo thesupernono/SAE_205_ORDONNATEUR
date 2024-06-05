@@ -69,7 +69,7 @@ public class Tri implements CONSTANTES_MAP {
      * On défini un protocole pour que les tri puissent marcher
      * @param templeAParcourir : les temples à parcourir (dans l'ordre où il faut passer)
      */
-    public static void parcours(Temple [] templeAParcourir){
+    public static void parcours(Temple [] templeAParcourir) {
         // On va au premier, il sort du lot, on commence par se déplacer jusqu'à là bas
         Temple premierTemple = templeAParcourir[0];
         // On déplace le joueur à ce temple

@@ -7,6 +7,9 @@ import vue.VBoxInfos;
 import vue.VBoxTemple;
 
 import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Objet joueur qui contient sa position, son cristal en main (qui vaut null quand il ne porte rien),
@@ -93,8 +96,9 @@ public class Joueur{
      * Déplace le joueur jusqu'à qu'il soit arrivé
      * @param positionArrivee (int []) : position d'arrivée
      */
-    public void deplacement(Position positionArrivee){
-        Map.getJoueur().getHistorique().ajoutEvenement(position, positionArrivee);
+    public void deplacement(Position positionArrivee) {
+        // Helas l'historique ne marche pas pour le moment
+        // Map.getJoueur().getHistorique().ajoutEvenement(position, positionArrivee);
         while(position.getPosX() != positionArrivee.getPosX()
            || position.getPosY() != positionArrivee.getPosY()){
 
