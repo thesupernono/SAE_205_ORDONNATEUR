@@ -15,7 +15,6 @@ public class Historique {
      * Constructeur de l'historique pour l'initié
      */
     public Historique(){
-        System.out.println("Nouveau historique !");
         historique = new TableView<>();
         historiqueDetails = new TableColumn<>("Historique");
 

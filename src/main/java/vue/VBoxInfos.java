@@ -9,6 +9,8 @@ import modele.Historique;
 import modele.Position;
 import modele.Cristal;
 
+import static interfaces.CONSTANTES_ERREUR.MOUVEMENT_INTERDIT;
+
 /**
  * Box des informations sur le joueur, son historique, pour prendre et poser le cristal
  * ainsi que pour réaliser des parcours
@@ -49,9 +51,9 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         this.getChildren().add(peuxPrendreCristal);
         this.getChildren().add(peuxPoserCristal);
         this.getChildren().add(possessionLabel);
+        this.getChildren().add(historique.getTableView());
         this.getChildren().add(boutonParcoursBasique);
         this.getChildren().add(boutonParcoursHeuristique);
-        this.getChildren().add(historique.getTableView());
 
         peuxPrendreCristal.setOnAction(HBoxRoot.getControleur());
         peuxPoserCristal.setOnAction(HBoxRoot.getControleur());

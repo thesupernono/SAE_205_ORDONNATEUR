@@ -42,9 +42,6 @@ public class Map implements CONSTANTES_MAP {
         // On récupère les informations de la lecture du derner scenario
         HashSet<Temple> listeTemple = LectureScenario.getTemples();
         HashSet<Cristal> listeCristal = LectureScenario.getCristaux();
-        System.out.println("--------------------");
-        System.out.println("Position des Temples : " + listeTemple);
-        System.out.println("position des Cistaux : " + listeCristal);
 
         // à la première initialisation, on ne doit pas reset le joueur car
         // sinon on essaye de le reset alors qu'il n'existe pas encore
@@ -76,7 +73,6 @@ public class Map implements CONSTANTES_MAP {
         // On reset les graphique des anciens éléments
         if (!VBoxInfos.premierLancement){
             ElementsGraphiques.resetAll();
-            System.out.println("---------resetAll--------------");
         }
         VBoxInfos.premierLancement = false;
 

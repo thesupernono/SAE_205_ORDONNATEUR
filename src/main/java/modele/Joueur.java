@@ -4,6 +4,7 @@ package modele;
 import exception.ExceptionPosition;
 import javafx.scene.control.Label;
 import vue.VBoxInfos;
+import vue.VBoxTemple;
 
 import java.util.HashMap;
 
@@ -96,7 +97,6 @@ public class Joueur{
      * @param positionArrivee (int []) : position d'arrivée
      */
     public void deplacement(Position positionArrivee){
-        System.out.println("marche Joueur l79");
         Map.getJoueur().getHistorique().ajoutEvenement(position, positionArrivee);
         while(position.getPosX() != positionArrivee.getPosX()
            || position.getPosY() != positionArrivee.getPosY()){
@@ -155,8 +155,7 @@ public class Joueur{
         Position position = Map.getJoueur().getPosition();
 
         if (cristalEnMain != null) {
-            System.out.println("Vous avez déjà un cristal en main");
-            //TODO: exception : on ne peut pas récupérer un cristal si on en a déjà un en main
+            VBoxTemple.nouvelleErreur(2);
             return;
         }
 
@@ -189,11 +188,11 @@ public class Joueur{
      */
     public void poserCristal(Temple temple){
         // On vérifie si on a bien un cristal
-        if(cristalEnMain == null)
-            // TODO: faire une exception : on a pas de cristal et on veut en poser un
+        if(cristalEnMain == null){
+            VBoxTemple.nouvelleErreur(0);
             return;
+            }
 
-        System.out.println("première verif passée");
 
         // On vérifie si c'est le temple qui doit recevoir le cristal que l'on a
         // Si c'est le cas, on peut l'enlever de nôtre main et on a pas besoin de l'afficher de nouveau
@@ -202,14 +201,14 @@ public class Joueur{
             ElementsGraphiques.resetGraphique(temple.getPosition());
             return;
         }
-        System.out.println("deuxème verif passée");
 
         // Sinon, on commence par vérifier si on peut poser le cristal là où l'on est
         // C'est à dire si il n'y a pas déjà un cristal sur le temple
-        for(Position posCristalCheck: Map.getCoordonneesCristaux().keySet()){
-            if(posCristalCheck.equals(temple.getPosition()))
-                //TODO: Dire que c'est impossible de poser un cristal là où il y en a déjà un
+        for(Position posCristalCheck: Map.getCoordonneesCristaux().keySet()) {
+            if (posCristalCheck.equals(temple.getPosition())){
+                VBoxTemple.nouvelleErreur(1);
                 return;
+            }
         }
 
         // Si on est arrivé là c'est que tout est bon, on peut poser le cristal
@@ -218,13 +217,10 @@ public class Joueur{
 
         // On l'ajouter sur la map
         Map.getCoordonneesCristaux().put(temple.getPosition(), cristalTemp);
-        System.out.println("------------------");
-        System.out.println(Map.getCoordonneesCristaux());
 
         // On le retire de nôtre main
         cristalEnMain = null;
 
-        System.out.println("cristal posé");
 
 
         // On remet à jour les infos

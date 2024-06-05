@@ -114,8 +114,9 @@ public class Position{
         // On reset la position d'arrivée
         ElementsGraphiques.resetGraphique(Map.getJoueur().getPosition());
 
-        System.out.println("pas à ajouté");
         Map.getJoueur().ajoutPas();
+
+        Map.getJoueur().getHistorique().ajoutEvenement(positionDepart, new Position(posX, posY));
     }
 
     /**

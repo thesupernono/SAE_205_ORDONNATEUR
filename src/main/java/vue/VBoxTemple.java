@@ -4,6 +4,7 @@ import interfaces.CONSTANTES_MAP;
 import javafx.geometry.Insets;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -13,11 +14,14 @@ import modele.*;
 
 import java.io.File;
 
+import static interfaces.CONSTANTES_ERREUR.MOUVEMENT_INTERDIT;
+
 /**
  * Box de la partie graphique des cristaux, des temples et du joueur
  */
 public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
+    private static Label erreur;
     private static Map map;
     private static Canvas canvasCarte;
     private static GraphicsContext graphiqueContext2D;
@@ -27,6 +31,8 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
      * @throws Exception : gestion des erreurs de la map et des génération des cristaux / temples
      */
     public VBoxTemple() throws Exception {
+        erreur = new Label();
+        this.getChildren().add(erreur);
 
         //-------------------------Map-------------------------
         canvasCarte = new Canvas();
@@ -143,6 +149,15 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
                 joueur.deplacement(posArrivee);
             }
         });
+    }
+
+    /**
+     * On controle les mouvements du joueuur et si il fait un truc impossible,
+     * on ne l'exécute pas et on lui affiche un message d'erreur que l'on a via un numéro
+     * @param numeroErreur : le numéro de l'erreur
+     */
+    public static void nouvelleErreur(int numeroErreur){
+        erreur.setText(MOUVEMENT_INTERDIT[numeroErreur]);
     }
 }
 

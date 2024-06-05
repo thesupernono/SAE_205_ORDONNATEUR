@@ -29,4 +29,10 @@ public interface CONSTANTES_ERREUR {
             "L'action que vous venez de faire est impossible",              // 0
             "Le fichier de scenario n'a pas pu être lu"                     // 1
     };
+
+    public String [] MOUVEMENT_INTERDIT = {
+            "Vous ne pouvez pas poser un cristal si vous n'en avez pas ",   // 0
+            "Vous ne pouvez pas poser un cristal là où il y en a déjà un",  // 1
+            "Vous ne pouvez pas prendre plusieurs cristaux à la fois"       // 2
+    };
 }
