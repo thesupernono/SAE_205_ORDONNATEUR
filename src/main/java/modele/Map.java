@@ -32,6 +32,8 @@ public class Map implements CONSTANTES_MAP {
         // Etant donné que les cristaux ne peuvent être posé que sur les temples
 
         VBoxTemple.resetMap();
+
+        // On clear la map, au cas où il y avait déjà un scenario
         resetCoordonnees();
 
         // On génère la map
@@ -61,9 +63,6 @@ public class Map implements CONSTANTES_MAP {
             // On initie le cristal
             coordonneesCristaux.put(cristal.getPosition(), cristal);
         }
-
-        // On clear la map, au cas où il y avait déjà un scenario
-        VBoxTemple.resetMap();
 
 
         //-----------------Cristaux et temples-----------------

@@ -49,17 +49,6 @@ public class Controleur implements EventHandler {
 
         }
 
-        /*
-        if (event.getSource() instanceof Menu) {
-            File fichierScenario = (File) event.getSource();
-            try {
-                scenario = new LectureScenario(nomScenario);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        }
-        */
-
         // Si on prend ou pose un cristal
         if (event.getSource() instanceof Button){
 
@@ -68,17 +57,14 @@ public class Controleur implements EventHandler {
 
             // ----------------TRI-----------------
             if(boutton.getUserData() == "Tri basique"){
-                Tri tri = new Tri();
                 System.out.println("Tri basique");
-                tri.TriBasique();
-                System.out.println(tri.toString());
+                Temple [] ordreTemple = Tri.TriBasique();
+                Tri.parcours(ordreTemple);
             }
 
             else if (boutton.getUserData() == "Tri heuristique"){
-                Tri tri = new Tri();
-                System.out.println("Tri heuristique:");
-                tri.TriHeuristique();
-                System.out.println(tri.toString());
+                Temple [] ordreTemple = Tri.TriBasique();
+                Tri.parcours(ordreTemple);
             }
             // Si ce n'est pas possible, la fonction renvoie pour le moment un string
 
@@ -111,7 +97,7 @@ public class Controleur implements EventHandler {
 
 
                 // On essaye de le met dans la main
-                Map.getJoueur().prendreCristal(cristal.getPosition());
+                Map.getJoueur().prendreCristal();
             }
         }
     }

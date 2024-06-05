@@ -51,10 +51,9 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
         File[] scenarios = new File("Scenario").listFiles();
 
 
-        for (int i = 0; i < scenarios.length; i++) { // lecture de la LISTE des fichiers
-            MenuItem menuItemScenar = new MenuItem(scenarios[i].getName());
-            File fichierScenario = scenarios[i];
-            menuItemScenar.setUserData(fichierScenario);
+        for (File scenario : scenarios) { // lecture de la LISTE des fichiers
+            MenuItem menuItemScenar = new MenuItem(scenario.getName());
+            menuItemScenar.setUserData(scenario);
 
             menuItemScenar.setOnAction(HBoxRoot.getControleur());
             menuScenarios.getItems().add(menuItemScenar);
@@ -135,14 +134,18 @@ public class VBoxTemple extends VBox implements CONSTANTES_MAP {
 
 
         //------------------------Event------------------------
+        System.out.println("marche VBoxTemple l138");
 
         canvasCarte.setOnMouseClicked(event -> {
             Joueur joueur = Map.getJoueur();
             int abscisse = (int) event.getX() / TAILLE_CARRE;
             int ordonnee = (int) event.getY() / TAILLE_CARRE;
 
+            System.out.println("abscisse : " + abscisse);
+            System.out.println("ordonnée : " + ordonnee);
             if (abscisse >= 1 && ordonnee >= 1) {
                 Position posArrivee = new Position(abscisse, ordonnee);
+                System.out.println("marche VBoxTemple l146");
                 VBoxInfos.verifPossession(posArrivee);
                 joueur.deplacement(posArrivee);
             }

@@ -76,6 +76,7 @@ public class Joueur{
      * @param positionArrivee (int []) : position d'arrivée
      */
     public void deplacement(Position positionArrivee){
+        System.out.println("marche Joueur l79");
         Map.getJoueur().getHistorique().ajoutEvenement(position, positionArrivee);
         while(position.getPosX() != positionArrivee.getPosX()
            || position.getPosY() != positionArrivee.getPosY()){
@@ -128,9 +129,9 @@ public class Joueur{
 
     /**
      * Permet de prendre un cristal
-     * @param position : la position du cristal
      */
-    public void prendreCristal(Position position){
+    public void prendreCristal(){
+        Position position = Map.getJoueur().getPosition();
 
         if (cristalEnMain != null) {
             System.out.println("Vous avez déjà un cristal en main");

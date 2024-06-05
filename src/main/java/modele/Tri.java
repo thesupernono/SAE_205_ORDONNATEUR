@@ -1,24 +1,23 @@
 package modele;
 
 import interfaces.CONSTANTES_MAP;
+import vue.VBoxTemple;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Objet qui contient les différents tris
  */
 public class Tri implements CONSTANTES_MAP {
 
-    private final HashMap <Position, Temple> hashTemples = Map.getCoordonneesTemples();
-    private Temple [] listeTemples = hashTemples.values().toArray(Temple []::new); // convertit hashTemples en Array
-    private Position posJoueur = Map.getJoueur().getPosition();
-
-
     /**
      * Fait un tri basique par couleurs en bulle
      */
-    public void TriBasique(){
+    public static Temple [] TriBasique(){
+        HashMap <Position, Temple> hashTemples = Map.getCoordonneesTemples();
+        Temple [] listeTemples = hashTemples.values().toArray(Temple []::new); // convertit hashTemples en Array
         int taille = listeTemples.length;
         Temple tampon;
         for(int i=0; i < taille; i++) { //parcours la liste
@@ -31,12 +30,17 @@ public class Tri implements CONSTANTES_MAP {
                 }
             }
         }
+        return listeTemples;
     }
 
     /**
      * Fait un tri heuristique distances
      */
-    public void TriHeuristique(){
+    public static Temple [] TriHeuristique(){
+        HashMap <Position, Temple> hashTemples = Map.getCoordonneesTemples();
+        Temple [] listeTemples = hashTemples.values().toArray(Temple []::new); // convertit hashTemples en Array
+        Position posJoueur = Map.getJoueur().getPosition();
+
         for (int i = 0; i < listeTemples.length; i++) { // on parcours tout les temples pour trouver les distances à trier
             boolean templesTriee = true; // variable permettant de stopper la boucle si le tri est terminé
 
@@ -56,6 +60,35 @@ public class Tri implements CONSTANTES_MAP {
             if (templesTriee){
                 break; // arrete la boucle
             }
+        }
+
+        // Maintenant que c'est trié, on return le résultat
+        return listeTemples;
+    }
+
+    /**
+     * On défini un protocole pour que les tri puissent marcher
+     * @param templeAParcourir : les temples à parcourir (dans l'ordre où il faut passer)
+     */
+    public static void parcours(Temple [] templeAParcourir){
+        // On va au premier, il sort du lot, on commence par se déplacer jusqu'à là bas
+        Temple premierTemple = templeAParcourir[0];
+        // On déplace le joueur à ce temple
+        Map.getJoueur().deplacement(premierTemple.getPosition());
+
+        for(int indice = 1; indice < templeAParcourir.length; indice+= 1){
+            // On prend le cristal
+            Map.getJoueur().prendreCristal();
+
+            // On récupère un nouveau temple
+            Temple templeActuel = templeAParcourir[indice];
+
+            // On va à ce temple
+            Map.getJoueur().deplacement(premierTemple.getPosition());
+
+            // On pose le cristal
+            Map.getJoueur().poserCristal(templeActuel);
+
         }
     }
 }
