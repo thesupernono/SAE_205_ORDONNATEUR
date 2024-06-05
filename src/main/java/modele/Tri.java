@@ -1,6 +1,7 @@
 package modele;
 
 import interfaces.CONSTANTES_MAP;
+import vue.VBoxTemple;
 
 import java.util.HashMap;
 
@@ -8,6 +9,7 @@ import java.util.HashMap;
  * Objet qui contient les différents tris
  */
 public class Tri implements CONSTANTES_MAP {
+
 
     /**
      * Fait un tri basique par couleurs en bulle
@@ -25,6 +27,32 @@ public class Tri implements CONSTANTES_MAP {
                     tampon = listeTemples[j-1];
                     listeTemples[j-1] = listeTemples[j];
                     listeTemples[j] = tampon;
+                }
+            }
+        }
+        // On a le premier temple qui est au premier indice
+
+        // On cherche les éléments suivants
+        for(int i = 0; i < taille; i++){
+            int numCouleurCristal = -1;
+            // On retrouve le cristal qui est sur le temple
+            for(Temple templeRecherche1: listeTemples){
+                for(Position positionCristal: Map.getCoordonneesCristaux().keySet()){
+                    if(templeRecherche1.getPosition().equals(positionCristal)){
+                        numCouleurCristal = Map.getCoordonneesCristaux().get(positionCristal).getCouleur();
+                        break;
+                    }
+                }
+                // On recherche l'indice où est le cristal dans le tableau listeTemples
+                int indiceTrouvee = -1; // On l'initie à - 1 pour éviter qu'il prenne un élément par défaut
+                for(int indice = 0; indice < taille; indice ++){
+                    if (listeTemples[indice].getCouleur() == numCouleurCristal){
+                        Temple tempo;
+                        tempo = listeTemples[indice].copy();
+                        listeTemples[indice] = listeTemples[i].copy();
+                        listeTemples[i] = tempo;
+                        break;
+                    }
                 }
             }
         }

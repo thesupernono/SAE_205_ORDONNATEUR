@@ -12,7 +12,15 @@ public class Temple implements CONSTANTES_MAP {
      Position position;
      int couleur;
 
+     /**
+      * méthode pour copier un temple sans copier l'objet
+      * @return : le nouvel objet
+      */
+     public Temple copy(){
+          return new Temple(position.getPosX(), position.getPosY(), couleur);
 
+
+     }
      //--------------------------Constructeur--------------------------
 
      /**

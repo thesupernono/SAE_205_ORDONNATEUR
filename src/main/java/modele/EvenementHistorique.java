@@ -8,7 +8,7 @@ public class EvenementHistorique {
 
     /**
      * Constructeur qui prend en paramètre un message et qui l'assigne
-     * @param message
+     * @param message : le message d'info
      */
     public EvenementHistorique(String message){
         messageEvenement = message;

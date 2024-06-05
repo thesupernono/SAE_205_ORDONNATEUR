@@ -63,8 +63,8 @@ public class VBoxInfos extends VBox implements CONSTANTES_MAP {
         boutonParcoursBasique.setOnAction(HBoxRoot.getControleur());
         boutonParcoursHeuristique.setOnAction(HBoxRoot.getControleur());
 
-        boutonParcoursBasique.setUserData("Tri heuristique");
-        boutonParcoursHeuristique.setUserData("Tri basique");
+        boutonParcoursBasique.setUserData("Tri basique");
+        boutonParcoursHeuristique.setUserData("Tri heuristique");
     }
 
     /**

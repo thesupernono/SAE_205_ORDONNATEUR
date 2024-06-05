@@ -30,6 +30,9 @@ public interface CONSTANTES_ERREUR {
             "Le fichier de scenario n'a pas pu être lu"                     // 1
     };
 
+    /**
+     * les messages pour les actions interdites
+     */
     String [] MOUVEMENT_INTERDIT = {
             "Vous ne pouvez pas poser un cristal si vous n'en avez pas ",   // 0
             "Vous ne pouvez pas poser un cristal là où il y en a déjà un",  // 1
